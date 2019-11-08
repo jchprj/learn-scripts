@@ -1,0 +1,19 @@
+digraph G {
+    // From https://stackoverflow.com/questions/1806870/how-to-add-edge-labels-in-graphviz
+    a -> b [label="  a to b" labeltooltip="this is a tooltip"];
+    b -> c [label="  another label" ];
+
+
+    // Giving the graph a caption
+    // From <https://renenyffenegger.ch/notes/tools/Graphviz/examples/index>
+    label = "The foo, the bar and the baz";
+    labelloc = "t"; // place the label at the top (b seems to be default)
+    node [shape=plaintext]
+    FOO -> {BAR, BAZ};
+
+    // Chinese characters support by fontname
+    // From <https://www.zhihu.com/question/52371450>
+    node [shape=plaintext, fontname="Microsoft Yahei"];
+	中文支持
+}
+

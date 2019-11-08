@@ -1,0 +1,19 @@
+// From <https://renenyffenegger.ch/notes/tools/Graphviz/examples/index> 
+// { rank=same node_1 node_2 … } specifies that the specified nodes have the same rank, that is, that their distance from the top or left border is equal.
+// rankdir = LR;
+digraph R {
+
+  node [shape=record];
+
+  { rank=same rA sA tA }
+  { rank=same uB vB wB }
+
+
+   rA -> sA;
+   sA -> vB;
+   t  -> rA;
+   uB -> vB;
+   wB -> u;
+   wB -> tA;
+
+}

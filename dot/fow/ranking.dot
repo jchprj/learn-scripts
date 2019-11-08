@@ -1,0 +1,19 @@
+// From <http://melp.nl/2013/08/flow-charts-in-code-enter-graphviz-and-the-dot-language/#:~:targetText=Flow%20charts%20are%20a%20typically,really%20is%20all%20you%20need.>
+digraph {
+    label="How to make sure 'input' is valid";
+ 
+    node[shape="box", style="rounded"]
+       start; end;
+    node[shape="parallelogram", style=""]
+       message; input;
+    node[shape="diamond", style=""]
+       if_valid;
+ 
+    start -> input;
+    input -> if_valid;
+    if_valid -> message[label="no"];
+    if_valid -> end[label="yes"];
+    message -> input;     
+ 
+    {rank=same; message input}
+}

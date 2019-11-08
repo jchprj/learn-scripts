@@ -1,0 +1,17 @@
+// From <https://stackoverflow.com/questions/3006792/straight-edge-between-clusters-in-graphviz>
+digraph {
+ splines=false;
+ subgraph clusterX {
+    A;
+    B;
+ }
+
+ subgraph clusterY {
+    C;
+    D;
+ } 
+
+ A -> B;
+ B -> C [constraint=false];
+ C -> D [label=yadda];
+}
