@@ -5,7 +5,8 @@ Gui := GuiCreate()
 Gui.Add("Text",, "Ctrl+A: Add point")
 Gui.Add("Text", "x45 w80", "Interval(ms): ")
 IntervalInput := Gui.Add("Edit", "x107 yp-3 w50", "100")
-Gui.Add("Text", "x10 w180", "Click item: Remove point")
+Gui.Add("Text", "x10", "(interval=-1: wait for color change)")
+Gui.Add("Text", "x10", "Click item: Remove point")
 Gui.Add("Text",, "Ctrl+1: Start click points")
 Gui.Add("Text",, "Ctrl+2: Start double click points")
 Gui.Add("Text",, "Ctrl+3: Stop")
@@ -28,7 +29,7 @@ if LastFile != ""
 }
 Gui.Show()
 Gui.OnEvent("Close", "closeApp")
-closeApp() 
+closeApp(e) 
 {
   ExitApp
 }
@@ -50,30 +51,50 @@ return
 
 ^2::  ; Ctrl+2: Start double click points
   start_status := 1
+  wait_for_color_change := 0
   LV_LOOP_CLICK(2)
 return 
 
 ^1::  ; Ctrl+1: Start click points
   start_status := 1
+  wait_for_color_change := 0
   LV_LOOP_CLICK(1)
 return 
 
+^!z::  ; Control+Alt+Z hotkey.
+MouseGetPos MouseX, MouseY
+MsgBox "The color at the current cursor position is " PixelGetColor(MouseX, MouseY)
+return
+
+global wait_for_color_change := 0
 LV_LOOP_CLICK(n) {
-  if(start_status = 0) {
+  if(start_status == 0) {
     return
+  }
+  if(wait_for_color_change == 1) {
+      return
   }
   Loop LV.GetCount()
   {
     RetrievedText := LV.GetText(A_Index, 2)
     position := StrSplit(RetrievedText, ",")
-    CoordMode "Mouse", "Screen" 
-    Sleep 10
-    MouseClick "left", position[1], position[2]
-    if(n = 2) {
-      MouseClick "left", position[1], position[2]
-    }
     interval := LV.GetText(A_Index, 3)
-    Sleep interval
+    if interval == -1 
+    {
+        Wait_For_Color_Change(position[1], position[2])
+    }
+    else
+    {
+        CoordMode "Mouse", "Screen"
+        Sleep 10
+        MouseMove position[1], position[2]
+        Sleep 10
+        MouseClick "left"
+        if(n = 2) {
+            MouseClick "left", position[1], position[2]
+        }
+        Sleep interval
+    }
   }
   LV_LOOP_CLICK(n)
 }
@@ -81,6 +102,29 @@ LV_LOOP_CLICK(n) {
 ^x:: ;Ctrl+X: Exit
   ExitApp
 return
+
+global old_color := 0
+Wait_For_Color_Change(mouseX, mouseY) 
+{
+    if(start_status == 0) {
+        return
+    }
+    if wait_for_color_change == 0 
+    {
+        old_color := PixelGetColor(mouseX, mouseY)
+        wait_for_color_change := 1
+    }
+    new_color := PixelGetColor(mouseX, mouseY)
+    if old_color != new_color
+    {
+        wait_for_color_change := 0
+    }
+    else
+    {
+        Sleep 50
+        Wait_For_Color_Change(mouseX, mouseY)
+    }
+}
 
 LV_Click(LV, RowNumber) 
 {        
@@ -105,7 +149,7 @@ UpdateLastFile(file)
     FileDelete FileName
     FileAppend file, FileName
 }
-SaveBtn_Click(Btn)
+SaveBtn_Click(Btn, ea)
 {
     LastFile := GetLastFile()
     if LastFile == ""
@@ -128,7 +172,7 @@ SaveBtn_Click(Btn)
         UpdateLastFile(SelectedFile)
     }
 }
-LoadBtn_Click(Btn)
+LoadBtn_Click(Btn, e)
 {
     LastFile := GetLastFile()
     if LastFile == ""
@@ -157,7 +201,7 @@ LoadClicks(file)
 
 }
 
-ClearBtn_Click(Btn)
+ClearBtn_Click(Btn, e)
 {
     LV.delete()
 }
