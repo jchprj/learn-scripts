@@ -1,0 +1,15 @@
+' straight line
+' https://forum.plantuml.net/1608/is-it-possible-to-only-use-straight-lines-in-a-class-diagram
+@startuml
+skinparam linetype ortho
+node "Test PC" as PC {
+    component Terminal
+    component COM1
+    Terminal ..o COM1
+}
+node Adapter
+node DUT
+PC -- Adapter : USB
+Adapter -- DUT : UART
+Terminal <~~> DUT
+@enduml
