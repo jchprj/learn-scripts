@@ -2,11 +2,14 @@
 # (code changed from original)
 
 import pandas as pd 
-import numpy as np 
+import numpy as np
+
+# https://stackoverflow.com/questions/29902714/print-very-long-string-completely-in-pandas-dataframe
+pd.options.display.max_colwidth = 100
   
 # Function to add 
 def add(a, b, c): 
-    return a + b + c 
+    return a + b + c
 
 
 def normalize(x, y): 
@@ -45,13 +48,12 @@ def main():
     # printing the new dataframe 
     print(df) 
 
-    df['X'] = df.apply(lambda row : normalize(row['A'], 
-                                  row['B']), axis = 1) 
+    df['X'] = df.apply(lambda row : normalize(row['A'], row['B']), axis = 1) 
    
     print('\nNormalized:') 
     print(df) 
 
-# https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.DataFrame.drop.html
+    # https://pandas.pydata.org/pandas-docs/version/0.23.3/generated/pandas.DataFrame.drop.html
     df = df.drop(['X'], axis=1)
    
     print('\nDropped:') 
