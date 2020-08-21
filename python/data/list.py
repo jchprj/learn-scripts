@@ -21,3 +21,24 @@ print(values[KEY_Test_Parameters])          # d
 
 a = {"d" : 3}
 print(("e" in a) == False)      # True
+
+
+
+
+
+# https://www.geeksforgeeks.org/python-map-function/
+# Add two lists using map and lambda 
+  
+numbers1 = [1, 2, 3] 
+numbers2 = [4, 5, 6] 
+  
+result = map(lambda x, y: x + y, numbers1, numbers2) 
+print(list(result))             # [5, 7, 9]
+
+
+
+# https://www.kite.com/python/answers/how-to-join-a-list-of-integers-into-a-string-in-python
+ints = [1,2,3]
+string_ints = [str(int) for int in ints]
+str_of_ints = ",".join(string_ints)
+print(str_of_ints)              # 1,2,3

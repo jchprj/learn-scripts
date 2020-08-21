@@ -2,3 +2,5 @@ tempCodeRunnerFile.*
 __pycache__
 .metals
 foo
+node_modules
+python/io/cache_json_response.json
