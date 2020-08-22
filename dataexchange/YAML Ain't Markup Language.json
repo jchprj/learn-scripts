@@ -1,0 +1,47 @@
+{
+  "multi-line strings": {
+    "data 1": "There once was a tall man from Ealing\nWho got on a bus to Darjeeling\n    It said on the door\n    \"Please don't sit on the floor\"\nSo he carefully sat on the ceiling\n",
+    "data 2": "Wrapped text will be folded into a single paragraph\nBlank lines denote paragraph breaks\n"
+  },
+  "array 1": [
+    "milk",
+    "pumpkin pie",
+    "eggs",
+    "juice"
+  ],
+  "array 2": [
+    "milk",
+    "pumpkin",
+    "pie",
+    "eggs",
+    "juice"
+  ],
+  "map": {
+    "name": "John Smith",
+    "age": 33
+  },
+  "array of maps": [
+    {
+      "name": "John Smith"
+    },
+    {
+      "age": 33
+    }
+  ],
+  "reference to": [
+    {
+      "name": "John Smith"
+    },
+    {
+      "age": 33
+    }
+  ],
+  "a": 123,
+  "b": "123",
+  "c": 123,
+  "d": 123,
+  "e": "123",
+  "f": "Yes",
+  "g": "Yes",
+  "h": "Yes we have No bananas"
+}
