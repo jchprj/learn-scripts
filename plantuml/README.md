@@ -20,6 +20,10 @@ https://en.wikipedia.org/wiki/PlantUML
 
 PlantUML is an open-source tool allowing users to create UML diagrams from a plain text language. The language of PlantUML is an example of a Domain-specific language. It uses Graphviz software to lay out its diagrams.
 
+https://en.wikipedia.org/wiki/Unified_Modeling_Language
+
+The Unified Modeling Language (UML)
+
 ## VS Code extension
 
 https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml
