@@ -1,0 +1,49 @@
+# http://www.mydailytutorials.com/ansible-delete-multiple-files-directories-ansible/
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  # If you give a directory name against the path parameter, the directory will be removed if it exists, along with all the files.
+  - name: Ansible delete file example
+    file:
+      path: ansible_test1
+      state: absent
+
+  - name: Ansible delete multiple file example
+    file:
+      path: "{{ item }}"
+      state: absent
+    with_items:
+      - ansible_test2.txt
+      - ansible_test3.txt
+
+  # Delete files using file glob(worse way)
+  - name: Ansible delete file wildcard example
+    shell: rm -rf ansible_test*.txt
+
+  # Delete files using file glob(better way)
+  - name: Ansible delete file glob
+    find:
+      paths: .
+      patterns: ansible_test*
+    register: files_to_delete
+  - name: Ansible remove file glob
+    file:
+      path: "{{ item.path }}"
+      state: absent
+    with_items: "{{ files_to_delete.files }}"
+
+  - name: Ansible delete directories wildcard
+    find:
+      paths: .
+      patterns: "ansible_test.*"
+      use_regex: true
+      file_type: directory
+    register: wildcard_directories_to_delete
+  - name: Ansible remove directories wildcard
+    file:
+      path: "{{ item.path }}"
+      state: absent
+    with_items: "{{ wildcard_directories_to_delete.files }}"

@@ -1,0 +1,21 @@
+# ansible-playbook flow/condition.yml --extra-vars "foo=a"
+# ansible-playbook flow/condition.yml -e "foo=a bar=1"
+# Ansible ‘When’ Statement: Check If Variable Is…
+# From <https://www.shellhacks.com/ansible-when-variable-is-defined-exists-empty-true/>
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping with foo
+    when: foo is defined
+    ping:
+  - name: ping without foo
+    when: foo is undefined
+    ping:
+  - name: shell
+    when: bar|length == 1
+    shell: pwd
+    register: result
+  - name: output
+    when: (foo is defined) and (foo|length > 0)
+    debug: var=result.stdout_lines

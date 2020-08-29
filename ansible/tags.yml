@@ -1,0 +1,17 @@
+# ansible-playbook ping.yml --tags "tag2,tag3"
+# ansible-playbook ping.yml --skip-tags "tag1"
+# From <https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html> 
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    tags: tag1
+    ping:
+  - name: shell
+    tags: tag2
+    shell: pwd
+    register: result
+  - name: output
+    tags: tag3
+    debug: var=result.stdout_lines

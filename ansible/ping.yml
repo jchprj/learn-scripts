@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  - shell: pwd
+    register: result
+  - debug: var=result.stdout_lines

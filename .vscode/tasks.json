@@ -8,6 +8,31 @@
             "type": "shell",
             "command": "AutoHotkey1 ${file}",
             "problemMatcher": []
+        },
+        {
+            "label": "(WSL)ansible-playbook",
+            "type": "shell",
+            "command": "wsl",
+            "args": [
+                "ansible-playbook",
+				"$(wslpath '${file}')"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/ansible"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ansible-playbook",
+            "type": "shell",
+            "command": "ansible-playbook",
+            "args": [
+				"${file}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/ansible"
+            },
+            "problemMatcher": []
         }
     ]
 }

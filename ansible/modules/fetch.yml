@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+
+  # will be in folder: ansible_test3\localhost\ansible_test3.txt
+  - fetch: 
+     src: ansible_test3.txt
+     dest: ansible_test3
+
+  # will be as file: ansible_test3_copy.txt
+  - fetch: 
+     src: ansible_test3.txt
+     dest: ansible_test3_copy.txt
+     flat: yes

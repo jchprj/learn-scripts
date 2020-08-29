@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: ping
+    ping:
+  - name: Update all packages to the latest version
+    apt:
+      upgrade: dist
+  - name: Remove dependencies that are no longer required
+    apt:
+      autoremove: yes
+  - name: Install htop (state=present is optional)
+    apt:
+      name: htop
+      state: present

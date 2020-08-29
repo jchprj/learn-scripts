@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  - uri:
+      url: https://ifconfig.co/
+      return_content: yes
+    register: this

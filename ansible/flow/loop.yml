@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  
+  # From <https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html> 
+  - shell: "echo {{ item }}"
+    loop:
+      - "one"
+      - "two"
+    register: echo
+
+  # show all the hosts in the current play
+  # From <https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html> 
+  - debug:
+      msg: "{{ item }}"
+    loop: "{{ ansible_play_batch }}"
+
+  # From <https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html>
+  - name: add several users
+    when: foo is defined
+    user:
+      name: "{{ item.name }}"
+      state: present
+      groups: "{{ item.groups }}"
+    loop:
+      - { name: 'testuser1', groups: 'wheel' }
+      - { name: 'testuser2', groups: 'root' }

@@ -4,3 +4,4 @@ __pycache__
 foo
 node_modules
 python/io/cache_json_response.json
+ansible_test*

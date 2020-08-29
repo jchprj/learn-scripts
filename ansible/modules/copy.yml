@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+
+  - copy:
+     src: ansible_test2.txt
+     dest: ansible_test2_copy.txt
+     owner: "{{ ansible_user }}"
+     group: "{{ ansible_user }}"
+     mode: a+x
+
+  # source folder is inside the target folder with original name
+  - copy:
+     src: ansible_test1
+     dest: ansible_test1_copy
+     owner: "{{ ansible_user }}"
+     group: "{{ ansible_user }}"
+     mode: 0644
+     directory_mode: yes
+
+  # copy each file over that matches the given pattern
+  # From <https://stackoverflow.com/questions/32898515/ansible-does-copy-support-shell-expansion> 
+  - copy: src={{ item }} dest=ansible_test1_copy mode=600
+    with_fileglob:
+      - ansible_test*
+
+  # From <https://riptutorial.com/ansible/example/12270/copy-multiple-files-in-a-single-task>
+  - name: copy multiple files in a single task
+    copy: src=./{{ item }} dest=ansible_test1
+    with_items:
+      - ansible_test2.txt
+      - ansible_test3.txt
+
+  # - local_action: copy content={{ foo_result }} dest=/path/to/destination/file
+  # From <https://stackoverflow.com/questions/26732241/ansible-save-registered-variable-to-file>
+  - local_action: copy content=ansible_test2_copy.txt dest=ansible_test1_copy/ansible_test1/ansible_test2_copy.txt
