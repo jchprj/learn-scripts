@@ -1,6 +1,4 @@
-
-
-println("Called with args:")
+println("Hello world! ")
 args.forEach {
     println("- $it")
 }
