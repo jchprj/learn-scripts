@@ -24,6 +24,9 @@ def main():
     pd.options.display.max_colwidth = 55
     print("Original DataFrame:\n", df) 
 
-   
+    # https://stackoverflow.com/questions/27975069/how-to-filter-rows-containing-a-string-pattern-from-a-pandas-dataframe
+    df2 = df[df['A'].str.contains("333")]
+    print("Rows contains 333 DataFrame:\n", df2) 
+
 if __name__ == '__main__': 
     main() 
