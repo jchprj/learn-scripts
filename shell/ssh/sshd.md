@@ -50,6 +50,13 @@ PermitRootLogin
 From <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/v2v_guide/preparation_before_the_p2v_migration-enable_root_login_over_ssh> 
 
 
+[Error Permission denied (publickey) when I try to ssh | DigitalOcean](https://www.digitalocean.com/community/questions/error-permission-denied-publickey-when-i-try-to-ssh)
+
+```
+PermitRootLogin prohibit-password to PermitRootLogin yes 
+PasswordAuthentication no to PasswordAuthentication yes
+```
+
 cat /etc/ssh/sshd_config
 ...
 X11Forwarding yes
