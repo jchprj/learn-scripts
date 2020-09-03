@@ -1,0 +1,3 @@
+# This is the issue I encountered, solved by found someone posted same issue here: https://github.com/ansible/ansible/issues/60130
+# There is a non printable character after the colon and space, copied from certificate fingerprint, will cause the fingerprint not recognizable.
+certificate_hash: ‎4ABC
