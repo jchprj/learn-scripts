@@ -30,6 +30,8 @@
   - debug: var=ansible_user # The user Ansible ‘logs in’ as
   - debug: var=ansible_host # The ip/name of the target host to use instead of inventory_hostname
   - debug: var=ansible_connection # The connection plugin actually used for the task on the target host
+  - debug: var=ansible_playbook_python # The path to the python interpreter being used by Ansible on the controller
+  - debug: var=ansible_python_interpreter # The path to the Python executable Ansible should use on the target host
 
   - debug: var=home
   - debug: var=path
