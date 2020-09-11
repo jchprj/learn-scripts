@@ -40,6 +40,8 @@
   # https://stackoverflow.com/questions/39819378/ansible-get-current-target-hosts-ip-address
   - debug: var=ansible_ssh_host
 
+  # https://stackoverflow.com/questions/30787273/variable-that-has-the-path-to-the-current-ansible-playbook-that-is-executing
+  - debug: var=playbook_dir
 
   - debug: var=version
   - debug: var=other_variable

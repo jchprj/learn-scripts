@@ -1,0 +1,18 @@
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_blocks.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping with foo
+    block:
+      - ping:
+      - ping:
+      - name: i force a failure
+        command: /bin/false
+    when: foo is not defined
+    rescue:
+      - debug:
+          msg: 'I caught an error, can do stuff here to fix it, :-)'
+    always:
+     - debug:
+         msg: "This always executes, :-)"

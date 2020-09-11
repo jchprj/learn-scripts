@@ -1,0 +1,15 @@
+# https://docs.ansible.com/ansible/latest/modules/meta_module.html
+# https://stackoverflow.com/questions/36451793/how-do-i-exit-ansible-play-without-error-on-a-condition
+
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping with foo
+    block:
+      - name: "end play if foo is not defined"
+        debug:
+          msg: "ending play"
+
+      - meta: end_play
+    when: foo is not defined
