@@ -8,6 +8,10 @@ The scripts covered here include basic syntax and basic usages. As well as docum
 
 Some specific area usage will also be added if it is commonly used.
 
+## Ansible
+
+To use defined VS Code tasks in this repo for Ansible playbook which supports optional tags, needs VS Code extension: [rioj7.command-variable](https://marketplace.visualstudio.com/items?itemName=rioj7.command-variable)
+
 ## Compiled languages
 
 If Shebang way is supported, then added. Scripting is also a good way to study a programming language, unlike a complex package or project structure. Java already started simplify its way for beginners by adopting scripting.
