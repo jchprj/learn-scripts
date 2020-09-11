@@ -1,0 +1,19 @@
+# https://docs.ansible.com/ansible/latest/modules/win_package_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
+    
+  - name: Sync the contents of one directory to another
+    win_robocopy:
+      src: C:\DirectoryOne
+      dest: C:\DirectoryTwo
+  
+  - name: Sync one file from a remote UNC path in recursive and purging mode, specifying additional special flags
+    win_robocopy:
+      src: \\Server1\Directory One
+      dest: C:\DirectoryTwo
+      flags: file.zip

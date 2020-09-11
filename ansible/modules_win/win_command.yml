@@ -1,0 +1,10 @@
+# https://docs.ansible.com/ansible/latest/modules/win_command_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: win_command
+    win_command: whoami
+    register: whoami_out
+  - debug: var=whoami_out.stdout_lines

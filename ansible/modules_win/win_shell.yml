@@ -1,0 +1,15 @@
+# https://docs.ansible.com/ansible/latest/modules/win_shell_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: win_shell
+    win_shell: echo %cd%
+    args:
+      executable: cmd
+    register: cmd_out
+  - debug: var=cmd_out.stdout_lines
+  - win_shell: "C:\\test.ps1"
+    register: cmd_out
+  - debug: var=cmd_out.stdout_lines

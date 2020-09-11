@@ -1,0 +1,25 @@
+# https://docs.ansible.com/ansible/latest/modules/win_chocolatey_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    ping:
+  - name: Install software
+    win_chocolatey:
+      name: 
+        - 7zip
+        - googlechrome
+        - git.install
+        - tortoisegit
+        - openvpn
+        - cpu-z.portable
+        - vscode
+        - microsoft-windows-terminal
+      state: present
+
+  - name: Upgrade installed packages
+    win_chocolatey:
+      name: all
+      state: latest

@@ -1,0 +1,27 @@
+# https://docs.ansible.com/ansible/latest/modules/win_certificate_store_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: Export certificate and key as pfx encoded file
+    win_certificate_store:
+      path: C:\Temp\cert.pfx
+      thumbprint: 0123456789012345678901234567890123456789
+      state: exported
+      file_type: pkcs12
+  - name: Import a certificate
+    win_certificate_store:
+      path: C:\Temp\cert.pem
+      state: present
+  - name: Import certificate be used by IIS
+    win_certificate_store:
+      path: C:\Temp\cert.pfx
+      file_type: pkcs12
+      store_location: LocalMachine
+      key_storage: machine
+      state: present
+  - name: Remove a certificate based on thumbprint
+    win_certificate_store:
+      thumbprint: 0123456789012345678901234567890123456789
+      state: absent

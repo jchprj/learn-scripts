@@ -1,0 +1,8 @@
+# https://docs.ansible.com/ansible/latest/modules/win_ping_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
