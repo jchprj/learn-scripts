@@ -23,6 +23,38 @@ To avoid crumb error, need to set this in the settings of the Jenkins server
 "useCrumbIssuer": true
 ```
 
+Sample configuration in settings(does not support workspace settings, so could not commit it):
+```
+"jenkins-runner.hostConfigs": {
+        "host-with-password": {
+            "url": "http://localhost:8080",
+            "user": "admin",
+            "password": "123456",
+            "useCrumbIssuer": true,
+            "rejectUnauthorizedCert": false
+        }
+    },
+    "jenkins-runner.jobs": {
+        "run without parameter": {
+            "isDefault": true,
+            "runWith": "host-with-password",
+            "name": "pipeline-test",
+            "environment": {
+                "HOST_NAME": "localhost"
+            }
+        },
+        "run with parameter user": {
+            "runWith": [
+                "host-with-password",
+            ],
+            "name": "pipeline-test",
+            "parameters": {
+                "user": "test"
+            }
+        }
+    }
+```
+
 ## Compiled languages
 
 If Shebang way is supported, then added. Scripting is also a good way to study a programming language, unlike a complex package or project structure. Java already started simplify its way for beginners by adopting scripting.
