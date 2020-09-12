@@ -16,6 +16,13 @@ To use defined VS Code tasks in this repo for Ansible playbook which supports op
 
 To run pipeline scripts under `jenkins` folder in VS Code, needs VS Code extension: [Jenkins Runner - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dave-hagedorn.jenkins-runner), and configure a Jenkins server and a pipeline job for test for the extension, suggest running a Jenkins in Docker. Then just press `F1` and select `Jenkins Runner: Run Pipeline Script On Default Job`.
 
+### VS Code Jenkins Runner extension
+
+To avoid crumb error, need to set this in the settings of the Jenkins server
+```
+"useCrumbIssuer": true
+```
+
 ## Compiled languages
 
 If Shebang way is supported, then added. Scripting is also a good way to study a programming language, unlike a complex package or project structure. Java already started simplify its way for beginners by adopting scripting.
