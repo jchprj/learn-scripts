@@ -12,6 +12,10 @@ Some specific area usage will also be added if it is commonly used.
 
 To use defined VS Code tasks in this repo for Ansible playbook which supports optional tags, needs VS Code extension: [rioj7.command-variable](https://marketplace.visualstudio.com/items?itemName=rioj7.command-variable)
 
+## Jenkins
+
+To run pipeline scripts under `jenkins` folder in VS Code, needs VS Code extension: [Jenkins Runner - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dave-hagedorn.jenkins-runner), and configure a Jenkins server and a pipeline job for test for the extension, suggest running a Jenkins in Docker. Then just press `F1` and select `Jenkins Runner: Run Pipeline Script On Default Job`.
+
 ## Compiled languages
 
 If Shebang way is supported, then added. Scripting is also a good way to study a programming language, unlike a complex package or project structure. Java already started simplify its way for beginners by adopting scripting.
