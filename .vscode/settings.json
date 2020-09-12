@@ -22,6 +22,7 @@
         }
     ],
     "code-runner.executorMap": {
-        "java": "cd $dir && java $fileName"
-    }
+        "java": "cd $dir && java $fileName",
+    },
+    "code-runner.runInTerminal": true
 }

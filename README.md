@@ -8,6 +8,23 @@ The scripts covered here include basic syntax and basic usages. As well as docum
 
 Some specific area usage will also be added if it is commonly used.
 
+## Shell
+
+To use VS Code extension Code Runner to run shell script, needs set `shellscript` executor in settings:
+
+* Run in WSL (with `"code-runner.runInTerminal": true`)
+```
+    "code-runner.executorMap": {
+        "shellscript": "bash $(/bin/wslpath $fullFileName)"
+    }
+```
+* Run in PowerShell (From [Visual Studio Code - CodeRunner - Run shellscripts with WSL. · GitHub](https://gist.github.com/PetrChudoba/35bebd6c6f0f5cc81597798e7e64ce3d))
+```
+    "code-runner.executorMap": {
+        "shellscript": "wsl bash $('/mnt/' + $fullFileName.Substring(0,1).ToLower() + $fullFileName.Substring(2).Replace('\\','/') )",
+    }
+```
+
 ## Ansible
 
 To use defined VS Code tasks in this repo for Ansible playbook which supports optional tags, needs VS Code extension: [rioj7.command-variable](https://marketplace.visualstudio.com/items?itemName=rioj7.command-variable)
