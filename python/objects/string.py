@@ -5,7 +5,7 @@ print("ad" in a)    # False
 
 print('a' * 5)      # aaaaa
 
-
+print('False' in a or 'b' in a)
 
 
 

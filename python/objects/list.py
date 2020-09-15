@@ -23,7 +23,9 @@ a = {"d" : 3}
 print(("e" in a) == False)      # True
 
 
-
+l = []
+l.append("a")
+print(l)                        # ['a']
 
 
 # https://www.geeksforgeeks.org/python-map-function/

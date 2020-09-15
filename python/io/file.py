@@ -15,3 +15,14 @@ print(data)
 with open('test.json', 'r') as reader:
     lines = reader.readlines()
 print(lines)
+
+
+
+
+# https://github.com/rkern/line_profiler/issues/37
+# UnicodeDecodeError: 'gbk' codec can't decode byte 0xaa in position 553: illegal multibyte sequence
+
+# with open(filename, 'rb') as f:
+# works!
+
+open(fname, 'rb')
