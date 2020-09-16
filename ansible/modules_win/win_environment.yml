@@ -1,0 +1,19 @@
+# https://docs.ansible.com/ansible/latest/modules/win_environment_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
+  - name: Set an environment variable for all users
+    win_environment:
+      state: present
+      name: TestVariable
+      value: Test value
+      level: machine
+  - name: Remove an environment variable for all users
+    win_environment:
+      state: absent
+      name: TestVariable
+      level: machine

@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+
+  - name: Ensure a job that runs at 2 and 5 exists. Creates an entry like "0 5,2 * * ls -alh > /dev/null"
+    cron:
+      name: "check dirs"
+      minute: "0"
+      hour: "5,2"
+      job: "ls -alh > /dev/null"
+      
+  - shell: crontab -l
+    register: result
+  - debug: var=result.stdout_lines
+
+  - name: 'Ensure "check dirs" is no longer present. Removes any job that is prefixed by "#Ansible: check dirs" from the crontab'
+    cron:
+      name: "check dirs"
+      state: absent
+      
+  - shell: crontab -l
+    register: result
+  - debug: var=result.stdout_lines
