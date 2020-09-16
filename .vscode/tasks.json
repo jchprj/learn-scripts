@@ -4,6 +4,39 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "echo env",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "ANSIBLE_WIN_USER: ${env:ANSIBLE_WIN_USER}", "&echo", 
+                "ANSIBLE_WIN_PASSWORD: ${env:ANSIBLE_WIN_PASSWORD}", "&echo", 
+                "WSLENV: ${env:WSLENV}", "&echo", 
+            ]
+        },
+        {
+            "label": "variables",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "workspaceFolder: ${workspaceFolder}", "&echo",
+                "workspaceFolderBasename: ${workspaceFolderBasename}", "&echo",
+                "file: ${file}", "&echo",
+                "relativeFile: ${relativeFile}", "&echo",
+                "relativeFileDirname: ${relativeFileDirname}", "&echo",
+                "fileBasename: ${fileBasename}", "&echo",
+                "fileBasenameNoExtension: ${fileBasenameNoExtension}", "&echo",
+                "fileDirname: ${fileDirname}", "&echo",
+                "fileExtname: ${fileExtname}", "&echo",
+                "cwd: ${cwd}", "&echo",
+                "lineNumber: ${lineNumber}", "&echo",
+                "execPath: ${execPath}", "&echo",
+                "selectedText", "&echo",
+                "command:extension.commandvariable.selectedText: ${command:extension.commandvariable.selectedText}", "&echo",
+                "defaultBuildTask"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "AutoHotkey v1",
             "type": "shell",
             "command": "AutoHotkey1 ${file}",
@@ -15,7 +48,26 @@
             "command": "wsl",
             "args": [
                 "ansible-playbook",
-				"$(wslpath '${file}')"
+				"$(wslpath '${file}')",
+                "$( if [ ! -z ${command:extension.commandvariable.selectedText} ]; then echo --tags; else echo '-v'; fi )",
+                "${command:extension.commandvariable.selectedText}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/ansible"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "(WSL)ansible-playbook(win)",
+            "type": "shell",
+            "command": "wsl",
+            "args": [
+                "ansible-playbook",
+                "$(wslpath '${file}')",
+                "-e",
+                "ansible_port=5985 ansible_user=${env:ANSIBLE_WIN_USER} ansible_password=${env:ANSIBLE_WIN_PASSWORD} ansible_connection=psrp ansible_psrp_transport=basic ansible_psrp_cert_validation=ignore",
+                "$( if [ ! -z ${command:extension.commandvariable.selectedText} ]; then echo --tags; else echo '-v'; fi )",
+                "${command:extension.commandvariable.selectedText}"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/ansible"
@@ -27,7 +79,9 @@
             "type": "shell",
             "command": "ansible-playbook",
             "args": [
-				"${file}"
+                "${file}",
+                "$( if [ ! -z ${command:extension.commandvariable.selectedText} ]; then echo --tags; else echo '-v'; fi )",
+                "${command:extension.commandvariable.selectedText}"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/ansible"
