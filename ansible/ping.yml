@@ -7,3 +7,5 @@
   - shell: pwd
     register: result
   - debug: var=result.stdout_lines
+  - debug: var=ansible_python_interpreter
+  - debug: var=ansible_playbook_python
