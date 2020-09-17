@@ -1,5 +1,6 @@
 # https://stackoverflow.com/questions/27590039/running-ansible-playbook-using-python-api
 # https://stackoverflow.com/questions/48293226/how-to-run-playbook-api-in-ansible-with-vault
+# https://www.programcreek.com/python/example/106311/ansible.vars.VariableManager
 
 from ansible import context
 from ansible.cli import CLI
@@ -22,8 +23,9 @@ context.CLIARGS = ImmutableDict(tags={}, listtags=False, listtasks=False, listho
 inventory = InventoryManager(loader=loader, sources=[code_path + '/ansible/inventory'])
 
 variable_manager = VariableManager(loader=loader, inventory=inventory, version_info=CLI.version_info(gitinfo=False))
+variable_manager._extra_vars = {'firstvar': False}
 
-pbex = PlaybookExecutor(playbooks=[code_path + '/ansible/playbook.yml'], inventory=inventory, variable_manager=variable_manager, loader=loader, passwords = {})
+pbex = PlaybookExecutor(playbooks=[code_path + '/ansible/variables.yml'], inventory=inventory, variable_manager=variable_manager, loader=loader, passwords = {})
 
 results = pbex.run()
 
