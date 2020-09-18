@@ -1,0 +1,13 @@
+# https://docs.ansible.com/ansible/latest/modules/get_certificate_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Get a cert from an https port
+    get_certificate:
+      host: "wikipedia.org"
+      port: 443
+    run_once: true
+    register: cert
+  - debug:
+      msg: cert
