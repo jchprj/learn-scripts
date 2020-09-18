@@ -26,3 +26,7 @@ print(lines)
 # works!
 
 open(fname, 'rb')
+
+
+# https://stackoverflow.com/questions/2769061/how-to-erase-the-file-contents-of-text-file-in-python
+open('file.txt', 'w').close()

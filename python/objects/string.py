@@ -28,3 +28,9 @@ print(my_str_as_bytes) # ensure it is byte representation
 my_decoded_str = my_str_as_bytes.decode()
 print(type(my_decoded_str)) # ensure it is string representation
 print(my_decoded_str) # ensure it is string representation
+
+
+# https://stackoverflow.com/questions/10607688/how-to-create-a-file-name-with-the-current-date-time-in-python
+import time
+timestr = time.strftime("%Y%m%d-%H%M%S")
+print(timestr)
