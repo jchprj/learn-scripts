@@ -1,0 +1,10 @@
+# How to download a binary file from private Github repository?
+
+# From <https://stackoverflow.com/questions/45119794/how-to-download-a-binary-file-from-private-github-repository> 
+
+
+###
+	curl -L -H "Accept: application/octet-stream" \
+	-H "Authorization: token $AUTH_KEY" \
+	https://api.github.com/repos/haccks/Test/releases/assets/7052110
+	

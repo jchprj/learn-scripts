@@ -1,0 +1,25 @@
+###
+
+GET /search/code
+
+From <https://developer.github.com/v3/search/#search-code> 
+
+/search/repositories
+/search/commits
+/search/code
+/search/issues
+/search/users
+/search/topics
+/search/labels
+
+
+###
+https://api.github.com/search/code?q=addClass+in:file+language:js+repo:jquery/jquery
+
+###
+Pagination
+
+From <https://developer.github.com/v3/#pagination> 
+
+### 
+https://api.github.com/user/repos?page=2&per_page=5
