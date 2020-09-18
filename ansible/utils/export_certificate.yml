@@ -1,3 +1,4 @@
+# https://stackoverflow.com/questions/5164804/get-certificate-fingerprint-of-https-server-from-command-line
 ---
 - hosts: localhost
   gather_facts: no

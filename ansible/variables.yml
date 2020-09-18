@@ -10,6 +10,7 @@
 - hosts: "{{ variable_host | default('localhost') }}"
   gather_facts: no
   vars:
+    var1: "abcdefg"
     my_version: "{{ version }}"
     my_other_variable: "{{ other_variable }}"
 
@@ -45,6 +46,15 @@
 
   - debug: var=version
   - debug: var=other_variable
+
+  # https://stackoverflow.com/questions/39072079/how-can-i-dynamically-change-an-ansible-variable
+  - set_fact:
+      var2: "{{ var1 }}"
+
+  # https://www.reddit.com/r/ansible/comments/c9v89g/replace_with_in_string_variable/
+  - name: Replace
+    debug:
+      msg: "{{ var2 | replace('abc', \"123\") | regex_replace('[0-9]{2}', \"456\") }}"
 
   - shell: "echo {{ firstvar }}"
     register: result1
