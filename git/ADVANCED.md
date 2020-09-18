@@ -105,3 +105,27 @@ git push --force
 ## GitHub Privacy 101: How to remove personal emails from your public repos
 
 From <https://laptrinhx.com/github-privacy-101-how-to-remove-personal-emails-from-your-public-repos-3522134107/> 
+
+
+## [How to create file execute mode permissions in Git on Windows? - Stack Overflow]
+
+(https://stackoverflow.com/questions/21691202/how-to-create-file-execute-mode-permissions-in-git-on-windows)
+
+git 2.9.x/2.10 (Q3 2016) actually will allow that (thanks to Edward Thomson):
+
+git add --chmod=+x -- afile
+
+
+## [version control - How do I discard unstaged changes in Git? - Stack Overflow]
+
+(https://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git)
+
+For all unstaged files in current working directory use:
+
+git checkout -- .
+
+For a specific file use:
+
+git checkout -- path/to/file/to/revert
+
+-- here to remove argument ambiguation.
