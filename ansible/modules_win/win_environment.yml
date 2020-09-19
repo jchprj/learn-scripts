@@ -1,4 +1,6 @@
 # https://docs.ansible.com/ansible/latest/modules/win_environment_module.html
+# But for cmd terminal related processes, the env variables are not updated unless manually clicked OK in the env setting dialog.
+
 ---
 - hosts: localhost
   gather_facts: no

@@ -1,0 +1,21 @@
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#regular-expression-filters
+# https://docs.ansible.com/ansible/latest/plugins/lookup/file.html
+
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: display multiple file contents
+    set_fact: 
+      file: "{{ item }}"
+    with_file:
+      - ../ping.yml
+  - debug:
+      msg: "{{ file | regex_search('(.+)') }}"
+  - set_fact:
+      f: "{{ file | regex_findall('(.+)') }}"
+  - set_fact:
+      line_2nd: "{{ f.1 | regex_replace('\r', '') }}"
+  - debug:
+      msg: "{{ line_2nd }}"
