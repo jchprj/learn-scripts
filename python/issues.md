@@ -44,3 +44,16 @@ For centos 7:
     ```
 This will fix the problem in centos
 
+## Log disabling in python
+
+```
+logging.disable(logging.DEBUG)
+```
+https://stackoverflow.com/questions/39206739/log-disabling-in-python
+
+
+## __init__.py
+
+Empty, just here to tell Python that it's a package.
+
+From <https://uniwebsidad.com/libros/explore-flask/chapter-5/configuring-based-on-environment-variables> 
