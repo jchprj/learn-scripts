@@ -1,6 +1,11 @@
-import os, configparser, argparse
+# From <https://docs.python.org/3.6/library/argparse.html#module-argparse> 
+# From <https://stackoverflow.com/questions/4033723/how-do-i-access-command-line-arguments-in-python> 
+
+import os, sys, configparser, argparse
 
 print(os.environ["PATH"])
+
+print(sys.argv)
 
 filename, file_extension = os.path.splitext('/path/to/somefile.ext')
 print(filename)                 # /path/to/somefile

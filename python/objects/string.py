@@ -34,3 +34,10 @@ print(my_decoded_str) # ensure it is string representation
 import time
 timestr = time.strftime("%Y%m%d-%H%M%S")
 print(timestr)
+
+
+# https://stackoverflow.com/questions/27315472/how-to-count-items-in-json-data
+import json
+json_str = '{"a":1, "b":[1, 2]}'
+json_obj = json.loads(json_str)
+print(len(json_obj["b"]))
