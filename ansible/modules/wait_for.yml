@@ -5,6 +5,9 @@
 ---
 - hosts: localhost
   gather_facts: no
+  vars:
+    objs:
+      - { host: 'localhost', port: [22, 23, 80, 443, 3306, 3389, 5985, 5986, 8080] }
 
   tasks:
   - wait_for:
@@ -15,3 +18,10 @@
   - set_fact:
       content: "{{ line.match_groups.0 }}"
   - debug: var=content
+
+  - name: Waits for port in objs
+    wait_for:
+      host: "{{ item.0.host }}"
+      port: "{{ item.1 | default(80) }}"
+      timeout: "{{ item.0.timeout | default(2) }}"
+    loop: "{{ objs | subelements('port') }}"
