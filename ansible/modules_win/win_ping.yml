@@ -6,3 +6,11 @@
   tasks:
   - name: ping
     win_ping:
+
+  - debug: 
+      msg: "{{ playbook_dir }}"
+
+  - win_shell: "wsl wslpath -w {{ playbook_dir }}"
+    register: p
+
+  - debug: var=p.stdout_lines

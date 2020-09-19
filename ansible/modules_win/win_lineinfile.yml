@@ -1,0 +1,23 @@
+# https://docs.ansible.com/ansible/latest/modules/win_lineinfile_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
+
+  - debug: 
+      msg: "{{ playbook_dir }}"
+
+  - win_shell: "wsl wslpath -w {{ playbook_dir }}/test.txt"
+    register: p
+
+  - debug: var=p.stdout_lines
+
+  - name: Insert path without converting \r\n
+    win_lineinfile:
+      create: yes
+      path: "{{ p.stdout_lines }}"
+      regex: 'abcdefg'
+      line: 123456
