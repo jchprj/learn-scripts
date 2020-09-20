@@ -1,0 +1,73 @@
+---
+- hosts: localhost
+  gather_facts: no
+    
+  tasks:
+
+  - tags: test
+    debug: var=ansible_python_interpreter
+  - name: Get info on docker host
+    tags: test
+    docker_host_info:
+      containers: yes
+      images: yes
+      verbose_output: yes
+      docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+    register: result
+  - tags: test
+    debug:
+      var: result.host_info
+
+  - name: create a centos
+    tags: centos7
+    docker_container:
+      name: centos
+      image: centos:7.8.2003
+      state: started
+      docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+
+  - name: create a jenkins
+    tags: jenkins
+    docker_container:
+      name: jenkins
+      image: jenkins/jenkins
+      state: started
+      exposed_ports:
+        - 8080
+      ports:
+        - "8080:8080"
+      docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+
+  - name: create a mysql container
+    tags: mysql5.7
+    docker_container:
+      name: mysql1
+      image: mysql:5.7
+      recreate: yes
+      state: started
+      exposed_ports:
+        - 3306
+      ports:
+        - "3306:3306"
+      env:
+        MYSQL_DATABASE: testdb
+        MYSQL_ROOT_PASSWORD: "123456"
+        MYSQL_USER: "test"
+        MYSQL_PASSWORD: "123456"
+      docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+  - tags: mysql5.7
+    pip:
+      name: [pymysql]
+      executable: pip3
+
+  - name: create a redis container
+    tags: redis
+    docker_container:
+      name: myredis
+      image: redis
+      command: redis-server --appendonly yes
+      state: started
+      exposed_ports:
+        - 6379
+      ports:
+        - "6379:6379"
