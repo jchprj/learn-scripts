@@ -20,6 +20,9 @@ python3 -m pip install
 From <https://stackoverflow.com/questions/50643068/python-installed-a-local-package-with-pip3-but-got-module-not-found-error> 
 Instead of pip install
 
+https://stackoverflow.com/questions/11091623/how-to-install-packages-offline
+pip download -r requirements.txt
+pip install --no-index --find-links /path/to/download/dir/ -r requirements.txt
 
 ## Python CLI
 

@@ -2,6 +2,10 @@
 # https://stackoverflow.com/questions/48293226/how-to-run-playbook-api-in-ansible-with-vault
 # https://www.programcreek.com/python/example/106311/ansible.vars.VariableManager
 
+# https://stackoverflow.com/questions/34860131/running-an-ansible-playbook-using-python-api-2-0-0-1
+from ansible_display import AnsibleDisplay
+display = AnsibleDisplay(verbosity=0)
+
 from ansible import context
 from ansible.cli import CLI
 from ansible.module_utils.common.collections import ImmutableDict
