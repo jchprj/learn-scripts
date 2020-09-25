@@ -1,0 +1,12 @@
+@startuml HelloWorld
+
+skinparam linetype ortho
+
+rectangle "PlantUML" {
+    rectangle "Hello" as hello
+    rectangle "World" as world
+    hello ~r~> world: h
+    hello -r- world: i
+}
+
+@enduml
