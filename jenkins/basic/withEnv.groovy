@@ -1,5 +1,5 @@
 node {
-  withEnv(['VAR=abc']) {
+  withEnv(['VAR=${WORKSPACE}/abc']) {
     sh 'echo line 1: $VAR'
     sh 'echo line 2: ${VAR}'
     sh "echo line 3: ${VAR}"
