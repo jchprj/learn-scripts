@@ -17,6 +17,7 @@
     # From <https://stackoverflow.com/questions/21422158/ansible-accessing-local-environment-variables> 
     path: "{{ lookup('env', 'PATH') }}"
     home: "{{ lookup('env', 'HOME') }}"
+    int_var: 123
     
   tasks:
   - name: ping
@@ -58,7 +59,13 @@
 
   - shell: "echo {{ firstvar }}"
     register: result1
+    when: firstvar is defined
   - debug: var=result1.stdout_lines
   - shell: "echo {{ second_var }}"
     register: result2
+    when: second_var is defined
   - debug: var=result2.stdout_lines
+  
+  # https://stackoverflow.com/questions/33505521/how-to-use-arithmetic-when-setting-a-variable-value-in-ansible
+  - debug:
+      msg: "{{ int_var - 1 }}"

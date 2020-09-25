@@ -1,0 +1,23 @@
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#formatting-data-yaml-and-json
+# https://stackoverflow.com/questions/41631770/get-dict-value-from-variable-key-in-ansible
+
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: display file contents
+    shell: cat test.json
+    register: result
+  - name: var
+    set_fact: 
+      file: "{{ result.stdout | from_json }}"
+      key: "b"
+  - debug:
+      msg: "{{ file }}"
+  - debug:
+      msg: "{{ file.a }}"
+  - debug:
+      msg: "{{ file.b.c }}"
+  - debug:
+      msg: "{{ file[key].c }}"

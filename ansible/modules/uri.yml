@@ -8,3 +8,16 @@
       url: https://ifconfig.co/
       return_content: yes
     register: this
+
+  # https://stackoverflow.com/questions/40235550/how-to-inspect-a-json-response-from-ansible-uri-call
+  - name: check json
+    uri:
+      url: https://ifconfig.co/json
+      method: GET
+      return_content: yes
+      status_code: 200
+      body_format: json
+    register: result
+    until: result.json.ip != ""
+    retries: 10
+    delay: 30
