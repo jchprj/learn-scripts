@@ -5,3 +5,7 @@ $key = "key"
 Write-Host $json.$key
 Write-Host $json.$($key)
 Write-Host $json."$key"
+
+
+# https://stackoverflow.com/questions/23062087/how-do-you-get-the-name-field-of-a-json-object-in-powershell-if-you-dont-know-i
+Write-Host $json.psobject.properties.name
