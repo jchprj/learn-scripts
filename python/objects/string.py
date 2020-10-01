@@ -41,3 +41,9 @@ import json
 json_str = '{"a":1, "b":[1, 2]}'
 json_obj = json.loads(json_str)
 print(len(json_obj["b"]))
+
+
+# https://stackoverflow.com/questions/7253803/how-to-get-everything-after-last-slash-in-a-url
+url = "http://www.test.com/page/page/12345"
+right = url.rsplit('/', 1)[-1]
+print(right)
