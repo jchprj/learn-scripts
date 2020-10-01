@@ -1,0 +1,32 @@
+# https://docs.ansible.com/ansible/latest/user_guide/playbooks_strategies.html
+---
+- hosts: localhost
+  gather_facts: no
+  
+  serial: 2
+
+  # serial: "30%"
+
+  # serial:
+  #   - 1
+  #   - 5
+  #   - 10
+
+  # serial:
+  #   - "10%"
+  #   - "20%"
+  #   - "100%"
+
+  # serial:
+  #   - 1
+  #   - 5
+  #   - "20%"
+
+  
+  tasks:
+  - name: ping
+    ping:
+    run_once: true
+  - shell: pwd
+    register: result
+    

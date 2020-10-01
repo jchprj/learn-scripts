@@ -23,6 +23,9 @@
   - name: ping
     ping:
 
+  # https://www.toptechskills.com/ansible-tutorials-courses/ansible-include-import-variables-tutorial-examples/
+  - include_vars: vars.yml
+
   # Special Variables
   # From <https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html>
   - debug: var=inventory_hostname # The inventory name for the ‘current’ host being iterated over in the play
