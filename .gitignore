@@ -9,3 +9,5 @@ ansible_test*
 *.kotlin_module
 jenkins-cli.jar
 temp_test.*
+*.exe
+*.lock
