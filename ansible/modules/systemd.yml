@@ -1,0 +1,28 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html
+
+# Seems cannot run under WSL
+
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+
+  - name: Stop service cron on debian, if running
+    tags: cron
+    systemd:
+      name: cron
+      state: started
+
+  - name: Restart service cron on centos, in all cases, also issue daemon-reload to pick up config changes
+    tags: crond
+    systemd:
+      state: started
+      daemon_reload: yes
+      name: crond
+
+  - name: Just force systemd to reread configs (2.4 and above)
+    tags: daemon_reload
+    systemd:
+      daemon_reload: yes

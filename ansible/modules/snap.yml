@@ -1,0 +1,17 @@
+# https://docs.ansible.com/ansible/latest/collections/community/general/snap_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+
+  - name: Install VLC
+    snap:
+      name:
+        - vlc
+
+  - name: Install "VS Code" with option --classic
+    snap:
+      name: code
+      classic: yes
