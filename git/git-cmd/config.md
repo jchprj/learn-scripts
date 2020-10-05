@@ -14,6 +14,13 @@ git config --global http.proxy http://192.168.8.247:1080
 
 From <https://stackoverflow.com/questions/783811/getting-git-to-work-with-a-proxy-server> 
 
+Or in `~/.gitconfig` (From <https://www.jhipster.tech/configuring-a-corporate-proxy/>)
+```
+[http]
+        proxy = http://username:password@host:port
+[https]
+        proxy = http://username:password@host:port
+```
 
 ## Case
 

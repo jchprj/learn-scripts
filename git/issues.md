@@ -12,4 +12,9 @@ fatal: early EOF fatal: index-pack failed
 
 git clone --depth 1 <repo_URI>
 
-From <https://stackoverflow.com/questions/21277806/fatal-early-eof-fatal-index-pack-failed> 
+From <https://stackoverflow.com/questions/21277806/fatal-early-eof-fatal-index-pack-failed>
+
+
+## Push
+
+[Message 'src refspec master does not match any' when pushing commits in Git - Stack Overflow](https://stackoverflow.com/questions/4181861/message-src-refspec-master-does-not-match-any-when-pushing-commits-in-git)
