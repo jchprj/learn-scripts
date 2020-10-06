@@ -47,6 +47,7 @@ import (
 	"time"
 
 	"github.com/go-vgo/robotgo"
+	hook "github.com/robotn/gohook"
 )
 
 func main() {
@@ -56,11 +57,12 @@ func main() {
 
 	fmt.Println("start...", "...")
 
-	go addKeysListen("k", "ctrl", "alt")
+	go eventHook()
 
+	// If run below with above eventHook, will cause infinite loop when the hook contains typing the hot key.
 	// mleft := robotgo.AddEvent("mleft")
 	// if mleft {
-	//   fmt.Println("you press...", "mouse left button")
+	// 	fmt.Println("you press...", "mouse left button")
 	// }
 	for {
 		// do something
@@ -68,21 +70,16 @@ func main() {
 	}
 }
 
-//From https://gitter.im/go-vgo/robotgo?at=5c90566ba21ce51a20833148
-func addKeysListen(key string, arr ...string) {
-	for {
-		if ok := robotgo.AddEvents(key, arr...); ok {
-			fmt.Println("pressed Ctrl + q", key)
-			robotgo.TypeString("you are")
-		}
-	}
-}
+func eventHook() {
+	fmt.Println("start EventHook...")
+	interval := 10.0
+	robotgo.EventHook(hook.KeyDown, []string{"k", "shift", "alt"}, func(e hook.Event) {
+		fmt.Println("Pressed shift+alt+k")
+		// To work in Chrome, needs to delay the typing when shift and alt are released
+		robotgo.MilliSleep(300)
+		robotgo.TypeStr("you are k", interval)
+	})
 
-func addKeyListen(key string) {
-	for {
-		if ok := robotgo.AddEvent(key); ok {
-			fmt.Println("Pressed k")
-			robotgo.TypeString("you")
-		}
-	}
+	s := robotgo.EventStart()
+	<-robotgo.EventProcess(s)
 }
