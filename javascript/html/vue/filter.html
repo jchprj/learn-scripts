@@ -1,0 +1,45 @@
+<!-- 
+    Only in 2.x
+    Filters are removed from Vue 3.0 and no longer supported.
+    https://v3.vuejs.org/guide/migration/filters.html#overview
+
+    https://vuejs.org/v2/guide/filters.html
+    
+    https://stackoverflow.com/questions/50680751/vuejs2-how-to-call-a-filter-function-from-a-method
+-->
+<head></head>
+
+<script src="https://unpkg.com/vue@2.6.12"></script>
+
+<div id="counter" v-on:click='m(counter)'>
+    Counter: {{ counter }}, {{ counter | f}}
+</div>
+
+<script>
+    const CounterApp = {
+        el: '#counter',
+        data() {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            m: function (counter) {
+                console.log(this.$options.filters.f(counter))
+            }
+        },
+        filters: {
+            f: function (counter) {
+                return -counter
+            }
+        },
+        mounted() {
+            setInterval(() => {
+                this.counter++
+            }, 1000)
+        }
+    }
+
+    new Vue(CounterApp)
+    
+</script>

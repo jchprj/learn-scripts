@@ -1,0 +1,91 @@
+<!-- 
+	https://clipboardjs.com/
+	https://davidwalsh.name/clipboard
+	https://techoverflow.net/2018/03/30/copying-strings-to-the-clipboard-using-pure-javascript/
+ -->
+
+<head></head>
+<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+<body>
+	<button onclick="copyStringToClipboard('123456789')">copyStringToClipboard</button>
+
+	<br /><br />
+	<!-- Target -->
+	<input id="foo" value="https://github.com/zenorocha/clipboard.js.git">
+
+	<!-- Trigger -->
+	<button class="btn" data-clipboard-target="#foo">
+		Copy to clipboard
+	</button>
+
+	<br /><br />
+	<!-- Target -->
+	<textarea id="bar">Mussum ipsum cacilds...</textarea>
+	<!-- Trigger -->
+	<button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
+		Cut to clipboard
+	</button>
+
+	<br /><br />
+	<!-- Trigger -->
+	<button class="btn" data-clipboard-text="Just because you can doesn't mean you should — clipboard.js">
+		Copy to clipboard
+	</button>
+
+	<br /><br />
+	/* HTMLElement - Copy*/
+	<div id="copy-target">hello</div>
+	<button class="btn" data-clipboard-action="copy" data-clipboard-target="#copy-target">Copy</button>
+	
+	<br /><br />
+	<button class="copy-btn">Target</button>
+	
+	<br /><br />
+	<button class="copy-btn2">Text</button>
+
+</body>
+<script>
+	function copyStringToClipboard (str) {
+		// Create new element
+		var el = document.createElement('textarea');
+		// Set value (string to be copied)
+		el.value = str;
+		// Set non-editable to avoid focus and move outside of view
+		el.setAttribute('readonly', '');
+		el.style = {position: 'absolute', left: '-9999px'};
+		document.body.appendChild(el);
+		// Select text inside element
+		el.select();
+		// Copy text to clipboard
+		document.execCommand('copy');
+		// Remove temporary element
+		document.body.removeChild(el);
+	}
+
+	clipboard = new ClipboardJS('.btn');
+	clipboard.on('success', function(e) {
+		console.info('Action:', e.action);
+		console.info('Text:', e.text);
+		console.info('Trigger:', e.trigger);
+
+		e.clearSelection();
+	});
+
+	clipboard.on('error', function(e) {
+		console.error('Action:', e.action);
+		console.error('Trigger:', e.trigger);
+	});
+
+	// Contents of an element
+	new ClipboardJS('.copy-btn', {
+		target: function() {
+			return document.querySelector('#copy-target');
+		}
+	});
+	// A specific string
+	new ClipboardJS('.copy-btn2', {
+		text: function() {
+			return 'clipboard.js is awesome!';
+		}
+	});
+</script>

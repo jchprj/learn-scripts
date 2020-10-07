@@ -1,0 +1,29 @@
+<!-- 
+    https://stackoverflow.com/questions/47119588/vue-how-to-concat-dynamic-id-with-field-from-v-for-loop-string
+-->
+<head></head>
+
+<script src="https://unpkg.com/vue@2.6.12"></script>
+
+<div id="app">
+    <div v-for="(field, key) in l"
+        :id="'id' + field"
+        :data-key="key" onclick="console.log(this)"
+    >
+        {{key}}: {{ field }}
+    </div>
+</div>
+
+<script>
+    const app = {
+        el: '#app',
+        data: {
+            l: [
+                1, 2, 3
+            ]
+        }
+    }
+
+    new Vue(app)
+    
+</script>

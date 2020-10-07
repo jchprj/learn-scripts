@@ -1,0 +1,37 @@
+<!-- 
+    https://vuejs.org/v2/guide/class-and-style.html
+-->
+<head></head>
+
+<script src="https://unpkg.com/vue@2.6.12"></script>
+
+<div id="app">
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+        abc
+    </div>
+    <div v-bind:style="styleObject">
+        abc
+    </div>
+    <div v-bind:style="[styleObject, styleObject2]">
+        abc
+    </div>
+</div>
+
+<script>
+    const app = {
+        el: '#app',
+        data: {
+            activeColor: 'blue',
+            fontSize: 30,
+            styleObject: {
+                color: 'blue',
+            },
+            styleObject2: {
+                fontSize: '30px'
+            }
+        }
+    }
+
+    new Vue(app)
+    
+</script>

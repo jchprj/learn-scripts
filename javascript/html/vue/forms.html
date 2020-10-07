@@ -1,0 +1,98 @@
+<!-- https://vuejs.org/v2/guide/forms.html -->
+<head></head>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<div id="app">
+    <div>
+        <span>Message is: {{ message }}</span>
+        <br>
+        <input type="text" v-model.trim="message" placeholder="edit me">
+    </div>
+
+    <div style="margin-top: 50px;">
+        <span>Multiline message is(trimmed):</span>
+        <p>{{ message }}</p>
+        <br>
+        <textarea v-model="message" placeholder="add multiple lines"></textarea>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <select v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <select v-model="selected" multiple>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+    <div style="margin-top: 50px;">
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+              {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+    <div style="margin-top: 50px;">
+        
+    </div>
+
+    <div style="margin-top: 50px;">
+        
+    </div>
+</div>
+
+<script>
+    const app = {
+        data() {
+            return {
+                message: 0,
+                checkedNames: [],
+                picked: "",
+                selected: "",
+                options: [
+                    { text: 'One', value: 'A' },
+                    { text: 'Two', value: 'B' },
+                    { text: 'Three', value: 'C' }
+                ]
+            }
+        }
+    }
+
+    Vue.createApp(app).mount('#app')
+    
+</script>
