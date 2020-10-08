@@ -1,6 +1,11 @@
 // Chapter 9. Concurrency with Shared Variables
 // From <https://notes.shichao.io/gopl/ch9/>
 
+// In this article, a short look at goroutines, threads, and race conditions sets the scene for a look at two Go programs.
+// https://opensource.com/article/18/7/locks-versus-channels-concurrent-go
+// Channels are synchronized—that is, thread-safe—by default.
+// Channels, however, incur a performance penalty compared to mutexes.
+
 // Concurrent access to maps with 'range' in Go
 // From <https://stackoverflow.com/questions/40442846/concurrent-access-to-maps-with-range-in-go>
 // var race sync.RWMutex
