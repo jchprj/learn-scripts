@@ -22,3 +22,14 @@ print(args.dryrun)              # False
 default_abc = "abc"
 abc = args.abc if(args.abc) else default_abc
 print(abc)                      # abc
+
+
+# https://stackoverflow.com/questions/14340366/configparser-and-string-with
+# If content contains '%', it will throw exception if not set interpolation=None
+config_contents = """
+[default]
+ansible_become_pass=123456%
+"""
+config_parser = configparser.ConfigParser(interpolation=None)
+config_parser.read_string(config_contents)
+print(config_parser["default"]["ansible_become_pass"])

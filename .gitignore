@@ -3,6 +3,7 @@ __pycache__
 .metals
 foo
 node_modules
+package-lock.json
 python/io/cache_json_response.json
 ansible_test*
 *.class
