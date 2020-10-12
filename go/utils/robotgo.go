@@ -38,6 +38,9 @@ From <https://github.com/go-vgo/robotgo/issues/228>
 
 	♡ For the above solution, should change the PREFIX to x86_64-w64-mingw32
 
+Issue: pkg-config cannot find gtk+-3.0 in WSL Ubuntu
+Seems resolved by reinstall those already installed packages
+
 */
 
 package main
