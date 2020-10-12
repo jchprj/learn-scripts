@@ -1,0 +1,21 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/windows/win_path_module.html
+# But for cmd terminal related processes, the env variables are not updated unless manually clicked OK in the env setting dialog.
+
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
+  - name: Ensure that temp are present on the global system path, and in the specified order
+    win_path:
+      elements:
+      - 'C:\temp'
+      - 'C:\temp2'
+  - name: Ensure that temp are not present on the global system path
+    win_path:
+      elements:
+      - 'C:\temp'
+      - 'C:\temp2'
+      state: absent

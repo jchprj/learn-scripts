@@ -1,0 +1,15 @@
+# https://stackoverflow.com/questions/44134642/how-to-retry-ansible-task-that-may-fail
+# https://stackoverflow.com/questions/58530855/how-to-find-a-string-in-ansible-retries-and-until-block
+
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  - shell: abc
+    register: result
+    until:
+      - result.stdout is search('abc')
+    retries: 2
+    delay: 1

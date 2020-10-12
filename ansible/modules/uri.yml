@@ -1,3 +1,4 @@
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/uri_module.html
 ---
 - hosts: localhost
   gather_facts: no
@@ -7,6 +8,7 @@
   - uri:
       url: https://ifconfig.co/
       return_content: yes
+      validate_certs: no
     register: this
 
   # https://stackoverflow.com/questions/40235550/how-to-inspect-a-json-response-from-ansible-uri-call
