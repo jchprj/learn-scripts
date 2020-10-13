@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  
+  # https://www.ziaconsulting.com/developer-help/ansible-tasks-change-status/
+  
+  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html#defining-changed
+  - name: This will never be changed when changed_when=false
+    shell: "echo a"
+    register: echo
+    changed_when: false
+
+  - shell: "echo b"
+    when: echo.changed
+    
+  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html#controlling-what-defines-failure
+  - name: This will be expected as failure but ignored
+    shell: "echo a"
+    register: echo
+    failed_when: "'a' in echo.stdout"
+    ignore_errors: yes
