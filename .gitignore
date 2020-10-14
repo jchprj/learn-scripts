@@ -9,6 +9,7 @@ ansible_test*
 *.class
 *.kotlin_module
 jenkins-cli.jar
+temp_test
 temp_test.*
 *.exe
 *.lock

@@ -12,3 +12,6 @@
 Get-Host | Select-Object Version
 
 $PSVersionTable
+
+# https://stackoverflow.com/questions/1825585/determine-installed-powershell-version
+$PSVersionTable.PSVersion

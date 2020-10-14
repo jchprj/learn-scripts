@@ -15,3 +15,15 @@ Get-ChildItem temp
 
 Remove-Item -Recurse -Force -Confirm:$false temp
 Get-ChildItem temp
+
+
+# https://stackoverflow.com/questions/13249085/limit-get-childitem-recursion-depth
+Get-ChildItem -recurse
+Get-ChildItem \*\*\*
+# Will return the children at each depth 2,1 and 0
+Get-ChildItem \*\*\*,\*\*,\*
+
+
+# https://stackoverflow.com/questions/21613997/and-characters-mess-up-get-childitem
+# Use the -LiteralPath parameter in place of -Path to suppress the wildcard globbing
+Get-ChildItem -LiteralPath $folderInfo.rootFolder -Recurse -Force -Directory
