@@ -12,3 +12,7 @@ https://tldr.sh/
 
 Finally, a command line shell for the 90s.   
 Fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family.
+
+
+# About
+Many were added during 2018. Then 2019...
