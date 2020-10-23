@@ -1,0 +1,21 @@
+# https://docs.ansible.com/ansible/latest/collections/community/windows/win_security_policy_module.html
+
+# This module uses the SecEdit.exe tool to configure the values, more details of the areas and keys that can be configured can be found here:
+# https://msdn.microsoft.com/en-us/library/bb742512.aspx
+
+# To view the current policies set on your system:
+# SecEdit.exe /export /cfg C:\temp\output.ini
+
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
+
+  - name: Enable system events
+    win_security_policy:
+      section: Event Audit
+      key: AuditSystemEvents
+      value: 1
