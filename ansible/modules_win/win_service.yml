@@ -1,0 +1,24 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/windows/win_service_module.html
+
+# https://docs.ansible.com/ansible/latest/modules/win_ping_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
+
+  # A new service will also default to the following values:
+  # - username: LocalSystem
+  # - state: stopped
+  # - start_mode: auto
+  - name: Create a new service
+    win_service:
+      name: service name
+      path: C:\temp\test.exe
+
+  - name: Restart a service
+    windows.win_service:
+      name: service name
+      state: restarted
