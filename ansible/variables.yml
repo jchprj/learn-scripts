@@ -77,3 +77,14 @@
   - set_fact:
       var3: "{{ 'a' if var1 is defined else 'b' }}"
   - debug: var=var3
+
+  - set_fact:
+      var4: "var3"
+  - debug: var=var4
+
+  # https://stackoverflow.com/questions/29276198/ansible-how-to-construct-a-variable-from-another-variable-and-then-fetch-its-v
+  - set_fact:
+      var5: "{{ lookup('vars', '{{ var4 }}') }}"
+    ignore_errors: true
+  - debug: var=var5
+    when: var5 is defined

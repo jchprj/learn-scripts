@@ -1,0 +1,26 @@
+# https://medium.com/@kgoyal03/ansible-hack-create-a-dictionary-e21a98427b38
+
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: Check workers
+    shell: "********"
+    register: worker_var
+    ignore_errors: yes
+  - set_fact:
+      worker_state: '0'
+    when: worker_var.rc != 0
+
+  - name: add new key / value pairs to dict
+    set_fact:
+        dict_var: "{{ dict_var | default({})  | combine({item.key: item.value}) }}"
+    with_items:
+    - { key: 'var1',value: "{{worker_state|default ('1')}}" }
+    - { key: 'var2', value: "{{var2|default ('1')}}" }
+    - { key: 'var3', value: "{{var3|default ('1')}}" }
+    - { key: 'var4', value: "{{var4|default ('1')}}" }
+    - { key: 'var5', value: "{{var5|default ('1')}}" }
+
+  - debug: var=dict_var

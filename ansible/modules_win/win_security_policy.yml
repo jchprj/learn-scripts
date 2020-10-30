@@ -6,6 +6,9 @@
 # To view the current policies set on your system:
 # SecEdit.exe /export /cfg C:\temp\output.ini
 
+# Or https://www.top-password.com/blog/export-and-import-local-security-policy-in-windows/#:~:text=Press%20the%20Windows%20key%20%2B%20R,policy%E2%80%9D%20from%20the%20context%20menu.
+# Right-click on Security Settings in the left-side pane, and you can then select “Export policy” from the context
+
 ---
 - hosts: localhost
   gather_facts: no

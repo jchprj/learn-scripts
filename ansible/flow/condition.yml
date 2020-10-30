@@ -12,6 +12,12 @@
   - name: ping without foo
     when: foo is undefined
     ping:
+  - name: ping without foo
+    when: "{{ 'foo' }} is undefined"
+    ping:
+  - name: env
+    when: lookup('env', 'PATH') != ''
+    ping:
   - name: shell
     when: bar|length == 1
     shell: pwd

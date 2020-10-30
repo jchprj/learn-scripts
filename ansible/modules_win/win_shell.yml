@@ -9,7 +9,14 @@
     args:
       executable: cmd
     register: cmd_out
-  - debug: var=cmd_out.stdout_lines
-  - win_shell: "C:\\test.ps1"
+
+  - win_shell: "wsl wslpath -w {{ playbook_dir }}"
+    register: p
+
+  - set_fact:
+      cmd: "{{ p.stdout_lines.0 }}\\web_request.ps1"
+  - debug: var=cmd
+
+  - win_shell: "{{ cmd }} https://ifconfig.co/json"
     register: cmd_out
   - debug: var=cmd_out.stdout_lines

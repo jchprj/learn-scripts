@@ -48,3 +48,9 @@
     debug:
       msg: "{{ item }}"
     loop: "{{ ansible_play_batch }}"
+
+  # https://stackoverflow.com/questions/28247449/ansible-how-to-join-multiple-arrays-in-a-single-file
+  - name: Merge array
+    debug:
+      msg: "{{ item }}"
+    loop: "{{ ansible_play_batch + ansible_play_batch }}"
