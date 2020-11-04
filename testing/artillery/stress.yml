@@ -1,0 +1,20 @@
+config:                             # https://artillery.io/docs/guides/guides/test-script-reference.html#The-config-Section
+  target: https://ifconfig.co
+  http:
+    timeout: 2                      # https://artillery.io/docs/http-reference/#request-timeout
+  phases:                           # https://artillery.io/docs/guides/guides/test-script-reference.html#Load-Phases
+                                    # A phase with a duration and a constant arrival rate of a number of new VUs per second.
+    - duration: 3
+      arrivalRate: 2
+  defaults:
+    headers:
+  tls:
+    rejectUnauthorized: false
+  processor: "./printStatus.js"     # https://github.com/artilleryio/artillery/issues/650
+                                    # how to log entire response (at least statusCode & body)
+scenarios:
+  - flow:
+      - get:
+          url: "/json"
+          sslAuth: false            # https://artillery.io/docs/guides/plugins/plugin-ssl-client-certificate-auth.html#Disabling-SSL-auth-selectively
+          afterResponse: "printStatus"
