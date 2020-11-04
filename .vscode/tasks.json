@@ -87,6 +87,16 @@
                 "cwd": "${workspaceFolder}/ansible"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "artillery",
+            "type": "shell",
+            "command": "artillery",
+            "args": [
+                "run",
+                "${file}"
+            ],
+            "problemMatcher": []
         }
     ]
 }
