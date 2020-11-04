@@ -88,3 +88,7 @@
     ignore_errors: true
   - debug: var=var5
     when: var5 is defined
+
+  # https://stackoverflow.com/questions/28709501/how-to-list-all-currently-targeted-hosts-in-an-ansible-play
+  - debug: msg="play_hosts={{play_hosts}}"
+    run_once: true

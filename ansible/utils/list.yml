@@ -1,0 +1,16 @@
+
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    my_list:
+      - "One fish"
+      - "Two fish"
+      - "Red fish"
+      - "Blue fish"
+  
+  tasks:
+  # https://stackoverflow.com/questions/47244834/how-to-join-a-list-of-strings-in-ansible
+  - name: Concatenate
+    set_fact:
+      my_joined_list: "{{ my_list | join('\n') }}"

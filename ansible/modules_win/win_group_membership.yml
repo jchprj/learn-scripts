@@ -1,0 +1,20 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/windows/win_group_membership_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
+
+  - name: Add administrator to Administrators group
+    win_group_membership:
+      name: Administrators
+      members:
+        - administrator
+      state: present
+
+  - name: List users in Administrators group
+    win_group_membership:
+      name: Administrators
+      members:
