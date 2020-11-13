@@ -4,6 +4,14 @@ $cred=New-Object System.Management.Automation.PSCredential($uname,$pwd);
 $pcname="localhost" # server ip
 Enter-PSSession -ComputerName $pcname -Credential $cred # login
 
+
+
+# https://support.infrasightlabs.com/article/how-to-enable-winrm-on-windows-servers-clients/
+$cred = New-Object System.Management.Automation.PSCredential -ArgumentList @(‘USERNAME’,(ConvertTo-SecureString -String ‘PASSWORD’ -AsPlainText -Force))
+Invoke-Command -ComputerName vscope-demo2 -ScriptBlock {ipconfig /all} -Credential $cred
+
+
+
 # TCP/5985 = HTTP
 # TCP/5986 = HTTPS
 # From <https://blogs.technet.microsoft.com/christwe/2012/06/20/what-port-does-powershell-remoting-use/> 
@@ -28,3 +36,10 @@ Set-Item WSMan:\localhost\Client\TrustedHosts *
 
 # Run Code Remotely in Visual Studio Code
 # From <https://petri.com/how-to-run-code-remotely-in-visual-studio-code> 
+
+
+
+# https://knowledge.broadcom.com/external/article/157383/access-denied-configuring-winrm-using-a.html
+# "Access denied" configuring WinRM using a local administration account
+# To solve the problem, UAC filtering for local accounts must be disabled by creating the following DWORD registry entry and setting its value to 1:
+# [HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System] LocalAccountTokenFilterPolicy
