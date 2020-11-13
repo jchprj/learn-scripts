@@ -1,0 +1,26 @@
+# https://artillery.io/blog/publishing-real-time-metrics-to-statsd
+# https://github.com/artilleryio/artillery-plugin-statsd#published-metrics
+config:
+  target: https://ifconfig.co
+  http:
+    timeout: 2
+  phases:
+    - duration: 3
+      arrivalRate: 2
+  defaults:
+    headers:
+  tls:
+    rejectUnauthorized: false
+  plugins:                            
+    # https://artillery.io/blog/publishing-real-time-metrics-to-statsd
+    # https://github.com/artilleryio/artillery-plugin-statsd#published-metrics
+    statsd:
+      host: "localhost"
+      port: 8125
+      prefix: "artillery"
+
+scenarios:
+  - flow:
+    - get:
+        url: "/json"
+        sslAuth: false

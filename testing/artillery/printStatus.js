@@ -3,6 +3,12 @@ function printStatus (requestParams, response, context, ee, next) {
     return next();
 }
 
+function before (userContext, events, done) {
+    console.log(`before`);  
+    return done();
+}
+
 module.exports = {
-    printStatus: printStatus
+    printStatus: printStatus,
+    before: before
 }

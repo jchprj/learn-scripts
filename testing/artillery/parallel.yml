@@ -1,0 +1,22 @@
+config:
+  target: https://ifconfig.co
+  http:
+    timeout: 2
+  phases:
+    - duration: 3
+      arrivalRate: 2
+  defaults:
+    headers:
+  tls:
+    rejectUnauthorized: false
+  processor: "./printStatus.js"
+
+scenarios:
+  - flow:
+      parallel:                           # https://github.com/artilleryio/artillery-core/blob/master/test/scripts/parallel.json
+        - get:
+            url: "/json"
+            sslAuth: false
+        - get:
+            url: "/json"
+            sslAuth: false
