@@ -1,4 +1,4 @@
-# https://docs.ansible.com/ansible/latest/modules/win_feature_module.html
+# https://docs.ansible.com/ansible/latest/collections/ansible/windows/win_optional_feature_module.html
 # https://hahndorf.eu/blog/WindowsFeatureViaCmd
 
 ---
@@ -8,14 +8,14 @@
   tasks:
   - name: ping
     win_ping:
-  - name: Enable WSL
-    win_feature:
+  - name: Install Microsoft Subsystem for Linux
+    win_optional_feature:
       name: Microsoft-Windows-Subsystem-Linux
       state: present
-    register: win_feature
+    register: wsl_status
 
   - name: Enable TelnetClient
-    win_feature:
+    win_optional_feature:
       name: TelnetClient
       state: present
 
@@ -23,7 +23,7 @@
     block:
       - name: "win_reboot if reboot_required"
         debug:
-          msg: "win_reboot"
+          msg: "wsl_status"
 
       # - win_reboot:
-    when: win_feature.reboot_required
+    when: wsl_status.reboot_required
