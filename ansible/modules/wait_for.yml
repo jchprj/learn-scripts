@@ -25,3 +25,10 @@
       port: "{{ item.1 | default(80) }}"
       timeout: "{{ item.0.timeout | default(2) }}"
     loop: "{{ objs | subelements('port') }}"
+
+  # https://www.middlewareinventory.com/blog/ansible-wait_for-examples/#ansible_wait_for_seconds_or_sleep_for_seconds
+  - name: Sleep for 60 seconds and timeout
+    tags: sleep60
+    wait_for:
+      delay: 60
+      timeout: 0

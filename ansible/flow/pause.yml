@@ -1,0 +1,12 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pause_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    win_ping:
+  - name: Pause
+    pause:
+      seconds: 5
+  - name: ping
+    win_ping:
