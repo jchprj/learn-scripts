@@ -6,6 +6,7 @@ import os, sys, configparser, argparse
 print(os.environ["PATH"])
 
 print(sys.argv)
+print(len(sys.argv))
 
 filename, file_extension = os.path.splitext('/path/to/somefile.ext')
 print(filename)                 # /path/to/somefile

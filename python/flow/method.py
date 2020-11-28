@@ -1,3 +1,9 @@
+def a():
+    print(1)
+    return 3, 5
+
+b = a()
+print(b, b[0])
 
     
 def t2():

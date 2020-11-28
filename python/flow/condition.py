@@ -1,3 +1,8 @@
+a = 2 if 2==3 else 4
+print(a)
+
+
+
 # Switch Case in Python (Replacement) https://www.geeksforgeeks.org/switch-case-in-python-replacement/
 def numbers_to_strings(argument): 
     switcher = { 
