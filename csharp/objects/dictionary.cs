@@ -1,3 +1,4 @@
+// System.Collections.Generic
 var map = new Dictionary<string, string>();
 map.Add("a", "b");
 
