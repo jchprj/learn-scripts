@@ -22,3 +22,9 @@
     register: echo
     failed_when: "'a' in echo.stdout"
     ignore_errors: yes
+
+  # https://serverfault.com/questions/681832/how-can-i-stop-ansible-from-writing-passwords-to-the-logfiles
+  - name: ping
+    ping:
+    no_log: true
+  

@@ -30,3 +30,21 @@
         - '"97.66 MB" == 102400000|human_readable'
         - '"0.10 GB" == 102400000|human_readable(unit="G")'
         - '"0.10 Gb" == 102400000|human_readable(isbits=True, unit="G")'
+
+  # https://stackoverflow.com/questions/45564899/extract-filename-from-file-result-in-ansible
+  - debug: 
+      msg: "{{ 'abc/string.yml' | basename }}"
+  - debug: 
+      msg: "{{ 'abc/string.yml' | dirname }}"
+  - debug: 
+      msg: "{{ 'abc/def' | basename }}"
+  - debug: 
+      msg: "{{ 'abc/def' | dirname }}"
+  - debug: 
+      msg: "{{ 'abc/' | basename }}"
+  - debug: 
+      msg: "{{ 'abc/' | dirname }}"
+  - debug: 
+      msg: "{{ 'abc/string.yml' | realpath }}"
+  - debug: 
+      msg: "{{ 'abc/string.yml' | relpath }}"
