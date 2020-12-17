@@ -50,3 +50,21 @@ const listHasPilots2 = operatives.every(operative => operative.pilot);
 console.log(listHasPilots2)
 const firstPilot = operatives.find(operative => operative.pilot);
 console.log(firstPilot)
+
+// forEach
+operatives.forEach(element => console.log(element));
+
+
+// flatMap
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap
+let arr1 = [1, 2, 3, 4];
+
+arr1.map(x => [x * 2]); 
+// [[2], [4], [6], [8]]
+
+arr1.flatMap(x => [x * 2]);
+// [2, 4, 6, 8]
+
+// only one level is flattened
+arr1.flatMap(x => [[x * 2]]);
+// [[2], [4], [6], [8]]
