@@ -34,3 +34,11 @@ do
    # do whatever on $i
    echo $i
 done
+
+# https://stackoverflow.com/questions/1886374/how-to-find-the-length-of-an-array-in-shell
+echo "Total length: "${#array[@]}
+
+
+# https://unix.stackexchange.com/questions/317390/run-command-output-lines-as-another-command-in-linux
+seq 3|sh
+seq 3|while read line; do echo line-$line; done

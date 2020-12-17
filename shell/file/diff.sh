@@ -1,10 +1,13 @@
 # https://www.linuxtechi.com/diff-command-examples-linux/
 diff file1.sorted file2.sorted
 
+echo ---------c
 # in context format (-c)
 diff file1.sorted file2.sorted -c
+echo ---------u
 # in unified format (-u)
 diff file1.sorted file2.sorted -u
+echo ---------i
 # Ignore Case Sensitive
 diff file1.sorted file2.sorted -i
 # ignore inconsistent white spaces

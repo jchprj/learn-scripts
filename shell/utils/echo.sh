@@ -7,4 +7,5 @@ echo $'first line\nsecond line\nthirdline' > foo
 # exit status of last command From <https://www.cyberciti.biz/faq/shell-how-to-determine-the-exit-status-of-linux-and-unix-command/> 
 echo $?
 
-
+# https://stackoverflow.com/questions/37052899/what-is-the-preferred-method-to-echo-a-blank-line-in-a-shell-script
+echo

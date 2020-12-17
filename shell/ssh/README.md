@@ -77,7 +77,15 @@ From <https://stackoverflow.com/questions/33486339/can-an-ssh-config-file-use-va
 	Or:
 	ProxyCommand bash -c '……'
 
-		
+
+
+If your local_command is too complicated, you can use a script:
+https://unix.stackexchange.com/questions/44307/can-ssh-configs-proxycommand-run-a-local-command-before-connecting-to-a-remote
+
+Host remote.machine
+	ProxyCommand /path_to_my_connect.sh %h %p
+
+
 ## SSH Agent
 
 ssh-add complains: Could not open a connection to your authentication agent

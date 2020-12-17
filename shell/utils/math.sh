@@ -13,3 +13,20 @@ factor 111
 
 echo "123.4+5/6-(7.89*1.234)" | bc
 # 113.664
+
+# https://linuxize.com/post/bash-increment-decrement-variable/
+i=100
+i=$((i+1))
+((i=i+1))
+let "i=i+1"
+echo $i
+
+((i+=1))
+let "i+=1" 
+echo $i
+
+((i++))
+((++i))
+let "i++"
+let "++i"
+echo $i
