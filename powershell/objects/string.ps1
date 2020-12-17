@@ -16,3 +16,11 @@ $json
 
 $d = "ccc$($json.f)"
 $d
+
+# https://stackoverflow.com/questions/28460208/what-is-the-idiomatic-way-to-slice-an-array-relative-to-both-of-its-ends
+$e = "a/b/c/d"
+$f = $e.Split("/")
+$f[0..($f.Length-2)]
+# https://stackoverflow.com/questions/7723584/how-do-i-convert-an-array-object-to-a-string-in-powershell
+[system.String]::Join("/", $f[0..($f.Length-2)])
+$f[-1]
