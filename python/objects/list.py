@@ -38,6 +38,10 @@ result = map(lambda x, y: x + y, numbers1, numbers2)
 print(list(result))             # [5, 7, 9]
 
 
+# https://www.geeksforgeeks.org/lambda-filter-python-examples/
+result = filter(lambda x: (x % 2 == 0), numbers1)
+print(list(result))             # [2]
+
 
 # https://www.kite.com/python/answers/how-to-join-a-list-of-integers-into-a-string-in-python
 ints = [1,2,3]
