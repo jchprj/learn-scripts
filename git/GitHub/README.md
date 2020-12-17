@@ -1,5 +1,25 @@
 ## Search
 
+
+### Query for dates
+https://docs.github.com/en/free-pro-team@latest/github/searching-for-information-on-github/understanding-the-search-syntax
+
+
+created:>2016-04-29
+
+pushed:2016-04-30..2016-07-04
+
+### Exclude certain results
+https://docs.github.com/en/free-pro-team@latest/github/searching-for-information-on-github/understanding-the-search-syntax
+
+hello NOT world
+matches repositories that have the word "hello" but not the word "world."
+
+### Using search to filter issues and pull requests
+https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/using-search-to-filter-issues-and-pull-requests
+
+Filter pull requests by reviewer: state:open type:pr reviewed-by:octocat
+
 ### is:merged
 
 0eff326d6213c is:merged Matches merged pull requests with a commit SHA that starts with 0eff326d6213c.
