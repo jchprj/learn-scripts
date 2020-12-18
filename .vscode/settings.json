@@ -21,8 +21,10 @@
             "username": "test"
         }
     ],
+    "code-runner.runInTerminal": true,
     "code-runner.executorMap": {
         "java": "cd $dir && java $fileName",
-    },
-    "code-runner.runInTerminal": true
+        // Executor for shellscript: https://gist.github.com/PetrChudoba/35bebd6c6f0f5cc81597798e7e64ce3d
+        "shellscript": "bash $fileName"
+    }
 }
