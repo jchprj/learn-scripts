@@ -48,3 +48,15 @@
       msg: "{{ 'abc/string.yml' | realpath }}"
   - debug: 
       msg: "{{ 'abc/string.yml' | relpath }}"
+
+  # https://www.mydailytutorials.com/how-to-split-strings-and-join-them-in-a%E2%80%8Bnsibl%E2%80%8Be/
+  - set_fact:
+      ip: "192.168.14.21"
+  - set_fact:
+      ip_split: "{{ ip.split('.') }}"
+  - set_fact:
+      ip_split_join: "{{ ip_split | join('.') }}"
+  - debug:
+      msg: "{{ ip_split }}"
+  - debug:
+      msg: "{{ ip_split_join }}"
