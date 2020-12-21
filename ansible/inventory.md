@@ -8,3 +8,47 @@ host1 ansible_ssh_port=20001 ansible_ssh_host=10.80.238.11
 host7 ansible_ssh_port=20007 ansible_ssh_host=10.80.238.11
 host9 ansible_ssh_port=20009 ansible_ssh_host=10.80.238.11
 ```
+
+# Dynamic
+[Creating custom dynamic inventories for Ansible | Jeff Geerling](https://www.jeffgeerling.com/blog/creating-custom-dynamic-inventories-ansible)
+
+Ansible expects sample:
+```
+{
+    "group": {
+        "hosts": [
+            "192.168.28.71",
+            "192.168.28.72"
+        ],
+        "vars": {
+            "ansible_ssh_user": "johndoe",
+            "ansible_ssh_private_key_file": "~/.ssh/mykey",
+            "example_variable": "value"
+        }
+    },
+    "_meta": {
+        "hostvars": {
+            "192.168.28.71": {
+                "host_specific_var": "bar"
+            },
+            "192.168.28.72": {
+                "host_specific_var": "foo"
+            }
+        }
+    }
+}
+```
+
+Sample dynamic shell script:
+```
+#!/usr/bin/env bash
+
+echo '{"group": {"hosts": ["localhost"], "vars":{}}}'
+```
+
+Usage:
+```
+ansible all -i dynamic -m ping
+```
+
+Could use any executable as long as the output is the JSON struct
