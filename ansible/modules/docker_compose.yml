@@ -1,0 +1,77 @@
+# https://docs.ansible.com/ansible/latest/collections/community/general/docker_compose_module.html
+
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    tags: ping
+    ping:
+
+  - name: Create and start services
+    tags: nginx-compose
+    docker_compose:
+      project_src: .      # Will use the docker-compose.yml in current directory
+      state: present
+      scale:
+        back: 2
+    register: output
+  - debug:
+      var: output
+    tags: nginx-compose
+
+
+  - name: Tear down services
+    docker_compose:
+      project_src: .      # Will use the docker-compose.yml in current directory
+      state: absent
+    tags: tear-down-nginx-compose
+
+
+
+  - name: Create and start services using inline definition
+    tags: inline_compose
+    docker_compose:
+      project_name: nginx_compose
+      definition:
+        version: '2'
+        services:
+          back:
+            image: nginx:alpine
+            restart: always
+          server:
+            image: nginx:alpine
+            restart: always
+            ports:
+            - "8080:80"
+    register: output
+
+  - ansible.builtin.debug:
+      var: output
+    tags: inline_compose
+
+  - ansible.builtin.assert:
+      that:
+        - "back.nginx_compose_back_1.state.running"
+        - "server.nginx_compose_server_1.state.running"
+    tags: inline_compose
+
+
+    
+  - name: Tear down inline definition services
+    tags: tear-down-inline_compose
+    docker_compose:
+      project_name: nginx_compose
+      definition:
+        version: '2'
+        services:
+          back:
+            image: nginx:alpine
+            restart: always
+          server:
+            image: nginx:alpine
+            restart: always
+            ports:
+            - "8080:80"
+      state: absent

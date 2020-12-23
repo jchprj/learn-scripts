@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  back:
+    image: nginx:alpine
+    # container_name: nginx-compose
+    restart: always
+  server:
+    image: nginx:alpine
+    # container_name: nginx-compose
+    restart: always
+    ports:
+    - "8080:80"

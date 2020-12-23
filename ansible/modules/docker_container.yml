@@ -1,22 +1,32 @@
+# The docker_host is used when in WSL 1 in Windows or connect to any remote Docker daemon.
+
 ---
 - hosts: localhost
   gather_facts: no
     
   tasks:
 
-  - tags: test
+  - tags: ping
     debug: var=ansible_python_interpreter
   - name: Get info on docker host
-    tags: test
+    tags: ping
     docker_host_info:
       containers: yes
       images: yes
       verbose_output: yes
-      docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+      # docker_host: "tcp://{{ ansible_ssh_host }}:2375"
     register: result
-  - tags: test
+  - tags: ping
     debug:
       var: result.host_info
+
+  - name: Hello world
+    tags: helloworld
+    docker_container:
+      name: hello-world
+      image: hello-world
+      state: started
+      # docker_host: "tcp://{{ ansible_ssh_host }}:2375"
 
   - name: create a centos
     tags: centos7
@@ -24,7 +34,7 @@
       name: centos
       image: centos:7.8.2003
       state: started
-      docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+      # docker_host: "tcp://{{ ansible_ssh_host }}:2375"
 
   - name: create a jenkins
     tags: jenkins
@@ -36,7 +46,7 @@
         - 8080
       ports:
         - "8080:8080"
-      docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+      # docker_host: "tcp://{{ ansible_ssh_host }}:2375"
 
   - name: create a mysql container
     tags: mysql5.7
@@ -54,7 +64,7 @@
         MYSQL_ROOT_PASSWORD: "123456"
         MYSQL_USER: "test"
         MYSQL_PASSWORD: "123456"
-      docker_host: "tcp://{{ ansible_ssh_host }}:2375"
+      # docker_host: "tcp://{{ ansible_ssh_host }}:2375"
   - tags: mysql5.7
     pip:
       name: [pymysql]
