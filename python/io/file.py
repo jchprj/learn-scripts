@@ -1,13 +1,5 @@
 import os, json
 
-path = os.walk(".")
-
-for root, directories, files in path:
-    for directory in directories:
-        print(directory)
-    for file in files:
-        print(file)
-
 filename = "test.json" 
 with open(filename, encoding='utf-8') as data_file:    
     data = json.load(data_file)
