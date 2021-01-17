@@ -1,0 +1,16 @@
+
+---
+- hosts: "{{ variable_host | default('localhost') }}"
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    ping:
+
+  # https://www.toptechskills.com/ansible-tutorials-courses/ansible-include-import-variables-tutorial-examples/
+  - include_vars: vars.yml
+
+  - shell: "echo {{ firstvar }}"
+    register: result1
+    when: firstvar is defined
+  - debug: var=result1.stdout_lines

@@ -1,0 +1,30 @@
+# ansible-playbook host.yml --extra-vars "variable_host=test"
+# Override hosts variable of Ansible playbook from the command line
+# From <https://stackoverflow.com/questions/33222641/override-hosts-variable-of-ansible-playbook-from-the-command-line> 
+
+# ansible-playbook variables.yml --extra-vars "version=1.23.45 other_variable=foo"
+# ansible-playbook variables.yml -e firstvar=false -e second_var=value2
+# From <https://stackoverflow.com/questions/30662069/how-can-i-pass-variable-to-ansible-playbook-in-the-command-line>
+
+---
+- hosts: "{{ variable_host | default('localhost') }}"
+  gather_facts: no
+  vars:
+    my_version: "{{ version }}"
+    my_other_variable: "{{ other_variable }}"
+    
+  tasks:
+  - name: ping
+    ping:
+
+  # Get current target host's IP address
+  # https://stackoverflow.com/questions/39819378/ansible-get-current-target-hosts-ip-address
+  - debug: var=ansible_ssh_host
+
+  - debug: var=version
+  - debug: var=other_variable
+
+  - shell: "echo {{ second_var }}"
+    register: result2
+    when: second_var is defined
+  - debug: var=result2.stdout_lines

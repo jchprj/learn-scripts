@@ -1,0 +1,35 @@
+
+---
+- hosts: "{{ variable_host | default('localhost') }}"
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    ping:
+
+  # Special Variables
+  # From <https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html>
+  - debug: var=inventory_hostname # The inventory name for the ‘current’ host being iterated over in the play
+  - debug: var=ansible_play_batch # List of active hosts in the current play run limited by the serial, aka ‘batch’. Failed/Unreachable hosts are not considered ‘active’.
+  - debug: var=ansible_play_hosts_all # List of all the hosts that were targeted by the play
+  - debug: var=ansible_version # List of all the hosts that were targeted by the play
+  - debug: var=ansible_user # The user Ansible ‘logs in’ as
+  - debug: var=ansible_host # The ip/name of the target host to use instead of inventory_hostname
+  - debug: var=ansible_connection # The connection plugin actually used for the task on the target host
+  - debug: var=ansible_playbook_python # The path to the python interpreter being used by Ansible on the controller
+  - debug: var=ansible_python_interpreter # The path to the Python executable Ansible should use on the target host
+
+  # https://stackoverflow.com/questions/30787273/variable-that-has-the-path-to-the-current-ansible-playbook-that-is-executing
+  - debug: var=playbook_dir
+
+  # https://stackoverflow.com/questions/28709501/how-to-list-all-currently-targeted-hosts-in-an-ansible-play
+  # Deprecated, the same as ansible_play_batch
+  - debug: msg="play_hosts={{play_hosts}}"
+    run_once: true
+  - debug: msg="ansible_play_batch={{ansible_play_batch}}"
+    run_once: true
+
+  # https://stackoverflow.com/questions/40027847/accessing-inventory-host-variable-in-ansible-playbook
+  # Need inventory definition to call
+  # {{ hostvars['your_host_group'].ansible_host }}
+  - debug: msg="{{ hostvars }}"
