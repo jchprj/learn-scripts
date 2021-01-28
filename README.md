@@ -31,7 +31,12 @@ To use defined VS Code tasks in this repo for Ansible playbook which supports op
 
 ## Jenkins
 
-To run pipeline scripts under `jenkins` folder in VS Code, needs VS Code extension: [Jenkins Runner - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dave-hagedorn.jenkins-runner), and configure a Jenkins server and a pipeline job for test for the extension, suggest running a Jenkins in Docker. Then just press `F1` and select `Jenkins Runner: Run Pipeline Script On Default Job`.
+To run pipeline scripts under `jenkins` folder in VS Code, needs:
+- VS Code extension: [Jenkins Runner - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dave-hagedorn.jenkins-runner)
+- Configure a Jenkins server and a pipeline job for test for the extension, suggest running a Jenkins in Docker. For the new pipeline job, need to edit configuration once even no change after it is created.
+- Install Jenkins plugins on the Jenkins server: envinject 
+
+Then just press `F1` and select `Jenkins Runner: Run Pipeline Script On Default Job`.
 
 ### VS Code Jenkins Runner extension
 
