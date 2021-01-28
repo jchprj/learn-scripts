@@ -3,12 +3,16 @@
 - hosts: "{{ variable_host | default('localhost') }}"
   gather_facts: no
   vars:
+    str_var: "123"
     int_var: 123
 
   tasks:
   - name: ping
     ping:
-  
+    
+  # https://serverfault.com/questions/1030350/converting-string-to-integer-in-ansible-playbook
+  - debug:
+      msg: "{{ str_var | int - 1 }}"
   # https://stackoverflow.com/questions/33505521/how-to-use-arithmetic-when-setting-a-variable-value-in-ansible
   - debug:
-      msg: "{{ int_var - 1 }}"
+      msg: "{{ int_var * 2 }}"

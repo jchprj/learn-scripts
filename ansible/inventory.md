@@ -9,6 +9,19 @@ host7 ansible_ssh_port=20007 ansible_ssh_host=10.80.238.11
 host9 ansible_ssh_port=20009 ansible_ssh_host=10.80.238.11
 ```
 
+[Ansible: how to skip a specific host or group in a playbook – Velenux Home Page](https://velenux.wordpress.com/2017/07/31/ansible-how-to-skip-a-specific-host-or-group-in-a-playbook/)
+
+```
+---
+- name: check on which hosts this would run
+  remote_user: root
+  hosts: all !bastion
+  tasks:
+  - name: say hello
+    debug:
+      msg: "hello {{ ansible_hostname }}"
+```
+
 # Dynamic
 [Creating custom dynamic inventories for Ansible | Jeff Geerling](https://www.jeffgeerling.com/blog/creating-custom-dynamic-inventories-ansible)
 

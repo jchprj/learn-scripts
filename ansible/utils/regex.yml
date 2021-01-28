@@ -4,6 +4,11 @@
 ---
 - hosts: localhost
   gather_facts: no
+  vars:
+    testvar: 
+      - aaabbb
+      - bbbccc
+      - bbbccscddd
 
   tasks:
   - name: display multiple file contents
@@ -15,6 +20,18 @@
       msg: "{{ file | regex_search('(.+)') }}"
   - set_fact:
       f: "{{ file | regex_findall('(.+)') }}"
+      test: "{{ testvar | join('\n') | regex_findall('(.*)ccc') }}"
+  - name: debug test origin
+    debug:
+      msg: "{{ test }}"
+  - set_fact:
+      test: "{{ test.0 }}"
+  - name: debug testvar
+    debug:
+      msg: "{{ testvar }}"
+  - name: debug test
+    debug:
+      msg: "{{ test }}"
   - set_fact:
       line_2nd: "{{ f.1 | regex_replace('\r', '') }}"
   - debug:
