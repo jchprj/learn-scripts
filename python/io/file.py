@@ -73,3 +73,10 @@ with open("temp_test.csv", 'w') as csvfile:
     csvwriter.writerow(fields)   
     # writing the data rows   
     csvwriter.writerows(rows) 
+
+
+with io.open("temp_test.csv", 'r', encoding='utf8') as f:
+    text = f.read()
+# process Unicode text
+with io.open("temp_test.csv", 'w', encoding='utf8') as f:
+    f.write(text)
