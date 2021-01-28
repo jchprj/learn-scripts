@@ -43,3 +43,6 @@ Set-Item WSMan:\localhost\Client\TrustedHosts *
 # "Access denied" configuring WinRM using a local administration account
 # To solve the problem, UAC filtering for local accounts must be disabled by creating the following DWORD registry entry and setting its value to 1:
 # [HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System] LocalAccountTokenFilterPolicy
+
+
+# In Firewall, some Windows Remote Management (HTTP-In) for port 5985 may not be enabled.
