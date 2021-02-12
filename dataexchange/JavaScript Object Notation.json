@@ -1,0 +1,17 @@
+{
+    "array": [
+        "string",
+        1,
+        1.1,
+        true,
+        null
+    ],
+    "object": {
+        "key1": "value",
+        "key2": 1,
+        "key3": true,
+        "key4": null
+    },
+    "face1": "😐",
+    "face2": "\uD83D\uDE10"
+}
