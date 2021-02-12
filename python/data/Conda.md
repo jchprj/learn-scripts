@@ -10,7 +10,16 @@ From <https://docs.conda.io/en/latest/miniconda.html>
 The Most Popular Python Data Science Platform
  
 From <https://www.anaconda.com/> 
- 
+
+
+[pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available - Stack Overflow](https://stackoverflow.com/questions/45954528/pip-is-configured-with-locations-that-require-tls-ssl-however-the-ssl-module-in)
+For Windows 10 if you want use pip in normal cmd, not only in Anaconda prompt. you need add 3 environment paths. like the followings:
+```
+D:\Anaconda3 
+D:\Anaconda3\Scripts
+D:\Anaconda3\Library\bin
+```
+
 
 # Install 
 
