@@ -1,0 +1,18 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html
+
+---
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: ping
+    ping:
+
+  - name: Add specified repository into sources list using specified filename
+    ansible.builtin.apt_repository:
+      repo: deb http://dl.google.com/linux/chrome/deb/ stable main
+      state: present
+      filename: google-chrome
+  - name: Add nginx stable repository from PPA and install its signing key on Ubuntu target
+    ansible.builtin.apt_repository:
+      repo: ppa:nginx/stable

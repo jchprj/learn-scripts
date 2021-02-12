@@ -1,3 +1,4 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
 ---
 - hosts: localhost
   gather_facts: no
@@ -15,3 +16,9 @@
     apt:
       name: htop
       state: present
+  - name: Install htop (state=present is optional)
+    apt:
+      name: 
+      - htop
+      state: present
+
