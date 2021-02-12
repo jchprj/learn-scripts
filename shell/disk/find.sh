@@ -23,3 +23,9 @@ echo _________________________
 find . -type f -name "find_files_with_wildcard_to_delete*" -delete
 find . -type d -name 'find_directories_with_wildcard_to_delete*' -exec rm -r {} +
 find . -type d -name 'find_directories_with_wildcard_to_delete*' | xargs rm -r
+
+
+# https://unix.stackexchange.com/questions/12902/how-to-run-find-exec
+# The difference between ; and + is that with ; a single grep command for each file is executed whereas with + as many files as possible are given as parameters
+find . -exec echo {} \;
+find . -exec echo {} +
