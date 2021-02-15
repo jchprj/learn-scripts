@@ -80,7 +80,7 @@
             "command": "ansible-playbook",
             "args": [
                 "${file}",
-                "$( if [ ! -z ${command:extension.commandvariable.selectedText} ]; then echo --tags; else echo '-v'; fi )",
+                "\"$( if [ ! -z ${command:extension.commandvariable.selectedText} ]; then echo --tags; else echo '-v'; fi )\"",
                 "${command:extension.commandvariable.selectedText}"
             ],
             "options": {
