@@ -44,3 +44,9 @@ git config core.autocrlf input
 git rm --cached -r .
 git reset --hard
 ```
+
+[github - git diff is showing full file has changed for a single line change but only for few files in a directory - Stack Overflow](https://stackoverflow.com/questions/37344280/git-diff-is-showing-full-file-has-changed-for-a-single-line-change-but-only-for)
+If a repository was checked in Windows, and open in Linux but see all files as changed, could set this only for this repository.
+```
+git config core.autocrlf true
+```
