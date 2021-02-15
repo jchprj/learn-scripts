@@ -1,0 +1,13 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/posix/synchronize_module.html
+# https://stackoverflow.com/questions/35488433/ansible-copy-a-directory-content-to-another-directory
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  - name: Copy file in remote A to another folder in the same remote A
+    synchronize:
+      src: test.txt
+      dest: ./temp_test
+    delegate_to: localhost

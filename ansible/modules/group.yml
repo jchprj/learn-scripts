@@ -1,0 +1,12 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/group_module.html
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  - name: Ensure group "git" exists with correct gid
+    ansible.builtin.group:
+      name: git
+      state: present
+      gid: 1002
+    become: yes

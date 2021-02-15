@@ -1,0 +1,41 @@
+# https://github.com/tivrobo/ansible-win_git
+# https://stackoverflow.com/questions/39301265/how-to-clone-git-repository-using-ansible-under-microsoft-windows
+
+# This is just a third party plugin, needs manually run the installation first by tags: install
+
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+
+  - debug: 
+      msg: "{{ playbook_dir }}"
+
+  - file:
+      path: ~/.ansible/plugins/modules
+      state: directory
+    delegate_to: localhost
+    tags: install
+      
+  - get_url:
+      url: https://cdn.jsdelivr.net/gh/tivrobo/ansible-win_git/win_git.ps1
+      dest: ~/.ansible/plugins/modules
+    tags: install
+    delegate_to: localhost
+  - get_url:
+      url: https://cdn.jsdelivr.net/gh/tivrobo/ansible-win_git/win_git.py
+      dest: ~/.ansible/plugins/modules
+    tags: install
+    delegate_to: localhost
+
+  - name: ping
+    win_ping:
+  - name: git clone cool-thing
+    win_git:
+      repo: "git@github.com:tivrobo/Ansible-win_git.git"
+      dest: "C:\\Ansible-win_git"
+      branch: master
+      update: no
+      recursive: yes
+      replace_dest: no
+      accept_hostkey: yes

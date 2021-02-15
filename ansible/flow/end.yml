@@ -1,0 +1,10 @@
+# https://stackoverflow.com/questions/36451793/how-do-i-exit-ansible-play-without-error-on-a-condition
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    win_ping:
+  - meta: end_play
+  - name: will not run
+    win_ping:

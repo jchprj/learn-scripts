@@ -14,3 +14,4 @@ temp_test*
 temp_test.*
 *.exe
 *.lock
+*.retry

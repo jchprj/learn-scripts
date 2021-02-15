@@ -1,0 +1,14 @@
+# https://docs.ansible.com/ansible/latest/collections/community/general/snap_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    ping:
+  - name: Install snap packages
+    community.general.snap:
+      name:
+      - scrcpy
+      channel: beta
+    become: yes

@@ -3,6 +3,7 @@
   gather_facts: no
   tasks:
   - name: ping
+    tags: test
     ping:
   - shell: pwd
     register: result

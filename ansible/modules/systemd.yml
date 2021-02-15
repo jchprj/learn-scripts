@@ -1,4 +1,5 @@
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/systemd_module.html
+# https://dev.to/kkentzo/deploying-a-service-using-ansible-and-systemd-4n11
 
 # Seems cannot run under WSL
 

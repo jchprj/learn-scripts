@@ -1,0 +1,25 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/blockinfile_module.html
+# https://stackoverflow.com/questions/61134660/how-to-append-entries-in-etc-fstab-of-disks-using-ansible-playbook
+
+# Every time this block executed, there will be # BEGIN ANSIBLE MANAGED BLOCK and # END ANSIBLE MANAGED BLOCK
+# The target file will only contain the block content in the specific task in the BEGIN/END block, that means the first try in the code will be ignored.
+
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  - name: mount smb
+    blockinfile:
+      path: test.txt # /etc/fstab
+      state: present
+      block: |
+        This part will be ommited
+    become: yes
+  - name: mount smb
+    blockinfile:
+      path: test.txt # /etc/fstab, should not contain quotes for this file
+      state: present
+      block: |
+        //servername/sharename /root/temp_test.dir cifs vers=2.0,rw,_netdev,credentials=.credential,uid=git,gid=git,x-systemd.automount 0 0
+    become: yes

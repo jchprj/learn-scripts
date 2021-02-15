@@ -1,0 +1,12 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/git_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    ping:
+  - name: git clone https://github.com/octocat/Hello-World.git temp_test.dir
+    git:
+      repo: 'https://github.com/octocat/Hello-World.git'
+      dest: temp_test.dir

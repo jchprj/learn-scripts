@@ -1,0 +1,15 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/posix/mount_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    win_ping:
+  - name: Mount
+    mount:
+      path: "temptest.dir"
+      fstype: cifs
+      src: "//servername/sharename"
+      opts: vers=2.0,rw,_netdev,credentials=.credential,uid=git,gid=git,x-systemd.automount
+      state: present
+    become: yes
