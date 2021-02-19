@@ -8,3 +8,9 @@ ncat -u localhost 8125 < metrics
 ncat localhost 8080
 # Listen for connections
 ncat -l localhost 8080
+
+
+
+# http://redino.net/blog/2018/05/centos-6-install-netcat/
+# yum install nmap
+ncat -v

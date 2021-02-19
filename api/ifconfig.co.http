@@ -10,6 +10,10 @@ http://ifconfig.co/json
 http://ifconfig.co/ip
 
 ### Port testing
+
+# Multiple command line HTTP clients are supported, including curl, httpie, GNU Wget and fetch.
+# https://ifconfig.co/
+
 http://ifconfig.co/port/8080
 
 ### ASN lookup
