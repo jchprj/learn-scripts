@@ -1,3 +1,4 @@
+# https://docs.ansible.com/ansible/latest/collections/community/docker/docker_container_module.html#ansible-collections-community-docker-docker-container-module
 # The docker_host is used when in WSL 1 in Windows or connect to any remote Docker daemon.
 
 ---
@@ -26,6 +27,8 @@
       name: hello-world
       image: hello-world
       state: started
+      # volumes:
+      # - /tmp:/tmp
       # docker_host: "tcp://{{ ansible_ssh_host }}:2375"
 
   - name: create a centos
