@@ -1,3 +1,4 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
 # https://www.mydailytutorials.com/ansible-create-directory/
 ---
 - hosts: localhost
@@ -38,3 +39,21 @@
       group: "{{ ansible_user }}"
       mode: 755
     with_items: "{{ files_to_change.files }}"
+
+  - name: Create a symbolic link
+    ansible.builtin.file:
+      src: test.txt
+      dest: temp_test
+      state: link
+
+  - name: Create a symbolic link
+    ansible.builtin.file:
+      src: .
+      dest: temp_test.dir
+      state: link
+
+  - name: Create a symbolic link
+    ansible.builtin.file:
+      src: test.txt
+      dest: temp_test.hard
+      state: hard
