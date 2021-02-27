@@ -15,3 +15,10 @@
   - name: output
     tags: tag3
     debug: var=result.stdout_lines
+
+    # https://serverfault.com/questions/623634/ansible-execute-task-only-when-a-tag-is-specified
+  - name: only run when tag4 is specified
+    tags: 
+      - never
+      - tag4
+    ping:
