@@ -5,6 +5,7 @@ echo Needed credential for test: ~/.aws/credentials
 
 echo Some read commands
 
+chamber list-services
 chamber list service
 chamber find key
 chamber history service key
