@@ -12,6 +12,10 @@
 wget -O temp_test https://example.com
 
 
+# https://unix.stackexchange.com/questions/23501/download-using-wget-to-a-different-directory-than-current-directory/23507#23507
+wget -P temp_test.dir https://example.com
+wget --directory-prefix=temp_test.dir https://example.com
+
 
 
 # https://cheapwindowsvps.com/blog/how-to-install-wget-on-centos-7/?__cf_chl_jschl_tk__=dea17cd171b2f67ea754f86baa3be53a7144d4dc-1600927345-0-AU1WNROvkh788DHviKeWW3Ix59S4HfzEUV0qEQdRtb_Kd1YeylgeuHP0LKAecYZcJs3Q0eZ91DVOka8I-srjcb--_8snCF8qQB9WfhZT6j1AV3SmMxNIlXWXN-QQRF4ceHY_ZZAjNBUH4BrZWgg6XTUhsLic6fICHBtH72tDUL1o6iwobQo_quYJJCKZcuOnQIcUGfj8wgpHTL1Phklssrxn17ckmaDifbVKUQHY2aRSA9x6hHa-9aqe3UH2Ss4550HKohO8CQAsinGW6qQOb6eQecrf8cr4GNfyYgol1egZMzlHJGVAAAB9WohbsPMEomnq94H-gkKERtVpbEcxrrJfTSX9D7l58C1j6-l27MERA05uMgSlPjR3JxCY0ZyJMg
