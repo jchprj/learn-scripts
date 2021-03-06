@@ -1,1 +1,1 @@
-docker build .
+docker build --force-rm .
