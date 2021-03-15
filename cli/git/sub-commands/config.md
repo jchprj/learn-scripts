@@ -1,3 +1,10 @@
+# git config
+List all configurations
+
+```git config -l```
+
+```git config -global -l```
+
 ## Credential
 
 git config --global credential.helper store
