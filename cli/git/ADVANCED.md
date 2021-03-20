@@ -81,11 +81,6 @@ This is typically git remote prune origin.
 
 
 
-## How to delete remote branches in Git
-
-From <https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git> 
-git push origin --delete test
-
 
 # Others
 

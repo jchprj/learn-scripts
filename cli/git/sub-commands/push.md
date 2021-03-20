@@ -22,3 +22,26 @@ For local repositories, also supported by Git natively, the following syntaxes m
 /path/to/repo.git/
 
 file:///path/to/repo.git/
+
+
+# Questions
+
+## Git push branch from one remote to another?
+
+https://stackoverflow.com/questions/7818927/git-push-branch-from-one-remote-to-another
+
+```
+git push rorg 'refs/remotes/korg/*:refs/heads/*'
+```
+And it pushed all my remote branches from korg to rorg (even without local copies of the branches). 
+
+And then you can make the same push for tags refs:
+```
+git push rorg 'refs/tags/*:refs/tags/*'
+```
+
+
+## How to delete remote branches in Git
+
+From <https://www.educative.io/edpresso/how-to-delete-remote-branches-in-git> 
+git push origin --delete test
