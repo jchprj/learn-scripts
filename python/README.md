@@ -24,6 +24,24 @@ https://stackoverflow.com/questions/11091623/how-to-install-packages-offline
 pip download -r requirements.txt
 pip install --no-index --find-links /path/to/download/dir/ -r requirements.txt
 
+## pipx
+
+[pipxproject/pipx: Install and Run Python Applications in Isolated Environments](https://github.com/pipxproject/pipx)
+
+```
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+
+On macOS:
+```
+brew install pipx
+pipx ensurepath
+```
+Upgrade pipx with `brew update && brew upgrade pipx`.
+
+
+
 ## Python CLI
 
 -u unbuffered
