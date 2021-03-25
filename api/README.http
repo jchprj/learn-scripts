@@ -1,0 +1,9 @@
+###
+@host=https://ifconfig.co
+@path=country
+
+###
+http://ifconfig.co/country
+
+###
+{{host}}/{{path}}
