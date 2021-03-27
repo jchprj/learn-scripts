@@ -1,0 +1,9 @@
+// To set custom headers you can use the Header:Value notation
+// Custom HTTP method, HTTP headers and JSON data:
+http PUT pie.dev/put X-API-Token:123 name=John
+
+// To unset a previously specified header (such a one of the default headers), use Header:
+http pie.dev/headers Accept: User-Agent:
+
+//
+http --headers PATCH pie.dev/patch Connection='keep-alive'

@@ -1,0 +1,27 @@
+//
+https httpie.io/hello
+
+//
+https https://httpie.io/hello
+
+
+//
+http --verify=no https://pie.dev/get
+
+// --headers, -h
+http -h https://pie.dev/get
+// --body, -b
+http -b https://pie.dev/get
+// --quiet, -q
+http -q https://pie.dev/get
+// --verbose, -v
+http -v https://pie.dev/get
+
+
+
+
+
+//Build and print a request without sending it using offline mode:
+http --offline pie.dev/post hello=offline
+
+

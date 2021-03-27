@@ -1,0 +1,33 @@
+// Basic
+http -a username:password pie.dev/basic-auth/username/password
+// Digest
+http -A digest -a username:password pie.dev/digest-auth/httpie/username/password
+// Password prompt
+http -a username pie.dev/basic-auth/username/password
+// Empty password
+http -a username: pie.dev/headers
+
+
+
+// https://github.com/httpie/httpie-aws-auth
+// pip install --upgrade httpie-aws-auth
+http --auth-type aws -a ACCESSKEYXXX:AWSSECRETKEYXXX http://bucket.s3.amazonaws.com/test
+// Specify only the key, there'll be a password prompt:
+http -A aws -a ACCESSKEYXXX http://bucket.s3.amazonaws.com/test
+// Auth via the AWS_* environment variables
+http -A aws http://bucket.s3.amazonaws.com/test
+
+
+
+// https://github.com/teracyhq/httpie-jwt-auth
+// pip install -U httpie-jwt-auth
+http --auth-type=jwt --auth="<token>" example.org -h
+
+// https://github.com/httpie/httpie-oauth
+// pip install httpie-oauth
+http --auth-type=oauth1 --auth='client-key:client-secret' example.org
+
+// https://github.com/httpie/httpie-ntlm
+// pip install httpie-ntlm
+// pip install requests_ntlm ntlm-auth requests
+http --auth-type=ntlm --auth='domain\\username:password' example.org

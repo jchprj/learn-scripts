@@ -1,0 +1,14 @@
+// To skip the host’s SSL certificate verification, you can pass --verify=no (default is yes):
+http --verify=no https://pie.dev/get
+// Custom CA bundle
+http --verify=/ssl/custom_ca_bundle https://example.org
+// Client side SSL certificate
+http --cert=client.pem https://example.org
+// If the private key is not contained in the cert file you may pass the path of the key file with --cert-key:
+http --cert=client.crt --cert-key=client.key https://example.org
+// SSL version
+// The available protocols are ssl2.3, ssl3, tls1, tls1.1, tls1.2, tls1.3. 
+// (The actually available set of protocols may vary depending on your OpenSSL installation.)
+http --ssl=ssl3 https://vulnerable.example.org
+// SSL ciphers
+http --ciphers=ECDHE-RSA-AES128-GCM-SHA256  https://pie.dev/get

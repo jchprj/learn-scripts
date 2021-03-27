@@ -1,0 +1,9 @@
+
+// Download a file and save it via redirected output:
+http pie.dev/image/png > temp_test.png
+
+// Download a file wget style
+http --download pie.dev/image/png --output temp_test.png
+
+// Resuming downloads
+http -dco temp_test.png pie.dev/image/png

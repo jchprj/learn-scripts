@@ -1,0 +1,23 @@
+// JSON is the lingua franca of modern web services and it is also the implicit content type HTTPie uses by default.
+
+// Simple example
+http PUT pie.dev/put name=John email=john@example.org
+
+// Non-string JSON fields
+http PUT pie.dev/put \
+    name=John \                        # String (default)
+    age:=29 \                          # Raw JSON — Number
+    married:=false \                   # Raw JSON — Boolean
+    hobbies:='["http", "pies"]' \      # Raw JSON — Array
+    favorite:='{"tool": "HTTPie"}' \   # Raw JSON — Object
+    bookmarks:=@files/data.json \      # Embed JSON file
+    description=@files/text.txt        # Embed text file
+
+
+
+// Raw and complex JSON
+echo '{"hello": "world"}' | http POST pie.dev/post
+
+
+// Upload a file using redirected input:
+http pie.dev/post < data.json

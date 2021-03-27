@@ -1,0 +1,9 @@
+//
+http --proxy=http:http://127.0.0.1:1080 --proxy=https:https://127.0.0.1:1080 example.org
+
+// With basic authentication
+http --proxy=http:http://user:pass@10.10.1.10:3128 example.org
+
+
+// Socks
+http --proxy=http:socks5://user:pass@host:port --proxy=https:socks5://user:pass@host:port example.org
