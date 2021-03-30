@@ -14,10 +14,12 @@ print(file_extension)           # .ext
 
 parser = argparse.ArgumentParser(description='abcdefg')
 parser.add_argument('--abc', help='abc')
+parser.add_argument('--print', dest="print_", help='abc')
 parser.add_argument('--dryrun', help='dry run', action="store_true")
 args = parser.parse_args()
 
 print(args.abc)                 # None
+print(args.print_)              # None
 print(args.dryrun)              # False
 
 default_abc = "abc"
