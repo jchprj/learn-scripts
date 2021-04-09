@@ -8,6 +8,7 @@ print('a' * 5)      # aaaaa
 print('False' in a or 'b' in a)
 
 
+print("ad".index("d"))    # False
 
 # https://www.w3schools.com/python/ref_string_zfill.asp#:~:text=The%20zfill()%20method%20adds,string%2C%20no%20filling%20is%20done.
 a = "hello"
