@@ -1,0 +1,9 @@
+https://docs.mongodb.com/manual/tutorial/convert-standalone-to-replica-set/
+// Convert a Standalone to a Replica Set
+// mongod --port 27017 --dbpath /srv/mongodb/db0 --replSet rs0 --bind_ip localhost,<hostname(s)|ip address(es)>
+
+// Or in mongod.cfg file
+// replication:
+//    replSetName: rs0
+
+rs.initiate()

@@ -1,0 +1,16 @@
+use('testdb');
+
+// https://docs.mongodb.com/manual/reference/command/listCollections/
+db.getCollectionInfos();
+
+db.runCommand( { listCollections: 1.0, nameOnly: true } )
+
+db.runCommand( { listCollections: 1.0, authorizedCollections: true, nameOnly: true } )
+
+// If a database does not exist, MongoDB creates the database when you first store data for that database.
+db.testdb.insertOne( { x: 1 } )
+
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.testdb.drop();

@@ -1,0 +1,9 @@
+use testdb
+// https://docs.mongodb.com/manual/reference/method/db.getRoles/
+db.getRoles(
+    {
+      rolesInfo: 1,
+      showPrivileges:true,
+      showBuiltinRoles: true
+    }
+)
