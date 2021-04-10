@@ -1,0 +1,25 @@
+https://blog.mrhaki.com/2017/10/plantuml-pleasantness-using-built-in.html/
+@startuml
+ 
+skinparam DefaultFontSize 24
+skinparam DefaultTextAlignment center
+ 
+title <&caret-right> Using icons in PlantUML <&caret-left>
+ 
+package "Charts <&menu>" as charts {
+ 
+    file bar [
+        Bar
+ 
+        <size:120><&bar-chart></size>
+    ]
+ 
+    file pie [
+        Pie
+ 
+        <size:42><&pie-chart></size>
+    ]
+ 
+}  
+ 
+@enduml
