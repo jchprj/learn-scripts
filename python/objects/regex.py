@@ -13,3 +13,12 @@ s = "abcbc"
 regex = r'(b)(c)'
 matches = re.findall(regex, s, re.MULTILINE)
 print(matches) # [('b', 'c'), ('b', 'c')]
+
+
+# Find texts between ""
+s = """
+ab, "cbc"
+"""
+regex = r'".*"'
+matches = re.findall(regex, s, re.MULTILINE)
+print(matches) # ['"cbc"']
