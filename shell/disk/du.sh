@@ -1,3 +1,6 @@
+# Disk usage of current folder
+echo 0________________________
+du -sh
 # Disk Usage
 echo 1________________________
 du -sh ../*
