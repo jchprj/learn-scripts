@@ -1,0 +1,1 @@
+docker run --rm -it -p 8080:8080/tcp -e HTTP_PROXY=http://ip:port -e HTTPS_PROXY=http://ip:port temp_test:latest

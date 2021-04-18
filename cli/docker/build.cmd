@@ -1,1 +1,1 @@
-docker build --force-rm .
+docker build --force-rm -t temp_test:latest .
