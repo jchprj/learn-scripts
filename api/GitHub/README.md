@@ -1,6 +1,13 @@
 ## Search
 
 
+### Query for filename
+https://stackoverflow.com/questions/18991908/is-it-possible-to-search-for-a-particular-filename-on-github
+
+filename:user.rb
+
+
+
 ### Query for dates
 https://docs.github.com/en/free-pro-team@latest/github/searching-for-information-on-github/understanding-the-search-syntax
 
