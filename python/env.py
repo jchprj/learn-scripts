@@ -8,6 +8,9 @@ print(os.environ["PATH"])
 print(sys.argv)
 print(len(sys.argv))
 
+# https://stackoverflow.com/questions/3430372/how-do-i-get-the-full-path-of-the-current-files-directory
+os.path.dirname(os.path.abspath(__file__))
+
 filename, file_extension = os.path.splitext('/path/to/somefile.ext')
 print(filename)                 # /path/to/somefile
 print(file_extension)           # .ext
