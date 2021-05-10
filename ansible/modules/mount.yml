@@ -7,7 +7,7 @@
     win_ping:
   - name: Mount
     mount:
-      path: "temptest.dir"
+      path: "temp_test.dir"
       fstype: cifs
       src: "//servername/sharename"
       opts: vers=2.0,rw,_netdev,credentials=.credential,uid=git,gid=git,x-systemd.automount
