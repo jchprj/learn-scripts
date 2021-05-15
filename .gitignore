@@ -15,3 +15,5 @@ temp_test.*
 *.exe
 *.lock
 *.retry
+.terraform*
+terraform.tfstate*
