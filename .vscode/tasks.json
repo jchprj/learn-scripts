@@ -97,6 +97,16 @@
                 "${file}"
             ],
             "problemMatcher": []
+        },
+        {
+            "label": "spring run",
+            "type": "shell",
+            "command": "spring",
+            "args": [
+                "run",
+                "${file}"
+            ],
+            "problemMatcher": []
         }
     ]
 }
