@@ -17,10 +17,17 @@ created:>2016-04-29
 pushed:2016-04-30..2016-07-04
 
 ### Exclude certain results
-https://docs.github.com/en/free-pro-team@latest/github/searching-for-information-on-github/understanding-the-search-syntax
-
+https://docs.github.com/en/github/searching-for-information-on-github/understanding-the-search-syntax
+```
 hello NOT world
+```
 matches repositories that have the word "hello" but not the word "world."
+
+You can prefix any search qualifier with a `-` to exclude all results that are matched by that qualifier.
+```
+cats stars:>10 -language:javascript 
+```
+matches repositories with the word "cats" that have more than 10 stars but are not written in JavaScript.
 
 ### Using search to filter issues and pull requests
 https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/using-search-to-filter-issues-and-pull-requests
