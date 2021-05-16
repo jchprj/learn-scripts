@@ -51,9 +51,9 @@ spring init --dependencies=web,data-jpa --build=gradle --java-version=11 -l kotl
 
 List the capabilities of the service. Use it to discover the dependencies and the types that are available
 ```
-spring init --dependencies=web,data-jpa --build=gradle --java-version=11 -l kotlin temp_test
+spring init --list
 ```
 
-## Reference
+## References
 - [Spring Boot in a Single File | Rezha Julio](https://rezhajul.io/spring-boot-in-a-single-file/)
 - [Introduction to Spring Boot CLI | Baeldung](https://www.baeldung.com/spring-boot-cli)
