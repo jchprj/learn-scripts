@@ -1,0 +1,36 @@
+<!-- https://ckeditor.com/ -->
+<!-- https://ckeditor.com/docs/ckeditor5/latest/ -->
+
+<head></head>
+<style>
+    /* https://stackoverflow.com/questions/46559354/how-to-set-the-height-of-ckeditor-5-classic-editor */
+    .ck-editor__editable_inline {
+        min-height: 400px;
+    }
+</style>
+<script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+<body>
+    <div id="content" style="width:90%; float:left; "></div>
+    <button id="consoleBtn" onclick="doConsole()">console.log(editor.getData());</button>
+    <div>
+        Try run editor.setData("Hello world!"); in console panel.
+    </div>
+    <script>
+        //https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/saving-data.html
+        let editor;
+        if(editor == undefined) {
+            ClassicEditor
+                .create( document.querySelector( '#content' ))
+                .then( newEditor => {
+                    editor = newEditor;
+        
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+        }
+        function doConsole() {
+            console.log(editor.getData());
+        }
+    </script>
+</body>
