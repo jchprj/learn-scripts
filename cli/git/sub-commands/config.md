@@ -57,3 +57,15 @@ If a repository was checked in Windows, and open in Linux but see all files as c
 ```
 git config core.autocrlf true
 ```
+
+
+## Bare
+[version control - How to convert a normal Git repository to a bare one? - Stack Overflow](https://stackoverflow.com/questions/2199897/how-to-convert-a-normal-git-repository-to-a-bare-one)
+```
+cd repo
+mv .git ../repo.git # renaming just for clarity
+cd ..
+rm -fr repo
+cd repo.git
+git config --bool core.bare true
+```
