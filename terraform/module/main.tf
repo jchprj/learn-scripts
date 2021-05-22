@@ -6,3 +6,31 @@ variable "var1" {
 output "origin" {
   value = "${var.var1}"
 }
+
+
+variable "map" {
+  type = "map"
+
+  default {
+    a = 2
+    b = 3
+  }
+}
+
+output "map" {
+  value = "${var.map}"
+}
+
+
+variable "list" {
+  type = "list"
+
+  default = [
+    "1",
+    2
+  ]
+}
+
+output "list" {
+  value = "${var.list}"
+}

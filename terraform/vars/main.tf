@@ -25,8 +25,37 @@ output "test_var2" {
 
 module "abc" {
   source = "../module"
+  map = "${var.map}"                  # Change the value of a map inside module by providing a variable defined in this app
+  list = "${var.list}"
 }
 
 output "test_var_in_module" {
   value = "${module.abc.origin}"
+}
+
+
+variable "map" {
+  type = "map"
+
+  default {
+    a = 1
+    b = 2
+  }
+}
+
+output "test_map" {
+  value = "${module.abc.map}"
+}
+
+variable "list" {
+  type = "list"
+
+  default = [
+    5,
+    6
+  ]
+}
+
+output "test_list" {
+  value = "${module.abc.list}"
 }
