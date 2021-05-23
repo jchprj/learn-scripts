@@ -1,0 +1,33 @@
+<!-- [jQuery.get() | jQuery API Documentation](https://api.jquery.com/jquery.get/) -->
+<!-- [jQuery.post() | jQuery API Documentation](https://api.jquery.com/jquery.post/) -->
+
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    </head>
+    <body>
+        <script>
+            $(document).ready(function() {
+                document.write("GET https://pie.dev/get<br /><br />");
+                $.get("https://pie.dev/get", function(data, status){
+                    document.write("Get response:<br />");
+                    document.write("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+                    document.write("<br /><br />");
+                });
+
+                document.write("POST: https://pie.dev/post<br /><br />");
+                $.post("https://pie.dev/post",
+                    {
+                        name: "Donald Duck",
+                        city: "Duckburg"
+                    },
+                    function(data, status){
+                        document.write("Post response:<br />");
+                        document.write("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+                        document.write("<br /><br />");
+                    }
+                );
+            } );
+        </script>
+    </body>
+</html>
