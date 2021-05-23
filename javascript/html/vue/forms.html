@@ -72,7 +72,8 @@
     </div>
 
     <div style="margin-top: 50px;">
-        
+        <!-- https://forum.vuejs.org/t/how-to-disable-button/27840 -->
+        <button :disabled="!buttonEnabled">Do</button>
     </div>
 </div>
 
@@ -84,6 +85,7 @@
                 checkedNames: [],
                 picked: "",
                 selected: "",
+                buttonEnabled: false,
                 options: [
                     { text: 'One', value: 'A' },
                     { text: 'Two', value: 'B' },

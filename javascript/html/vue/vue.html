@@ -1,4 +1,5 @@
 <!-- https://v3.vuejs.org/guide/introduction.html#declarative-rendering -->
+<!-- https://v3.vuejs.org/guide/data-methods.html -->
 <head></head>
 
 <script src="https://unpkg.com/vue@next"></script>
@@ -18,9 +19,17 @@
             setInterval(() => {
                 this.counter++
             }, 1000)
+        },
+        methods: {
+            increment() {
+                // `this` will refer to the component instance
+                this.counter += 10
+            }
         }
     }
 
-    Vue.createApp(CounterApp).mount('#counter')
+    const vm = Vue.createApp(CounterApp).mount('#counter')
+    vm.counter = 100
+    vm.increment()
     
 </script>
