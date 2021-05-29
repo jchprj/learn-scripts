@@ -1,3 +1,8 @@
+# https://docs.python-requests.org/en/master/
+# Requests: HTTP for Humans™
+# Author: https://kenreitz.org/
+
+
 # https://stackoverflow.com/questions/21965484/timeout-for-python-requests-get-entire-response
 
 import requests, urllib3
