@@ -1,7 +1,7 @@
 # https://linux.die.net/man/1/comm
-# comm -12 file1 file2
+# comm -12 file1 file2
 # 	Print only lines present in both file1 and file2.
-# comm -3 file1 file2 
+# comm -3 file1 file2 
 #   Print lines in file1 not in file2, and vice versa.
 
 # -1
