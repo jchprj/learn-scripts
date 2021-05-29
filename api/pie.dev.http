@@ -1,0 +1,67 @@
+### https://pie.dev/
+### A simple HTTP Request & Response Service.
+### the developer - Website: https://kennethreitz.org/
+
+### GET
+GET http://pie.dev/get
+guid: {{$guid}}
+
+### GET with status code
+GET http://pie.dev/status/404
+guid: {{$guid}}
+
+### GET with status code
+GET http://pie.dev/status/503
+guid: {{$guid}}
+
+### Returns the requester's IP Address.
+GET http://pie.dev/ip
+guid: {{$guid}}
+
+### Returns a simple HTML document.
+GET http://pie.dev/html
+guid: {{$guid}}
+
+### Returns a simple XML document.
+GET http://pie.dev/xml
+guid: {{$guid}}
+
+### Returns a delayed response (max of 10 seconds).
+GET http://pie.dev/delay/2
+guid: {{$guid}}
+
+### Return a UUID4.
+GET http://pie.dev/uuid
+guid: {{$guid}}
+
+### Returns a simple image of the type suggest by the Accept header.
+GET http://pie.dev/image
+guid: {{$guid}}
+
+### Returns a simple image of the type suggest by the Accept header.
+GET http://pie.dev/redirect-to?url=https://ifconfig.co&status_code=500
+guid: {{$guid}}
+
+### Returns anything passed in request data.
+GET http://pie.dev/anything
+guid: {{$guid}}
+
+
+### POST
+POST http://pie.dev/post
+guid: {{$guid}}
+
+
+### DELETE
+DELETE http://pie.dev/delete
+guid: {{$guid}}
+
+
+### PATCH
+PATCH http://pie.dev/patch
+guid: {{$guid}}
+
+
+### PUT
+PUT http://pie.dev/put
+guid: {{$guid}}
