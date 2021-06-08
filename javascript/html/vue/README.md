@@ -4,6 +4,9 @@ Vue (pronounced /vjuː/, like view) is a progressive framework for building u
 
 From <https://vuejs.org/v2/guide/> 
 
+
+[The Vue Instance — Vue.js](https://vuejs.org/v2/guide/instance.html)
+
 # Issueus
 
 * If conflict with Go template syntax

@@ -1,0 +1,97 @@
+<!-- https://v3.vuejs.org/guide/component-basics.html -->
+<head>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="components-demo">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+    <hr />
+    <div id="blog-post-demo" class="demo">
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Blogging with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post>
+    </div>
+    <hr />
+    <div id="blog-posts-events-demo" class="demo">
+        <div :style="{ fontSize: postFontSize + 'em' }">
+          <blog-post
+             v-for="post in posts"
+             :key="post.id"
+             :title="post.title"
+             @enlarge-text="postFontSize += 0.1"
+             @enlarge-text-with-value="onEnlargeText"
+             @reset-text-size="postFontSize=1"
+          ></blog-post>
+        </div>
+    </div>
+    <script>
+        // Create a Vue application
+        const app = Vue.createApp({})
+
+        // Define a new global component called button-counter
+        app.component('button-counter', {
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            template: `
+                <button @click="count++">
+                You clicked me {{ count }} times.
+                </button>`
+        })
+        app.mount('#components-demo')
+
+        const app2 = Vue.createApp({})
+
+        app2.component('blog-post', {
+            props: ['title'],
+            template: `<h4>{{ title }}</h4>`
+        })
+
+        app2.mount('#blog-post-demo')
+
+
+        const app3 = Vue.createApp({
+            data() {
+                return {
+                    posts: [
+                        { id: 1, title: 'My journey with Vue'},
+                        { id: 2, title: 'Blogging with Vue'},
+                        { id: 3, title: 'Why Vue is so fun'}
+                    ],
+                    postFontSize: 1
+                }
+            },
+            methods: {
+                onEnlargeText(enlargeAmount) {
+                    this.postFontSize += enlargeAmount
+                }
+            }
+        })
+
+        app3.component('blog-post', {
+            props: ['title'],
+            template: `
+                <div class="blog-post">
+                <h4>{{ title }}</h4>
+                <button @click="$emit('enlargeText')">
+                    Enlarge text
+                </button>
+                <button @click="$emit('enlargeTextWithValue', 1)">
+                    Enlarge text with value
+                </button>
+                <button @click="$emit('resetTextSize')">
+                    Reset text size
+                </button>
+                </div>
+            `
+        })
+
+        app3.mount('#blog-posts-events-demo')
+    </script>
+</body>
