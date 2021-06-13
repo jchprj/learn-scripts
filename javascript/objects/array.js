@@ -68,3 +68,11 @@ arr1.flatMap(x => [x * 2]);
 // only one level is flattened
 arr1.flatMap(x => [[x * 2]]);
 // [[2], [4], [6], [8]]
+
+
+// https://www.w3schools.com/jsref/jsref_concat_array.asp
+// This method does not change the existing arrays, but returns a new array, containing the values of the joined arrays.
+var hege = ["Cecilie", "Lone"];
+var stale = ["Emil", "Tobias", "Linus"];
+var kai = ["Robin"];
+var children = hege.concat(stale, kai); 
