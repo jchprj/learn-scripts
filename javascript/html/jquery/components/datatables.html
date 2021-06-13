@@ -1,0 +1,201 @@
+<!-- 
+    DataTables | Table plug-in for jQuery
+    https://datatables.net/
+-->
+
+
+<!-- 
+    Custom filtering
+    https://datatables.net/examples/plug-ins/range_filtering.html
+    DataTables provides an API method to add your own search functions, $.fn.dataTable.ext.search. This is an array of functions (push your own onto it) which will will be run at table draw time to see if a particular row should be included or not. 
+
+    Select columns
+    https://datatables.net/extensions/buttons/examples/column_visibility/columns.html
+
+    jQuery DataTables: How to select columns
+    https://www.gyrocode.com/articles/jquery-datatables-how-to-select-columns/
+-->
+
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+    </head>
+    <body>
+        <button onclick="loadLocalData()">Load local data</button>
+        <button onclick="loadRemoteData()">Load remote data</button>
+        <button onclick="loadRemoteData2()">Load remote data 2</button>
+        <button onclick="destroy()">Destroy table</button>
+        <br />
+        <button onclick="addRowSelector()">Add row selector</button>
+        <button onclick="removeRowSelector()">Remove row selector</button>
+        <button onclick="deselectAll()">Deselect all selected rows</button>
+        <table id="example" class="display" width="100%"></table>
+        <script>
+            var table
+            function destroy() {
+                if ($.fn.DataTable.isDataTable(table)) {
+                    table.clear()
+                    table.destroy()
+                    table = null
+                }
+                $("#example").html("")
+            }
+
+            // https://stackoverflow.com/questions/35319960/deselect-all-selected-rows-in-datatables
+            function deselectAll() {
+                table     
+                    .rows( '.selected' )
+                    .nodes()
+                    .to$()
+                    .removeClass( 'selected' );
+
+            }
+
+            // https://datatables.net/reference/type/row-selector
+            function addRowSelector() {
+                $('#example').on( 'click', 'tr', function () {
+                    var col1 = $(this).closest('tr').find("td")[0].innerHTML;
+                    var col2 = $(this).closest('tr').find("td")[1].innerHTML;
+                    // alert(col1, col2);
+                    if ( $(this).hasClass('selected') ) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                        table.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                    console.log(col1, col2)
+                } );
+            }
+
+            // https://datatables.net/examples/data_sources/js_array.html
+            var dataSet = [
+                [ "Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800" ],
+                [ "Garrett Winters", "Accountant", "Tokyo", "8422", "2011/07/25", "$170,750" ],
+                [ "Ashton Cox", "Junior Technical Author", "San Francisco", "1562", "2009/01/12", "$86,000" ],
+                [ "Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "6224", "2012/03/29", "$433,060" ],
+                [ "Airi Satou", "Accountant", "Tokyo", "5407", "2008/11/28", "$162,700" ],
+                [ "Brielle Williamson", "Integration Specialist", "New York", "4804", "2012/12/02", "$372,000" ],
+                [ "Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "2012/08/06", "$137,500" ],
+                [ "Rhona Davidson", "Integration Specialist", "Tokyo", "6200", "2010/10/14", "$327,900" ],
+                [ "Colleen Hurst", "Javascript Developer", "San Francisco", "2360", "2009/09/15", "$205,500" ],
+                [ "Sonya Frost", "Software Engineer", "Edinburgh", "1667", "2008/12/13", "$103,600" ],
+                [ "Jena Gaines", "Office Manager", "London", "3814", "2008/12/19", "$90,560" ],
+                [ "Quinn Flynn", "Support Lead", "Edinburgh", "9497", "2013/03/03", "$342,000" ],
+                [ "Charde Marshall", "Regional Director", "San Francisco", "6741", "2008/10/16", "$470,600" ],
+                [ "Haley Kennedy", "Senior Marketing Designer", "London", "3597", "2012/12/18", "$313,500" ],
+                [ "Tatyana Fitzpatrick", "Regional Director", "London", "1965", "2010/03/17", "$385,750" ],
+                [ "Michael Silva", "Marketing Designer", "London", "1581", "2012/11/27", "$198,500" ],
+                [ "Paul Byrd", "Chief Financial Officer (CFO)", "New York", "3059", "2010/06/09", "$725,000" ],
+                [ "Gloria Little", "Systems Administrator", "New York", "1721", "2009/04/10", "$237,500" ],
+                [ "Bradley Greer", "Software Engineer", "London", "2558", "2012/10/13", "$132,000" ],
+                [ "Dai Rios", "Personnel Lead", "Edinburgh", "2290", "2012/09/26", "$217,500" ],
+                [ "Jenette Caldwell", "Development Lead", "New York", "1937", "2011/09/03", "$345,000" ],
+                [ "Yuri Berry", "Chief Marketing Officer (CMO)", "New York", "6154", "2009/06/25", "$675,000" ],
+                [ "Caesar Vance", "Pre-Sales Support", "New York", "8330", "2011/12/12", "$106,450" ],
+                [ "Doris Wilder", "Sales Assistant", "Sydney", "3023", "2010/09/20", "$85,600" ],
+                [ "Angelica Ramos", "Chief Executive Officer (CEO)", "London", "5797", "2009/10/09", "$1,200,000" ],
+                [ "Gavin Joyce", "Developer", "Edinburgh", "8822", "2010/12/22", "$92,575" ],
+                [ "Jennifer Chang", "Regional Director", "Singapore", "9239", "2010/11/14", "$357,650" ],
+                [ "Brenden Wagner", "Software Engineer", "San Francisco", "1314", "2011/06/07", "$206,850" ],
+                [ "Fiona Green", "Chief Operating Officer (COO)", "San Francisco", "2947", "2010/03/11", "$850,000" ],
+                [ "Shou Itou", "Regional Marketing", "Tokyo", "8899", "2011/08/14", "$163,000" ],
+                [ "Michelle House", "Integration Specialist", "Sydney", "2769", "2011/06/02", "$95,400" ],
+                [ "Suki Burks", "Developer", "London", "6832", "2009/10/22", "$114,500" ],
+                [ "Prescott Bartlett", "Technical Author", "London", "3606", "2011/05/07", "$145,000" ],
+                [ "Gavin Cortez", "Team Leader", "San Francisco", "2860", "2008/10/26", "$235,500" ],
+                [ "Martena Mccray", "Post-Sales support", "Edinburgh", "8240", "2011/03/09", "$324,050" ],
+                [ "Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675" ]
+            ]
+            function loadLocalData() {
+                destroy()
+                table = $("#example").DataTable( {
+                    data: dataSet,
+                    columns: [
+                        { title: "Name" },
+                        { title: "Position" },
+                        { title: "Office" },
+                        { title: "Extn." },
+                        { title: "Start date" },
+                        { title: "Salary" }
+                    ],
+                    /* https://stackoverflow.com/questions/11006402/initialize-search-input-in-jquery-datatables
+                        $(document).ready( function() {  
+                            $('#example').dataTable( {    
+                                "oSearch": {"sSearch": "Initial search"}  
+                            } );
+                        } )
+                    */
+                    "oSearch": {"sSearch": "200"}
+                } )
+            }
+
+            // https://stackoverflow.com/questions/15786572/call-a-function-in-success-of-datatable-ajax-call
+            function loadRemoteData() {
+                destroy()
+                table = $("#example").DataTable( {
+                    "pageLength": 30,
+                    columns: [
+                        { title: "Name" },
+                        { title: "Position" },
+                        { title: "Office" },
+                        { title: "Extn." },
+                        { title: "Start date" },
+                        { title: "Salary" }
+                    ],
+                    "ajax":{
+                        url: "arrays.txt",
+                        dataType: "json",
+                        type: "get",
+                        // type: "post",
+                        // "data": {data to be sent}
+                    },        
+                    "initComplete":function( settings, json){
+                        console.log(json)
+                        // call your function here
+                    }
+                } )
+            }
+
+
+            // https://medium.com/code-kings/datatables-js-how-to-modify-your-returned-ajax-json-data-before-sending-it-to-your-html-table-24a92244bc40
+            // How to modify your returned AJAX JSON data before sending it to your HTML table
+            function loadRemoteData2() {
+                destroy()
+                table = $("#example").DataTable( {
+                    //'deferRender': false,
+                    'ajax'       : {
+                        "type"   : "GET",
+                        "url"    : "arrays.txt",
+                        "dataSrc": function (json) {
+                            console.log(json)
+                            json = json.data
+                            var return_data = []
+                            for(var i = 0; i < json.length; i++){
+                                console.log(json[i])
+                                return_data.push({
+                                    'col1': json[i][0],
+                                    'col2'  : json[i][1],
+                                    'col3' : json[i][2]
+                                })
+                            }
+                            return return_data
+                        }
+                    },
+                    "columns" : [
+                        {'data': 'col1'},
+                        {'data': 'col2'},
+                        {'data': 'col3'}
+                    ],
+
+                    // https://gist.github.com/kagemusha/1568446
+                    // Show/Hide controls
+                    "bPaginate": false,  //hide pagination control
+                    "bFilter": false     //hide filter control
+                } )
+            }
+        </script>
+    </body>
+</html>
