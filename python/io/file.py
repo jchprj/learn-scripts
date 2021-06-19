@@ -1,10 +1,23 @@
-import os, json
+import os, json, io
 
-filename = "test.json" 
+
+filename = "file.json" 
+print(filename)
+
+# https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions
+import os.path
+print("os.path.isfile: {}".format(os.path.isfile(filename)))
+from pathlib import Path
+my_file = Path(filename)
+print("is_file: {}".format(my_file.is_file()))
+print("is_dir: {}".format(my_file.is_dir()))
+print("exists: {}".format(my_file.exists()))
+
+
 with open(filename, encoding='utf-8') as data_file:    
     data = json.load(data_file)
 print(data)
-with open('test.json', 'r') as reader:
+with open(filename, 'r') as reader:
     lines = reader.readlines()
 print(lines)
 
