@@ -1,8 +1,24 @@
-var a = 1
+var aa = 1
 // simple name in template:
-val s1 = "a is $a" 
+val s1 = "aa is $aa" 
 println(s1)
-a = 2
+aa = 2
 // arbitrary expression in template:
-val s2 = "${s1.replace("is", "was")}, but now is $a"
+val s2 = "${s1.replace("is", "was")}, but now is $aa"
 println(s2)
+
+
+// https://stackoverflow.com/questions/44188240/kotlin-how-to-correctly-concatenate-a-string
+val a = "Hello"
+val b = "World"
+val c = "$a $b"
+println(c)
+
+val sb = StringBuilder()
+sb.append(a).append(b)
+val c2 = sb.toString()
+println(c2)
+
+// string interpolation uses StringBuilder internally ???
+val c3 = a + b
+println(c3)
