@@ -10,6 +10,12 @@ Other pure Kotlin scripts could be run by `kotlinc`, if installed could also dir
 
 https://github.com/holgerbrandl/kscript
 
+Install kscript or use Docker to run:
+
+```
+docker run -i holgerbrandl/kscript - < kscript.kts
+```
+
 ### Requirements
 * Java 8 (unavailable in higher version)
 * Bash (unavailable in Windows cmd)

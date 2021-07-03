@@ -119,6 +119,23 @@
                 "cwd": "${fileDirname}/"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "docker kscript",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "holgerbrandl/kscript",
+                "-",
+                "<",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}/"
+            },
+            "problemMatcher": []
         }
     ]
 }
