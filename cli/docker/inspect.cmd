@@ -1,0 +1,1 @@
+docker inspect temp_test
