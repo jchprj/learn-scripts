@@ -7,9 +7,15 @@ import java.time.format.FormatStyle;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.text.*;
+import java.sql.Timestamp;
 
 public class test {
     public static void main (String[] args) throws Exception {
+        formatDatetime();
+        convertTimestamp();
+    }
+
+    public static void formatDatetime() throws Exception {
         TimeZone tz = TimeZone.getTimeZone("Asia/Calcutta");
         Calendar cal = Calendar.getInstance(tz);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
@@ -23,5 +29,15 @@ public class test {
 
         LocalDateTime localDateTime2 = LocalDateTime.parse("2018-01-28T13:42:17Z", DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'"));
         System.out.println(localDateTime2);
+    }
+
+    // https://stackoverflow.com/questions/21162753/jdbc-resultset-i-need-a-getdatetime-but-there-is-only-getdate-and-gettimestamp/21163453
+    public static void convertTimestamp() {
+        Long t = 946684800000L; //Date and time (GMT): Saturday, January 1, 2000 12:00:00 AM
+        Timestamp timestamp = new Timestamp(t);
+        System.out.println(timestamp.getTime());
+        java.util.Date date = new java.util.Date(timestamp.getTime());
+        System.out.println(date);
+        System.out.println(date.getTime());
     }
 }
