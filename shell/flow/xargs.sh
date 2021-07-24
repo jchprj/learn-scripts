@@ -15,3 +15,7 @@ echo prefix | xargs -I % echo % post
 
 # https://stackoverflow.com/questions/6958689/running-multiple-commands-with-xargs
 echo abc | xargs -I {} sh -c "echo {} && echo more {}"
+
+
+# https://stackoverflow.com/questions/3737740/is-there-a-better-way-to-run-a-command-n-times-in-bash
+seq 20 | xargs -I{} echo "Hi there"
