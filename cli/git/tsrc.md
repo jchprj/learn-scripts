@@ -22,6 +22,11 @@ Sync all repositories.
 tsrc sync
 ```
 
+Sync specific group repositories.
+```
+tsrc sync --group group_name
+```
+
 [Basic usage - tsrc documentation](https://dmerejkowsky.github.io/tsrc/guide/basics/)
 
 
