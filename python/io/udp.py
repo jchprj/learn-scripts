@@ -2,9 +2,9 @@
 
 import socket
 
-UDP_IP = "ping.online.net"
-UDP_PORT = 5001
-MESSAGE = "test"
+UDP_IP = "localhost"
+UDP_PORT = 8125
+MESSAGE = "foo:1|c"         # [{counter, foo, 1.000000, , }]
 
 print("UDP target IP:", UDP_IP)
 print("UDP target port:", UDP_PORT)

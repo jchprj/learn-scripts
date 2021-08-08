@@ -20,3 +20,17 @@ row = cursor.fetchone()
 while row: 
     print(row[0])
     row = cursor.fetchone()
+
+
+
+# https://stackoverflow.com/questions/16515420/connecting-to-ms-sql-server-with-windows-authentication-using-python
+
+conn_str = (
+    r'Driver=SQL Server;'
+    r'Server=.\SQLEXPRESS;'
+    r'Database=myDB;'
+    r'Trusted_Connection=yes;'
+)
+cnxn = pyodbc.connect(conn_str)
+
+cnxn = pyodbc.connect(driver='{SQL Server}', server='localhost', database='test', trusted_connection='yes')
