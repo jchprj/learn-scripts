@@ -1,6 +1,6 @@
 # https://stackoverflow.com/questions/11451101/retrieving-data-from-sql-using-pyodbc
 
-import pyodbc as cnn
+import pyodbc
 import pandas as pd
 
 cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=SQLSRV01;DATABASE=DATABASE;UID=USER;PWD=PASSWORD')

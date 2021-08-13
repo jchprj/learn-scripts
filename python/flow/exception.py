@@ -27,3 +27,11 @@ try :
     a.run()
 except:
     print(sys.exc_info())
+
+
+# https://stackoverflow.com/questions/574730/python-how-to-ignore-an-exception-and-proceed
+try :
+    a.run()
+except:
+    pass
+print("end")
