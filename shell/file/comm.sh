@@ -4,6 +4,12 @@
 # comm -3 file1 file2 
 #   Print lines in file1 not in file2, and vice versa.
 
+
+
+# With no options, produce three-column output.  Column one contains
+# lines unique to FILE1, column two contains lines unique to FILE2,
+# and column three contains lines common to both files.
+
 # -1
 # 	suppress column 1 (lines unique to FILE1)
 # -2
