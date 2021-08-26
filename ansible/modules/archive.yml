@@ -1,0 +1,10 @@
+# https://docs.ansible.com/ansible/latest/collections/community/general/archive_module.html
+
+--- 
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Compress directory path into dest
+    archive:
+      path: ./
+      dest: temp_test.tgz

@@ -1,0 +1,16 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
+
+--- 
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Ensure temp_test exists
+    file:
+      path: temp_test
+      state: directory
+  - name: Compress directory path into dest
+    unarchive:
+      src: ./temp_test.tgz
+      # https://github.com/ansible/ansible/issues/64612 
+      # The unarchive module fails with a relative path for dest
+      dest: ./temp_test
