@@ -24,6 +24,13 @@ else
 fi
 
 # http://www.linuxproblem.org/art_9.html
-
 ssh-keygen
 cat .ssh/id_rsa.pub | ssh b@B 'cat >> .ssh/authorized_keys'
+
+
+
+# https://superuser.com/questions/457316/how-to-remove-connection-to-xx-xxx-xx-xxx-closed-message
+ssh -o LogLevel=QUIET -t $SSH "
+      some 
+      commands
+"
