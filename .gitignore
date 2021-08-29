@@ -17,3 +17,6 @@ temp_test.*
 *.retry
 .terraform*
 terraform.tfstate*
+.packages
+.dart_tool
+build
