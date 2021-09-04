@@ -1,5 +1,13 @@
 # Inventory
 
+[Ansible with multiple inventory files | Allan Denot](https://allandenot.com/devops/2015/01/16/ansible-with-multiple-inventory-files.html)
+
+Inventory as a folder
+```
+ansible-playbook -i inventory my_playbook.yml 
+```
+
+
 [python - Ansible multiple hosts with port forwarding - Stack Overflow](https://stackoverflow.com/questions/26527458/ansible-multiple-hosts-with-port-forwarding)
 
 ```
@@ -65,3 +73,4 @@ ansible all -i dynamic -m ping
 ```
 
 Could use any executable as long as the output is the JSON struct
+
