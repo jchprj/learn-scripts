@@ -121,6 +121,18 @@
             "problemMatcher": []
         },
         {
+            "label": "gradle build",
+            "type": "shell",
+            "command": "gradle",
+            "args": [
+                "build"
+            ],
+            "options": {
+                "cwd": "${fileDirname}/"
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "docker kscript",
             "type": "shell",
             "command": "docker",

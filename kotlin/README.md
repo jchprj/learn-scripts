@@ -1,4 +1,7 @@
-## How to run this folder in VS Code
+## How to run junit folder in VS Code
+Use task `gradle build`, it will run the tests. If any test is failed, the build will fail.
+
+## How to run other folders in VS Code
 
 1. Open VS Code
 2. Open a `.kt` file in a Maven or Gradle project in the sub folder of this folder

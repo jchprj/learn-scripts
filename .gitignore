@@ -20,3 +20,5 @@ terraform.tfstate*
 .packages
 .dart_tool
 build
+.gradle
+.kotlintest
