@@ -37,3 +37,9 @@ val grim = regex2.replace(beautiful, "dark")
 println(grim)
 val shiny = regex.replaceFirst(beautiful, "rainbow")
 println(shiny)
+
+// https://stackoverflow.com/questions/59166654/kotlin-regexp-matching-parenthesis-content
+val m = """\(([^()]*)\)""".toRegex()
+val text = "aaaa (ferf ) veffef (frr) refef" 
+val results =  m.findAll(text).map{it.groupValues[1]}.toList()
+println(results)
