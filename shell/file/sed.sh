@@ -35,6 +35,13 @@ sed -i 's/original/new/g' temp_test
 # 		○ new = the text to replace it with
 # 		○ g = global (i.e. replace all and not just the first occurrence)
 # 	• temp_test = the file name
+
+# https://askubuntu.com/questions/76808/how-do-i-use-variables-in-a-sed-command
+# Using double quotes
+sed -i "s/$var1/ZZ/g" "temp_test"
+sed -i 's/"$var1"/ZZ/g' "temp_test"
+
+
 echo; echo -------- cat temp_test
 cat temp_test
 
