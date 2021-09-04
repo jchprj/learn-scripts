@@ -1,8 +1,14 @@
 # Demo project for Maven CLI
 This project is created by:
 ```
-spring init --dependencies=web,data-jpa --build=maven --java-version=11 -l kotlin mvn
+spring init --dependencies=web,data-jpa --build=maven --java-version=11 -l kotlin mvnff
 ```
+
+## Run
+```
+mvnw spring-boot:run
+```
+
 ## Settings
 
 ```
