@@ -30,6 +30,10 @@ curl -w "@curl-format.txt" -o /dev/null -s "http://wordpress.com/"
 # curl -w "@curl-format.txt" -o NUL -s "http://wordpress.com/"
 
 
+# https://serverfault.com/questions/919036/return-only-a-http-status-code-from-curl-command
+# Return only a HTTP status code from curl command
+curl -s -o /dev/null -w "%{http_code}" https://httpstat.us/500
+
 # https://stackoverflow.com/questions/13339469/how-to-include-an-character-in-a-bash-curl-statement
 # How to include an '&' character in a bash curl statement
 # Putting the entire URL inside double quotes should take care of your problem
