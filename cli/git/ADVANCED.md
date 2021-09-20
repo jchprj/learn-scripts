@@ -42,17 +42,6 @@ git revert <commit hash>
 From <https://code.likeagirl.io/how-to-undo-the-last-commit-393e7db2840b> 
 	This will add a new commit with opposite content to the specified commit
 
-## How to amend several commits in Git to change author
-
-git rebase -i HEAD~4 -x "git commit --amend --author 'Author Name <author.name@mail.com>' --no-edit"
-
-From <https://stackoverflow.com/questions/4981126/how-to-amend-several-commits-in-git-to-change-author/31669789#31669789> 
-
-git push --force
-
-
-
-
 
 
 
