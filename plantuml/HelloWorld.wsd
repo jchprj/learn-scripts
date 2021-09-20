@@ -1,6 +1,10 @@
+' https://stackoverflow.com/questions/38451956/how-do-i-color-a-single-arrow-in-a-plant-uml-component-diagram
+' https://stackoverflow.com/questions/10581848/plantuml-different-layouts
+
 @startuml HelloWorld
 
 skinparam linetype ortho
+left to right direction
 
 rectangle "PlantUML" {
     rectangle hello  [
@@ -8,7 +12,7 @@ rectangle "PlantUML" {
     ]
     rectangle "World<size:16><&globe></size>" as world
     hello ~r~> world: h
-    hello -r- world: i
+    hello -[#blue]- world: i
 }
 
 @enduml
