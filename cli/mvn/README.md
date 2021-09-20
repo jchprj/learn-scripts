@@ -1,7 +1,7 @@
 # Demo project for Maven CLI
 This project is created by:
 ```
-spring init --dependencies=web,data-jpa --build=maven --java-version=11 -l kotlin mvnff
+spring init --dependencies=web,data-jpa --build=maven --java-version=11 -l kotlin mvn
 ```
 
 ## Run
@@ -198,7 +198,11 @@ From <https://www.geekality.net/2013/09/12/maven-package-runtime-dependencies-in
 mvn package exec:exec
 ```
 
+[java - Maven package/install without test (skip tests) - Stack Overflow](https://stackoverflow.com/questions/7456006/maven-package-install-without-test-skip-tests)
 
+```
+mvn package -Dmaven.test.skip
+```
 
 # References
 
@@ -206,3 +210,25 @@ mvn package exec:exec
 - [Introduction to the Dependency Mechanism](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html) 
 - [Package-specific Lifecycles](https://books.sonatype.com/mvnref-book/reference/lifecycle-sect-package-specific.html)
 - [Dependency Scope](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
+
+
+
+# Getting Started
+
+### Reference Documentation
+For further reference, please consider the following sections:
+
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.4.5/maven-plugin/reference/html/)
+* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.4.5/maven-plugin/reference/html/#build-image)
+* [Spring Web](https://docs.spring.io/spring-boot/docs/2.4.5/reference/htmlsingle/#boot-features-developing-web-applications)
+* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.4.5/reference/htmlsingle/#boot-features-jpa-and-spring-data)
+
+### Guides
+The following guides illustrate how to use some features concretely:
+
+* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
+* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
+* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+
