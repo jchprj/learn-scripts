@@ -40,6 +40,8 @@ public class Config {
     public DataSource dataSource() {
         final DriverManagerDataSource dataSource = new DriverManagerDataSource()
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver")
+        // https://stackoverflow.com/questions/50911760/is-mariadb-jdbc-driver-ignoring-connection-timeout
+        // jdbc:mysql://localhost:1433/my-db?socketTimeout=2000
         dataSource.setUrl("jdbc:mariadb:aurora://localhost:3306/test?useLegacyDatetimeCode=false&serverTimezone=UTC")
         dataSource.setUsername("root")
         dataSource.setPassword("")
