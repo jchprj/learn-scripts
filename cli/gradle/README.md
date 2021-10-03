@@ -22,6 +22,12 @@ gradlew bootRun
 gradlew build
 ```
 
+## Publish
+To local
+```
+gradlew publishToMavenLocal
+```
+
 ## Java version
 
 - [How do I tell Gradle to use specific JDK version?](https://stackoverflow.com/questions/18487406/how-do-i-tell-gradle-to-use-specific-jdk-version)
