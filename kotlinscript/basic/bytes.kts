@@ -31,3 +31,13 @@ println(hex1)
 val bytes2 = longToUInt32ByteArray2(long)
 val hex2 = bytesToHex(bytes2)
 println(hex2)
+
+// https://stackoverflow.com/questions/4485128/how-do-i-convert-long-to-byte-and-back-in-java
+val buffer = ByteBuffer.allocate(Long.SIZE_BYTES);
+fun bytesToLong(bytes: ByteArray): Long {
+    buffer.put(bytes);
+    buffer.flip();//need flip 
+    return buffer.getLong();
+}
+val l = bytesToLong(bytes1)
+println(l)
