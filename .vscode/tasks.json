@@ -149,6 +149,24 @@
                 "cwd": "${fileDirname}/"
             },
             "problemMatcher": []
+        },
+        {
+            "label": "flutter clean & run",
+            "type": "shell",
+            "command": "flutter",
+            "args": [
+                "clean",
+                "&&",
+                "flutter",
+                "run",
+                "-d",
+                "chrome",
+                "-t",
+                "../../${relativeFileDirname}/${fileBasename}"
+            ],
+            "options": {
+                "cwd": "dart/flutter"
+            },
         }
     ]
 }
