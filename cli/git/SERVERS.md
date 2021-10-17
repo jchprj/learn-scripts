@@ -13,6 +13,16 @@ The below 3 all support edit files in browser.
 GitHub - go-gitea/gitea: Git with a cup of tea, painless self-hosted git service
 
 https://github.com/go-gitea/gitea
+### Migration
+
+https://try.gitea.io/api/swagger
+
+https://try.gitea.io/api/swagger#/repository/repoMigrate
+
+[API Usage - Docs](https://docs.gitea.io/en-us/api-usage/)
+
+[Jan-Piet Mens :: I mirror my Github repositories to Gitea](https://jpmens.net/2019/04/15/i-mirror-my-github-repositories-to-gitea/)
+
 
 ## gogs
 
