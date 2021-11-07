@@ -1,0 +1,34 @@
+# https://artillery.io/docs/guides/guides/http-reference.html#Loops
+config:
+  target: https://pie.dev
+  phases:
+    - duration: 1
+      arrivalRate: 1
+  defaults:
+    headers:
+      accept: application/json
+  tls:
+    rejectUnauthorized: false
+  variables:
+    productIds:
+      - ["300", "301", "302"]
+      - ["400", "401", "402"]
+
+scenarios:
+  - flow:
+    - loop:                         # https://artillery.io/docs/guides/guides/http-reference.html#Accessing-the-loop-count
+        - get:
+            url: "/bytes/{{ $loopCount }}"
+      count: 2                      # If the count option is omitted, the loop will run indefinitely.
+    - loop:
+        - get:
+            url: "/status/{{ $loopElement }}"
+      over:
+        - 201
+        - 202
+        - 203
+    - loop:
+        - get:
+            url: "/status/{{ $loopElement }}"
+      over: productIds              # https://artillery.io/docs/guides/guides/http-reference.html#Looping-through-an-array
+                                    # In this example, a virtual user will make one of the following three requests in their loop:

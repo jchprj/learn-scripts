@@ -1,0 +1,35 @@
+config:
+  target: https://pie.dev
+  http:
+    timeout: 3
+  phases:
+    - duration: 1
+      arrivalRate: 1
+  defaults:
+    headers:
+  tls:
+    rejectUnauthorized: false
+  payload:
+    # https://artillery.io/docs/guides/guides/test-script-reference.html#Payload-Files
+    # path is relative to the location of the test script
+    path: test.csv
+    delimiter: ","
+    cast: false           # (default: true) - By default, Artillery will convert fields to native types (e.g. numbers or booleans). To keep those fields as strings, set this option to false.
+    order: "sequence"
+    skipHeader: false
+    skipEmptyLines: true
+    fields:
+    - "field1"
+    - "field2"
+    - "field3"
+    - "field4"
+  processor: "./printStatus.js"
+
+scenarios:
+  - name: test
+    flow:
+      - post:
+          url: "/post"
+          sslAuth: false
+          afterResponse: afterResponse
+          body: "{\"test\": \"{{ field1 }}\"}"

@@ -1,5 +1,5 @@
 config:
-  target: https://ifconfig.co
+  target: https://pie.dev
   http:
     timeout: 2
   phases:
@@ -13,10 +13,12 @@ config:
 
 scenarios:
   - flow:
-      parallel:                           # https://github.com/artilleryio/artillery-core/blob/master/test/scripts/parallel.json
+      - parallel:                           # https://github.com/artilleryio/artillery-core/blob/master/test/scripts/parallel.json
+        - count: 2
+          loop:
+          - get:
+              url: "/status/200"
+              sslAuth: false
         - get:
-            url: "/json"
-            sslAuth: false
-        - get:
-            url: "/json"
+            url: "/status/400"
             sslAuth: false

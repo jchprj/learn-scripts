@@ -1,30 +1,37 @@
 config:                             # https://artillery.io/docs/guides/guides/test-script-reference.html#The-config-Section
-  target: https://ifconfig.co
+  target: https://pie.dev
+  ensure:                           # https://artillery.io/docs/guides/guides/test-script-reference.html#Latency
+    p95: 1000                       # Artillery will exit with a non-zero exit code if the aggregate p95 is over 200 milliseconds.
+                                    # In milliseconds, aggregate latency for min, max, median, p95, and p99.
+    maxErrorRate: 1                 # Artillery exit with a non-zero exit code if the total error rate exceeded 1%.
   http:
-    timeout: 0.5                    # a number (in seconds) https://artillery.io/docs/http-reference/#request-timeout
+    timeout: 3                      # a number (in seconds) https://artillery.io/docs/http-reference/#request-timeout
   phases:                           # https://artillery.io/docs/guides/guides/test-script-reference.html#Load-Phases
                                     # A phase with a duration and a constant arrival rate of a number of new VUs per second.
-    - duration: 3
-      arrivalRate: 2
+    - duration: 1
+      arrivalRate: 1
   defaults:
     headers:
+      accept: application/json
   tls:
     rejectUnauthorized: false
   variables:                        # https://artillery.io/docs/guides/guides/test-script-reference.html
-    path_for_test: /json
+    path_for_post: /post
   processor: "./printStatus.js"     # https://github.com/artilleryio/artillery/issues/650
                                     # how to log entire response (at least statusCode & body)
 scenarios:
   - name: test
-    beforeScenario: before          # https://artillery.io/docs/http-reference/#setting-scenario-level-hooks
+    weight: 1                       # Scenario weights are optional and set to 1 by default, meaning each scenario has the same probability of getting picked.
+    beforeScenario: beforeScenario  # https://artillery.io/docs/http-reference/#setting-scenario-level-hooks
                                     # https://spectrum.chat/artillery-io/general/run-js-function-before-scenario-and-add-context~18ea31cb-778f-4840-af2d-f19de8e12337
     flow:
       - get:
-          url: "/json"
+          url: "/get"
           sslAuth: false            # https://artillery.io/docs/guides/plugins/plugin-ssl-client-certificate-auth.html#Disabling-SSL-auth-selectively
-          afterResponse: "printStatus"
+          afterResponse: afterResponse
       - post:
-          url: "{{path_for_test}}"
+          url: "{{path_for_post}}"
           sslAuth: false
+          beforeRequest: beforeRequest
           body: >                   # https://artillery.io/docs/guides/guides/http-reference.html#GET-POST-PUT-PATCH-DELETE-requests
             {}
