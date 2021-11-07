@@ -1,0 +1,9 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
+
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Change the working directory to somedir/ before executing the command
+      shell: echo abc >> temp_test.txt
+      args:
+        chdir: ../modules/
