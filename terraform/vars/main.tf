@@ -56,6 +56,20 @@ variable "list" {
   ]
 }
 
-output "test_list" {
+variable "test_list" {
+  type = "list"
+
+  default = [
+    7,
+    8
+  ]
+}
+
+output "module_list" {
   value = "${module.abc.list}"
 }
+
+output "concat_list" {
+  value =["${var.list}", "${var.test_list}"]
+}
+

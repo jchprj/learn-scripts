@@ -1,6 +1,7 @@
 # https://www.terraform.io/docs/configuration-0-11/outputs.html
 # https://stackoverflow.com/questions/63589952/terraform-range-function-to-start-from-1-instead-of-0
 # https://www.terraform.io/docs/language/expressions/splat.html
+# https://www.terraform.io/docs/language/functions/concat.html
 
 variable "list" {
   type = "list"
@@ -26,6 +27,22 @@ variable "images" {
     }
   ]
 }
+
+# https://discuss.hashicorp.com/t/working-with-list-of-maps/3675
+variable "images1" {
+  type = set(object({
+      name = string
+  }))
+  default = [
+    {
+    "name" = "image-78"
+    },
+    {
+    "name" = "image-90"
+    }
+  ]
+}
+
 variable "nodes" {
   default = 5
 }
@@ -40,7 +57,7 @@ locals {
   node_range2 = range(1, var.nodes + 1)
   node_range3 = ["${var.images[*].name}"]
   # or https://www.terraform.io/docs/configuration-0-11/interpolation.html
-  node_range4 = ["${var.images.*.name}"]
+  node_range4 = [concat("${var.images.*.name}", "${var.images1.*.name}")]
 }
 
 
