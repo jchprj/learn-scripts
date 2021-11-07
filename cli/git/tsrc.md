@@ -10,6 +10,17 @@ repos:
 
  -  url: git@example.com/bar.git
     dest: bar
+
+
+groups:
+
+  default:
+    repos: [git@example.com/bar.git]
+    includes: [test_group]
+
+  test_group:
+    repos: [git@example.com/foo.git]
+
 ```
 
 Init in any folder as workspace, all repos are inside it.
