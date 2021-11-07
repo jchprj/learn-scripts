@@ -3,3 +3,7 @@
 
 stat -c "%a %n" /etc/ssh/sshd_config
 stat -c "%a %n" ../
+
+
+
+stat /etc/ssh/sshd_config

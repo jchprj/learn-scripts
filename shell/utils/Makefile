@@ -4,7 +4,15 @@
 #    command
 #    command
 #    command
-   
+
+# In Makefile, seems indentention must use tabs instead of spaces
+
+# https://stackoverflow.com/questions/2019989/how-to-assign-the-output-of-a-command-to-a-makefile-variable
+MY_VAR := $(shell echo whatever)
+all:
+	@echo MY_VAR IS $(MY_VAR)
+
+
 temp_test: temp_test.o
 	cc temp_test.o -o temp_test
 
