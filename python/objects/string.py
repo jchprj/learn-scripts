@@ -14,7 +14,7 @@ print("ad".index("d"))    # False
 a = "hello"
 b = "welcome to the jungle"
 c = "10.000"
-
+print(a[0:4])
 print(a.zfill(10))          # 00000hello
 print(b.zfill(10))          # welcome to the jungle
 print(c.zfill(10))          # 000010.000

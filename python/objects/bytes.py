@@ -16,3 +16,9 @@ aa = binascii.hexlify(bytearray(b"a"))
 print(aa)
 bb = aa.decode("ascii")
 print(bb)
+
+
+# https://stackoverflow.com/questions/13857856/split-byte-string-into-lines/15095537
+a = b'asdf\nasdf'
+aaa = a.split(b'\n')
+print(aaa)

@@ -19,3 +19,6 @@ copia(tableResult)
 # Or create a Excel file with the results
 df=pd.DataFrame(tableResult)
 df.to_excel("FileExample.xlsx",sheet_name='Results')
+
+
+# https://stackoverflow.com/questions/54039093/pandas-to-sql-insert-ignore

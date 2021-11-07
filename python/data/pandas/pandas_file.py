@@ -31,3 +31,16 @@ d = pd.read_html("test.csv.htm")
 # 1           1    B      222       y       20
 # 2           2    C      333       z       30]
 print(d)
+
+
+
+# https://stackoverflow.com/questions/22604564/create-pandas-dataframe-from-a-string
+from io import StringIO
+TESTDATA = StringIO("""col1;col2;col3
+    1;4.4;99
+    2;4.5;200
+    3;4.7;65
+    4;3.2;140
+    """)
+df = pd.read_csv(TESTDATA, sep=";")
+print(df)

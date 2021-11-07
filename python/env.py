@@ -18,12 +18,13 @@ print(file_extension)           # .ext
 parser = argparse.ArgumentParser(description='abcdefg')
 parser.add_argument('--abc', help='abc')
 parser.add_argument('--print', dest="print_", help='abc')
-parser.add_argument('--dryrun', help='dry run', action="store_true")
+parser.add_argument('--dry-run', help='dry run', action="store_true")
 args = parser.parse_args()
 
 print(args.abc)                 # None
 print(args.print_)              # None
-print(args.dryrun)              # False
+# https://stackoverflow.com/questions/12834785/having-options-in-argparse-with-a-dash
+print(args.dry_run)              # False, dry-run -> dry_run, any internal - characters will be converted to _ characters
 
 default_abc = "abc"
 abc = args.abc if(args.abc) else default_abc

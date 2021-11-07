@@ -4,8 +4,10 @@ print(s[-3:])               # efg
 
 sub2 = s[1:4]
 print(sub2)                 # bcd
-sub3 = ".".join(sub2)
-print(sub3)                 # b.c.d
+sub3 = s[1:100]
+print(sub3)                 # bcdefg
+sub4 = ".".join(sub3)
+print(sub4)                 # b.c.d.e.f.g
 
 
 import json
@@ -22,10 +24,15 @@ print(values[KEY_Test_Parameters])          # d
 a = {"d" : 3}
 print(("e" in a) == False)      # True
 
-
+# https://www.askpython.com/python/array/python-add-elements-to-an-array
 l = []
 l.append("a")
 print(l)                        # ['a']
+l.insert(0, 'b')
+print(l)                        # ['b', 'a']
+ll = ["b", "c"]
+l.extend(ll)
+print(l)                        # ['b', 'a', 'b', 'c']
 
 
 # https://www.geeksforgeeks.org/python-map-function/
