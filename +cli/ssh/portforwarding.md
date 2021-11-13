@@ -22,8 +22,8 @@ RemoteForward: mount current local port(22) to remote(15000)
 
 Proxy Using SSH Tunnel
 
-From <https://www.systutorials.com/944/proxy-using-ssh-tunnel/> 
-	ssh -D 8080 username@sshd_server
+From <https://www.systutorials.com/944/proxy-using-ssh-tunnel/>
+	ssh -D 8080 username@sshd_server 
 
 
 Use the "gateway ports" option.
