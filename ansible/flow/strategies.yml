@@ -3,6 +3,7 @@
 - hosts: localhost
   gather_facts: no
   
+  # Ansible would execute the play completely (all tasks) on serial number of the hosts before moving on to the next serial number hosts
   serial: 2
 
   # serial: "30%"

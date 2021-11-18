@@ -1,0 +1,29 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/pip_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  become: yes
+  tasks:
+  - name: Ping
+    tags:
+      - never
+      - ping
+    ping:
+    become: yes
+  - name: Install python packages
+    pip:
+      name: 
+        - tsrc
+    become: yes
+  - name: Install python packages
+    pip:
+      name: 
+        - ansible
+      executable: pip3
+  - name: Install python packages into the specified (virtualenv), inheriting globally installed modules
+    tags:
+      - never
+    pip:
+      name: 
+        - tsrc
+      virtualenv: /my_app/venv

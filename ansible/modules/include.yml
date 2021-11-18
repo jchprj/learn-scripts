@@ -1,0 +1,7 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/include_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Include a play after another play
+      include: included.yml

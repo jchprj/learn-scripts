@@ -12,6 +12,10 @@
       - "two"
     register: echo
 
+  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html#iterating-over-nested-lists
+  - shell: "echo {{ item }}"
+    loop: "{{ ['alice', 'bob'] |product(['first', 'second', 'third'])|list }}"
+
   # show all the hosts in the current play
   # From <https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html> 
   - debug:
