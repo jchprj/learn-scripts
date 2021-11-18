@@ -25,6 +25,8 @@
 
 # https://stackoverflow.com/questions/18215389/how-do-i-measure-request-and-response-times-at-once-using-curl
 # How do I measure request and response times at once using cURL?
+curl -o /dev/null -s -w 'Total: %{time_total}s\n'  https://pie.dev
+
 curl -w "@curl-format.txt" -o /dev/null -s "http://wordpress.com/"
 # Or on Windows, it's...
 # curl -w "@curl-format.txt" -o NUL -s "http://wordpress.com/"
