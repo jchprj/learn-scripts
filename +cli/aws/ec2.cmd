@@ -7,6 +7,8 @@ echo The following command filters the list to only your t2.micro instances and 
 aws ec2 describe-instances --filters "Name=instance-type,Values=t2.micro" --query "Reservations[].Instances[].InstanceId"
 
 aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"
+aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"|jq ".Reservations[].Instances[].NetworkInterfaces[].PrivateIpAddress"
+aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"|jq ".Reservations[].Instances[]|.NetworkInterfaces[].PrivateIpAddress,.State.Name"
 
 echo The following command lists your instances that were launched using any of the following AMIs: ami-x0123456, ami-y0123456, and ami-z0123456.
 aws ec2 describe-instances --filters "Name=image-id,Values=ami-x0123456,ami-y0123456,ami-z0123456"
