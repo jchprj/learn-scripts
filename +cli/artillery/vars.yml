@@ -1,0 +1,23 @@
+config:
+  target: https://pie.dev
+  http:
+    timeout: 3
+  phases:
+    - duration: 1
+      arrivalRate: 1
+  defaults:
+    headers:
+      test: "{{ $processEnvironment.HOSTNAME }}"
+  tls:
+    rejectUnauthorized: false
+  variables:                                    # https://www.artillery.io/docs/guides/guides/test-script-reference#inline-variables
+    field1:
+      - "-{{ $processEnvironment.HOSTNAME }}"
+
+scenarios:
+  - name: test
+    flow:
+      - post:
+          url: "/post"
+          sslAuth: false
+          body: "{\"test\": \"{{ field1 }}\"}"
