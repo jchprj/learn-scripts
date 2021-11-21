@@ -1,0 +1,51 @@
+
+$script = <<-SCRIPT
+echo I am provisioning...
+date > /etc/vagrant_provisioned_at
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "hashicorp/bionic64"
+
+  # https://www.vagrantup.com/docs/providers/virtualbox/usage
+  # https://www.vagrantup.com/docs/providers/virtualbox/configuration
+  config.vm.provider "virtualbox" do |v|
+    v.gui = true
+    v.memory = 2048
+  end
+
+  # https://www.vagrantup.com/docs/providers/hyperv/usage
+  # https://www.vagrantup.com/docs/providers/hyperv/configuration
+  config.vm.provider "hyperv" do |v|
+    v.memory = 2048
+  end
+
+  # https://www.vagrantup.com/docs/provisioning
+  # Provisioning happens at certain points during the lifetime of your Vagrant environment:
+    # On the first vagrant up that creates the environment, provisioning is run.
+    # When vagrant provision is used on a running environment.
+    # When vagrant reload --provision is called.
+
+
+  # https://www.vagrantup.com/docs/provisioning/basic_usage
+  config.vm.provision "shell", inline: "echo hello", run: "always"
+
+  # https://www.vagrantup.com/docs/provisioning/shell
+  config.vm.provision "shell", inline: "echo Hello, World"
+  config.vm.provision "shell", inline: $script
+  config.vm.provision "shell", path: "script.sh"
+  # config.vm.provision "shell", path: "https://example.com/provisioner.sh"
+  # config.vm.provision "shell", path: "script.ps1"
+  config.vm.provision "shell" do |s|
+    s.inline = "echo $1"
+    s.args   = ["hello, world!"]
+  end
+
+  # https://www.vagrantup.com/docs/provisioning/ansible
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
+
+  # https://www.vagrantup.com/docs/provisioning/file
+  config.vm.provision "file", source: "README.md", destination: "README.md"
+end
