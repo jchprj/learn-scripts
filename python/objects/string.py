@@ -1,12 +1,17 @@
 a = "abc"
-print("a" in a)     # True
-print("ab" in a)    # True
-print("ad" in a)    # False
+print("a" in a)                 # True
+print("ab" in a)                # True
+print("ad" in a)                # False
+print(("ad" in a) == False)     # True
+print("ad" in a == False)       # False
+print("ad" not in a)            # True
 
 print('a' * 5)      # aaaaa
 
 print('False' in a or 'b' in a)
 
+print(a.upper())
+print(a.lower())
 
 print("ad".index("d"))    # False
 

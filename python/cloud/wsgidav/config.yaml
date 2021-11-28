@@ -1,0 +1,11 @@
+host: 0.0.0.0
+port: 2019
+auth: anonymous
+provider_mapping:
+    "/": .
+simple_dc:
+    # Access control per share.
+    # These routes must match the provider mapping.
+    # NOTE: Provider routes without a matching entry here, are inaccessible.
+    user_mapping:
+        "/": true  # Pass true to allow anonymous access
