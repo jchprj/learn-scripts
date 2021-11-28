@@ -24,3 +24,18 @@ systemctl is-failed cron
 systemctl list-units
 systemctl list-unit-files
 
+
+# https://www.freedesktop.org/software/systemd/man/systemd.directives.html
+# https://www.freedesktop.org/software/systemd/man/systemd.unit.html#Specifiers
+# https://www.freedesktop.org/software/systemd/man/systemd.exec.html#User=
+systemctl daemon-reload
+
+# [Unit]
+# Description=Foo
+
+# [Service]
+# ExecStart=/usr/sbin/foo-daemon
+# User = %i
+
+# [Install]
+#   =multi-user.target

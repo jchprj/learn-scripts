@@ -35,3 +35,13 @@ if [ "$a" -le "$b" ]; then echo less than or equal to; fi
 
 # https://unix.stackexchange.com/questions/52800/how-to-do-an-if-statement-from-the-result-of-an-executed-command
 if [[ $(echo a) = a ]]; then echo abc; fi
+
+
+# https://www.cyberciti.biz/faq/check-if-a-directory-exists-in-linux-or-unix-shell/
+
+DIR="."
+if [ -d "$DIR" ]; then
+  # Take action if $DIR exists. #
+  echo "${DIR} exists..."
+fi
+[ ! -d "$DIR/a" ] && echo "Directory $DIR/a DOES NOT exists."

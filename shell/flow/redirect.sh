@@ -22,3 +22,28 @@ program [arguments...] 2>&1 | tee temp_test
 # 2>&1 redirects channel 2 (stderr/standard error) into channel 1 (stdout/standard output), such that both is written as stdout. It is also directed to the given output file as of the tee command.
 # Furthermore, if you want to append to the log file, use tee -a as:
 program [arguments...] 2>&1 | tee -a temp_test
+
+
+# https://unix.stackexchange.com/questions/77277/how-to-append-multiple-lines-to-a-file
+# possibility 1:
+echo "line 1" >> temp_test
+echo "line 2" >> temp_test
+
+# possibility 2:
+echo "line 1
+line 2" >> temp_test
+
+# possibility 3:
+cat <<EOT >> temp_test
+line 1
+line 2
+EOT
+
+# possibility 1:
+echo "line 1" | sudo tee -a temp_test > /dev/null
+
+# possibility 3:
+sudo tee -a temp_test > /dev/null <<EOT
+line 1
+line 2
+EOT
