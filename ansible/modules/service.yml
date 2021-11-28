@@ -1,0 +1,13 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Restart service
+    service:
+      name: cron
+      state: restarted
+  - name: Reload service
+    ansible.builtin.service:
+      name: cron
+      state: reloaded

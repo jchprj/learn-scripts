@@ -27,3 +27,9 @@
     tags: daemon_reload
     systemd:
       daemon_reload: yes
+
+  - name: At least one of state and enabled are required
+    systemd:
+      name: crond
+      state: started
+      enabled: yes
