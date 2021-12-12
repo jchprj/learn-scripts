@@ -14,10 +14,15 @@ How to save username and password in GIT
 
 ## Proxy
 
+### http https proxy
+```
 git config --global --unset http.proxy
 git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
-
-git config --global http.proxy http://192.168.8.247:1080
+```
+```
+git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy http://127.0.0.1:1080
+```
 
 From <https://stackoverflow.com/questions/783811/getting-git-to-work-with-a-proxy-server> 
 
@@ -29,6 +34,26 @@ Or in `~/.gitconfig` (From <https://www.jhipster.tech/configuring-a-corporate-pr
         proxy = http://username:password@host:port
 ```
 
+### Change git protocal to https  
+
+from https://stackoverflow.com/questions/5860888/git-through-proxy
+```
+git config --global url.https://github.com/.insteadOf git@github.com:
+```
+Another complex way it mentioned is using `socat` to proxy git protocal.
+
+
+### URL specific proxy
+From https://gist.github.com/evantoli/f8c23a37eb3558ab8765
+```
+git config --global http.https://domain.com.proxy http://proxyUsername:proxyPassword@proxy.server.com:port
+```
+Or in `~/.gitconfig`
+```
+[http]
+[http "https://domain.com"]
+	proxy = http://proxyUsername:proxyPassword@proxy.server.com:port
+```
 ## Case
 
 `git mv -f OldFileNameCase newfilenamecase`
