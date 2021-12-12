@@ -5,6 +5,7 @@
 
 import git
 import os
+from getpass import getuser
 from getpass import getpass
 from git import Repo
 from git import Git
@@ -13,7 +14,7 @@ repo_path = '/path/to/some/local/repo'
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
 os.environ['GIT_ASKPASS'] = os.path.join(project_dir, 'askpass.py')
-os.environ['GIT_USERNAME'] = username
+os.environ['GIT_USERNAME'] = getuser()
 os.environ['GIT_PASSWORD'] = getpass()
 g = git.cmd.Git(repo_path)
 g.pull()
