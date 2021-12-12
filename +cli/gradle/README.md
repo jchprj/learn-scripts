@@ -13,6 +13,11 @@ https://javadeveloperzone.com/spring-boot/spring-boot-gradle-example/
 gradlew bootRun
 ```
 
+https://stackoverflow.com/questions/36923288/how-to-run-bootrun-with-spring-profile-via-gradle-task
+```
+gradlew bootRun --args='--spring.profiles.active=dev'
+```
+
 [How to clear gradle cache?](https://stackoverflow.com/questions/23025433/how-to-clear-gradle-cache)
 - $HOME/.gradle/cache
 - The --no-build-cache option will run gradle without the build cache
