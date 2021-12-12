@@ -40,3 +40,17 @@ public class Sample {
         log.info("sub b: ${sub.b}, sub list size: ${sub.list.size}")
 	}
 }
+
+
+// https://stackoverflow.com/questions/67994420/when-using-configurationproperties-with-a-camelcase-prefix-how-do-i-solve-pref
+@Configuration
+@ConfigurationProperties(prefix="camel-case")
+public class CamelCase {
+    private val log = LoggerFactory.getLogger(this::class.java)
+	var str: String = ""
+
+    @PostConstruct
+    fun run() {
+		log.info("CamelCase.str: $str")
+	}
+}

@@ -9,6 +9,15 @@ spring init --dependencies=web,data-jpa --build=maven --java-version=11 -l kotli
 mvnw spring-boot:run
 ```
 
+https://www.baeldung.com/spring-boot-change-port
+
+Basically, the configurations priority is
+
+- embedded server configuration
+- command-line arguments
+- property files
+- main @SpringBootApplication configuration
+
 ## Settings
 
 ```
