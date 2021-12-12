@@ -1,5 +1,6 @@
 ### public repos
 GET https://api.github.com/users/octocat/repos?per_page=100
+Accept: application/vnd.github.mercy-preview+json
 
 ###
 GET https://api.github.com/users/octocat/repos?per_page=100&page=2
@@ -8,3 +9,8 @@ GET https://api.github.com/users/octocat/repos?per_page=100&page=2
 ### https://stackoverflow.com/questions/8713596/how-to-retrieve-the-list-of-all-github-repositories-of-a-person
 ### Include private repos
 GET https://api.github.com/orgs/github/repos?per_page=3
+
+
+### public repos
+GET https://api.github.com/users/octocat/repos?per_page=100
+Accept: application/vnd.github.mercy-preview+json

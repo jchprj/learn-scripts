@@ -1,6 +1,10 @@
 
 ### repo size(size property) https://stackoverflow.com/questions/8646517/how-can-i-see-the-size-of-a-github-repository-before-cloning-it
 
+# https://stackoverflow.com/questions/43259946/github-api-getting-topics-of-a-github-repository/43287679
+# Here mentioned need special header to get topics included in the reponse, but without it could already get topics now, although may not true for enterprise GitHub.
+
+
 ### Request
 https://api.github.com/repos/octocat/hello-world
 
@@ -18,7 +22,7 @@ https://api.github.com/repos/octocat/hello-world
     "login": "octocat",
     "id": 583231,
     "node_id": "MDQ6VXNlcjU4MzIzMQ==",
-    "avatar_url": "https://avatars3.githubusercontent.com/u/583231?v=4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/583231?v=4",
     "gravatar_id": "",
     "url": "https://api.github.com/users/octocat",
     "html_url": "https://github.com/octocat",
@@ -75,33 +79,37 @@ https://api.github.com/repos/octocat/hello-world
   "releases_url": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
   "deployments_url": "https://api.github.com/repos/octocat/Hello-World/deployments",
   "created_at": "2011-01-26T19:01:12Z",
-  "updated_at": "2020-09-16T13:26:42Z",
-  "pushed_at": "2020-08-29T11:19:22Z",
+  "updated_at": "2021-12-03T02:13:16Z",
+  "pushed_at": "2021-11-14T23:44:27Z",
   "git_url": "git://github.com/octocat/Hello-World.git",
   "ssh_url": "git@github.com:octocat/Hello-World.git",
   "clone_url": "https://github.com/octocat/Hello-World.git",
   "svn_url": "https://github.com/octocat/Hello-World",
   "homepage": "",
   "size": 1,
-  "stargazers_count": 1578,
-  "watchers_count": 1578,
+  "stargazers_count": 1716,
+  "watchers_count": 1716,
   "language": null,
   "has_issues": true,
   "has_projects": true,
   "has_downloads": true,
   "has_wiki": true,
   "has_pages": false,
-  "forks_count": 1451,
+  "forks_count": 1649,
   "mirror_url": null,
   "archived": false,
   "disabled": false,
-  "open_issues_count": 401,
+  "open_issues_count": 612,
   "license": null,
-  "forks": 1451,
-  "open_issues": 401,
-  "watchers": 1578,
+  "allow_forking": true,
+  "is_template": false,
+  "topics": [],
+  "visibility": "public",
+  "forks": 1649,
+  "open_issues": 612,
+  "watchers": 1716,
   "default_branch": "master",
   "temp_clone_token": null,
-  "network_count": 1451,
-  "subscribers_count": 1731
+  "network_count": 1649,
+  "subscribers_count": 1772
 }
