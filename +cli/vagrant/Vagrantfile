@@ -20,6 +20,12 @@ Vagrant.configure("2") do |config|
     v.memory = 2048
   end
 
+  # https://www.vagrantup.com/docs/networking/forwarded_ports
+  # https://stackoverflow.com/questions/24461014/adding-port-forwarding-on-an-existing-vagrant-box
+  # `vagrant reload` is supposed to reload those part of the Vagrantfile again
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 2003, host: 12003, protocol: "udp"
+
   # https://www.vagrantup.com/docs/provisioning
   # Provisioning happens at certain points during the lifetime of your Vagrant environment:
     # On the first vagrant up that creates the environment, provisioning is run.

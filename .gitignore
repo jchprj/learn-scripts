@@ -22,3 +22,4 @@ terraform.tfstate*
 build
 .gradle
 .kotlintest
+.vagrant
