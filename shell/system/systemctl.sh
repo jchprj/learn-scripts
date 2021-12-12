@@ -2,6 +2,10 @@
 systemctl list-units --type=service --state=active
 systemctl --type=service --state=active
 
+# https://askubuntu.com/questions/867927/how-can-i-find-out-which-service-started-a-process-so-i-can-disable-that-service
+# On Ubuntu 16.04 and newer
+systemctl status <PID>
+
 # https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
 systemctl status cron.service
 systemctl status cron

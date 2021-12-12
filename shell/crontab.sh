@@ -5,3 +5,7 @@
 
 crontab -l
 crontab -e
+
+# https://www.cyberciti.biz/faq/linux-execute-cron-job-after-system-reboot/
+# @reboot echo start on reboot
+# @reboot sleep 300 && echo start 300 seconds after reboot

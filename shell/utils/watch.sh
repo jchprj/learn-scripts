@@ -1,4 +1,4 @@
-watch -n 1 cat file
+watch -n 0.1 cat file
 
 # From <https://unix.stackexchange.com/questions/101271/open-a-text-file-in-a-terminal-and-auto-refresh-it-whenever-it-is-changed> 
 
