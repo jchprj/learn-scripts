@@ -25,13 +25,21 @@ scenarios:
     beforeScenario: beforeScenario  # https://artillery.io/docs/http-reference/#setting-scenario-level-hooks
                                     # https://spectrum.chat/artillery-io/general/run-js-function-before-scenario-and-add-context~18ea31cb-778f-4840-af2d-f19de8e12337
     flow:
-      - get:
+      - get:                        # https://www.artillery.io/docs/guides/guides/http-reference#get--post--put--patch--delete-requests
           url: "/get"
           sslAuth: false            # https://artillery.io/docs/guides/plugins/plugin-ssl-client-certificate-auth.html#Disabling-SSL-auth-selectively
-          afterResponse: afterResponse
+          beforeRequest: beforeRequest
+      - function: "setupSomeData"   # https://www.artillery.io/docs/guides/guides/http-reference#function-steps-in-a-flow
       - post:
           url: "{{path_for_post}}"
           sslAuth: false
-          beforeRequest: beforeRequest
-          body: >                   # https://artillery.io/docs/guides/guides/http-reference.html#GET-POST-PUT-PATCH-DELETE-requests
-            {}
+          afterResponse: afterResponse
+          body: >                   # https://stackoverflow.com/questions/48096569/how-to-create-random-string-or-number-in-artillery-load-testing-script
+            {
+              "query": "{{ query }}",
+              "randomString": "{{ $randomString() }}",
+              "randomString2": "{{ $randomString(2) }}",
+              "randomNumber0or1": "{{ $randomNumber() }}",
+              "randomNumber1to10000": "{{ $randomNumber(1,10000) }}"
+            }
+          

@@ -13,11 +13,18 @@ function beforeRequest (requestParams, context, events, next) {
 
 function afterResponse (requestParams, response, context, ee, next) {
     console.log(`afterResponse`);  
-    console.log(`${response.statusCode}: ${response}`);  
+    console.log(`${response.statusCode}: ${response.body}`);  
     return next();
 }
 
+function setupSomeData(context, events, done) {
+    // Set the "query" variable for the virtual user.
+    context.vars['query'] = 'foo';
+    return done();
+};
+
 module.exports = {
+    setupSomeData: setupSomeData,
     beforeScenario: beforeScenario,
     beforeRequest: beforeRequest,
     afterResponse: afterResponse

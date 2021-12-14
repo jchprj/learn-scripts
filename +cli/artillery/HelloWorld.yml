@@ -1,0 +1,30 @@
+config:
+  target: https://pie.dev
+  http:
+    timeout: 3
+  phases:
+    - duration: 1
+      arrivalRate: 1
+  defaults:
+    headers:
+      accept: application/json
+  tls:
+    rejectUnauthorized: false
+  variables:
+    path_for_post: /post
+scenarios:
+  - name: test
+    weight: 1
+    flow:
+      - count: 1
+        loop:
+        - get:
+          url: "/get"
+          sslAuth: false
+      - post:
+          url: "{{path_for_post}}"
+          sslAuth: false
+          body: >
+            {
+              "Hello": "World"
+            }

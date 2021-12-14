@@ -89,7 +89,7 @@
             "problemMatcher": []
         },
         {
-            "label": "artillery",
+            "label": "artillery run",
             "type": "shell",
             "command": "artillery",
             "args": [

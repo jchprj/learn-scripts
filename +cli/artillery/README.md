@@ -88,3 +88,6 @@ artillery report --output report.html report.json
 # References
 
 Found Artillery from [Top 6 Tools for API & Load Testing | by Dickson Mwendia | Medium](https://medium.com/@Dickson_Mwendia/top-6-tools-for-api-load-testing-7ff51d1ac1e8)
+
+[RPS calculation in Artillery · Issue #870 · artilleryio/artillery · GitHub](https://github.com/artilleryio/artillery/issues/870)
+RPS reported by Artillery is the number of requests served per second, not requests made per second.
