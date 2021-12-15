@@ -13,3 +13,14 @@
 /8$/m       // Only last 8 in one line
 
 /8$/        // Nothing
+
+
+
+
+
+// https://javascript.info/regexp-anchors
+let goodInput = "12:34";
+let badInput = "12:345";
+let regexp = /^\d\d:\d\d$/;
+console.log( regexp.test(goodInput) ); // true
+console.log( regexp.test(badInput) ); // false
