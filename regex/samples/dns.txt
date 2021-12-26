@@ -1,0 +1,2 @@
+    jdbc:mysql:aurora://cluster.cluster-xxxx.us-east-1.rds.amazonaws.com/db
+    jdbc:mysql:aurora://cluster.cluster-xxxx.us-east-1.rds.amazonaws.abc/db
