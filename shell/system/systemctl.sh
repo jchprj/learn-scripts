@@ -29,6 +29,8 @@ systemctl list-units
 systemctl list-unit-files
 
 
+
+
 # https://www.freedesktop.org/software/systemd/man/systemd.directives.html
 # https://www.freedesktop.org/software/systemd/man/systemd.unit.html#Specifiers
 # https://www.freedesktop.org/software/systemd/man/systemd.exec.html#User=
@@ -42,4 +44,10 @@ systemctl daemon-reload
 # User = %i
 
 # [Install]
-#   =multi-user.target
+# WantedBy=multi-user.target
+
+
+# https://www.unixsysadmin.com/systemd-user-services/
+# systemctl --user status myapp.service
+# systemctl --user start myapp.service
+# systemctl --user edit myapp.service
