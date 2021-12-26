@@ -2,6 +2,9 @@
 // https://github.com/gradle/kotlin-dsl-samples/blob/master/samples/maven-publish/build.gradle.kts
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+
+// https://stackoverflow.com/questions/37555196/in-gradle-how-to-use-a-variable-for-a-plugin-version
+// Currently only Grovvy build.gradle could use version variables defined in gradle.properties, Kotlin DSL could yet.
 plugins {
 	id("org.springframework.boot") version "2.5.4"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
