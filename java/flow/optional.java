@@ -1,7 +1,7 @@
 // https://www.amitph.com/avoid-nullpointerexception-using-java-8-optional/
 import java.util.Optional;
 
-public class test {
+public class optional {
     public static void main (String[] args) {
         String a = "null";
         Optional.ofNullable(a.length()).ifPresent(Integer::valueOf);

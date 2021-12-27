@@ -1,6 +1,6 @@
 // https://www.baeldung.com/java-compare-hashmaps
 import java.util.*;
-public class test {
+public class hashmap {
     public static void main (String[] args) {
         test1();
         test2();

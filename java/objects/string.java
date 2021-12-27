@@ -1,6 +1,6 @@
 // https://howtodoinjava.com/java/array/convert-byte-array-string/
 import java.util.Base64;
-public class test {
+public class string {
     public static void main (String[] args) {
         test1();
         test2();

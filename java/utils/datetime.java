@@ -9,7 +9,7 @@ import java.util.*;
 import java.text.*;
 import java.sql.Timestamp;
 
-public class test {
+public class datetime {
     public static void main (String[] args) throws Exception {
         formatDatetime();
         convertTimestamp();
