@@ -3,6 +3,8 @@ Use task `gradle build`, it will run the tests. If any test is failed, the build
 
 ## How to run other folders in VS Code
 
+* Currently Gradle project will seem to fail when lauching Kotlin class using VS Code Run and Debug (With Kotlin extension).
+
 1. Open VS Code
 2. Open a `.kt` file in a Maven or Gradle project in the sub folder of this folder
 3. Go to tab `Run and Debug`, run the `Kotlin Launch` or `Kotlin Compile & Launch` configuration, it will run/debug or first run `mvn compile` and then run/debug the opened class of the filename, respectively.
