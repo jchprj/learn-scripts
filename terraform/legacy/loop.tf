@@ -4,7 +4,7 @@
 # https://www.terraform.io/docs/language/functions/concat.html
 
 variable "list" {
-  type = list
+  type = "list"
 
   default = [
     5,
