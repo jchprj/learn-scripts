@@ -28,7 +28,7 @@
             "name": "Kotlin Compile & Launch",
             "projectRoot": "${fileDirname}/",
             "mainClass": "${fileBasenameNoExtension}",
-            "preLaunchTask": "mvn compile"
+            "preLaunchTask": "mvn clean compile"
         }
     ]
 }
