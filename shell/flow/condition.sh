@@ -45,3 +45,33 @@ if [ -d "$DIR" ]; then
   echo "${DIR} exists..."
 fi
 [ ! -d "$DIR/a" ] && echo "Directory $DIR/a DOES NOT exists."
+
+
+
+# https://www.tutorialspoint.com/unix/if-elif-statement.htm
+a=10
+b=20
+
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+elif [ $a -gt $b ]
+then
+   echo "a is greater than b"
+elif [ $a -lt $b ]
+then
+   echo "a is less than b"
+else
+   echo "None of the condition met"
+fi
+
+
+
+# stackoverflow.com/questions/2283640/case-statements-evaluate-to-strings
+status="baz"
+status=$(case $status in
+  "foo") echo "bar" ;;
+  "baz") echo "buh" ;;
+  *) echo $status ;;
+esac)
+echo "status: $status"
