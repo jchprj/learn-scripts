@@ -10,9 +10,9 @@ output "origin" {
 
 
 variable "map" {
-  type = "map"
+  type = map
 
-  default {
+  default = {
     a = 2
     b = 3
   }
@@ -24,7 +24,7 @@ output "map" {
 
 
 variable "list" {
-  type = "list"
+  type = list
 
   default = [
     "1",

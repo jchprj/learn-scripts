@@ -35,9 +35,9 @@ output "test_var_in_module" {
 
 
 variable "map" {
-  type = "map"
+  type = map
 
-  default {
+  default = {
     a = 1
     b = 2
   }
@@ -48,7 +48,7 @@ output "test_map" {
 }
 
 variable "list" {
-  type = "list"
+  type = list
 
   default = [
     5,
@@ -57,7 +57,7 @@ variable "list" {
 }
 
 variable "test_list" {
-  type = "list"
+  type = list
 
   default = [
     7,
