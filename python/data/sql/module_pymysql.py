@@ -3,36 +3,32 @@
 # Reconnect not implemented
 
 import sys
-import logging
 import pymysql
+from pymysql.constants import CLIENT
 #rds settings
 rds_host  = "localhost"
-name = "root"
+rds_port = 3306
+username = "root"
 password = "123456"
 db_name = "test"
 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-
 try:
-    conn = pymysql.connect(host=rds_host, user=name, passwd=password, db=db_name, connect_timeout=5)
+    # https://stackoverflow.com/questions/58544640/pymysql-unable-to-execute-multiple-queries
+    conn = pymysql.connect(host=rds_host, port=rds_port, user=username, passwd=password, db=db_name, connect_timeout=5, client_flag=CLIENT.MULTI_STATEMENTS)
 except pymysql.MySQLError as e:
-    logger.error("ERROR: Unexpected error: Could not connect to MySQL instance.")
-    logger.error(e)
+    print("ERROR: Unexpected error: Could not connect to MySQL instance.")
+    print(e)
     sys.exit()
 
-logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
-
+print("SUCCESS: Connection to RDS MySQL instance succeeded")
 item_count = 0
 
 with conn.cursor() as cur:
     cur.execute("show master status")
     for row in cur:
         item_count += 1
-        logger.info(row)
-        #print(row)
+        print(row)
 conn.commit()
-logger.info("Got %d items from RDS MySQL table" %(item_count))
-
+print("Got %d items from RDS MySQL table" % (item_count))
 # print(handler(1, 1))
 conn.close()
