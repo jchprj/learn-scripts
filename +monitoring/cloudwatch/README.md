@@ -2,6 +2,16 @@
 
 [Using metric math - Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html)
 
+
+## Syntax
+[CloudWatch search expression syntax - Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/search-expression-syntax.html)
+
+```
+SEARCH(' {Namespace, DimensionName1, DimensionName2, ...} SearchTerm', 'Statistic', Period)
+```
+
+## Example
+
 [CloudWatch search expression examples - Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/search-expression-examples.html)
 
 ```
