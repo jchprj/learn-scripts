@@ -6,6 +6,9 @@
 
 'Hello World'.ToUpper()
 
+$str = 'Hello World'
+$str
+Write-Output $str
 
 # https://winaero.com/blog/find-powershell-version-windows/
 
