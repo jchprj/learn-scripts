@@ -1,6 +1,7 @@
 <!-- Head tag is needed for live server extension live reload even it's empty. -->
 <head></head>
-
+<div></div>
 <script>
-    document.write("Hello world!")
+    var string = "Hello world!"
+    document.getElementsByTagName("div")[0].innerHTML = `${string}`
 </script>

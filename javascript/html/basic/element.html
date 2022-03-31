@@ -1,0 +1,20 @@
+<!-- Head tag is needed for live server extension live reload even it's empty. -->
+<head></head>
+<div id="test">
+    Some <span class="foo">sample</span> text.
+</div>
+<script>
+    // https://stackoverflow.com/questions/10370204/how-can-get-the-text-of-a-div-tag-using-only-javascript-no-jquery
+    var node = document.getElementById('test')
+    console.log(node)
+    textContent = node.textContent
+    console.log(`textContent ${textContent}`)
+    innerText = node.innerText
+    console.log(`innerText ${innerText}`)
+    innerHTML = node.innerHTML
+    console.log(`innerHTML ${innerHTML}`)
+    outerText = node.outerText
+    console.log(`outerText ${outerText}`)
+    outerHTML = node.outerHTML
+    console.log(`outerHTML ${outerHTML}`)
+</script>
