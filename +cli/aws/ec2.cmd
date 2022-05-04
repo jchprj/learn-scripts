@@ -9,6 +9,10 @@ aws ec2 describe-instances --filters "Name=instance-type,Values=t2.micro" --quer
 aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"
 aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"|jq ".Reservations[].Instances[].NetworkInterfaces[].PrivateIpAddress"
 aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"|jq ".Reservations[].Instances[]|.NetworkInterfaces[].PrivateIpAddress,.State.Name"
+echo List ImageId and State name
+aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"|jq ".Reservations[].Instances[]|.ImageId,.State.Name"
+echo Filter running instances using jq
+aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance"|jq '.Reservations[].Instances[]|select(.State.Name=="running")|.ImageId,.State.Name'
 
 echo The following command lists your instances that were launched using any of the following AMIs: ami-x0123456, ami-y0123456, and ami-z0123456.
 aws ec2 describe-instances --filters "Name=image-id,Values=ami-x0123456,ami-y0123456,ami-z0123456"
