@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.GetMapping
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/error")
 class NoClassDefFoundError {
     val logger = LoggerFactory.getLogger(NoClassDefFoundError::class.java)
 
     @GetMapping()
-    fun home(): String {
+    fun error(): String {
         logger.info("Hello World!")
         print(HelloWorld)
         return "Hello World!"

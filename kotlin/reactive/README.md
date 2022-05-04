@@ -1,3 +1,9 @@
+[GitHub - reactor/reactor-core: Non-Blocking Reactive Foundation for the JVM](https://github.com/reactor/reactor-core)
+
+
+[Reactor 3 Reference Guide](https://projectreactor.io/docs/core/release/reference/index.html)
+
+
 [RxMarbles: Interactive diagrams of Rx Observables](https://rxmarbles.com/)
 
 
