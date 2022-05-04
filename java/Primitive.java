@@ -35,5 +35,32 @@ public class Primitive {
         char letterA = 'A', letterB;
         System.out.println(letterA);
         // System.out.println(letterB);                 //error: compilation failed
+        bit();
+    }
+
+    // https://www.vojtechruzicka.com/bit-manipulation-java-bitwise-bit-shift-operations/
+    // A    B      ~A      A & B       A | B       A ^ B
+    // 1    0      0       0           1           1
+    // 0    1      1       0           1           1
+    // 1    1      0       1           1           0
+    // 0    0      1       0           0           0
+    // two's complement. Negative numbers are representing by negating (flipping) all the bits and then adding 1. Still, if the leftmost bit is 0, the number is positive. Otherwise, it is negative.
+    public static void bit () {
+        byte b = 1;
+        short s = 1;
+        int i = 1;
+        long l = 1;
+        char c = 1;
+        
+        System.out.println(b << 3);         // Signed Left Shift
+        System.out.println(s << 3);
+        System.out.println(i << 3);
+        System.out.println(l << 3);
+        System.out.println(c << 3);
+
+        System.out.println(c >> 3);         // Signed Right Shift
+        System.out.println(c >>> 3);        // Unsigned Right Shift
+
+        
     }
 }

@@ -4,6 +4,7 @@ public class string {
     public static void main (String[] args) {
         test1();
         test2();
+        test3();
     }
     
     static void test1() {
@@ -22,6 +23,7 @@ public class string {
         System.out.println(s);
 
         //Base64 Decoded
-        byte[] bytes2 = Base64.getDecoder().decode(string);
+        byte[] bytes2 = Base64.getDecoder().decode(s);
     }
+
 }
