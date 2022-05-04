@@ -15,3 +15,9 @@
 /^a/gm
 /Z$/gm
 /^a.*Z$/gm
+
+// non whitespace
+/\S/g
+
+// whitespace (In ASCII, ' ', '\t', '\r', '\n', '\v' and '\f'.)
+/\s/g
