@@ -45,3 +45,27 @@ val plusList = numbers2 + 5
 println(plusList)
 val minusList = numbers2 - listOf(3, 4)
 println(minusList)
+
+
+val numbers3 = mutableListOf(-1,-1,-1,-1)
+println(numbers3)
+val distinct = numbers3.distinct()
+println(distinct)
+
+println("-------------------")
+// https://stackoverflow.com/questions/66781896/how-to-multiply-list-in-kotlin
+val numbers3multiply100 = List(100) { numbers3 }.flatten()
+val numbers4 = listOf(numbers3multiply100)
+val numbers4multiply100 = List(100) { numbers4 }.flatten()
+
+val current = System.currentTimeMillis()
+val numbers5 = numbers4multiply100.flatten()
+val numbers6 = numbers5.toSet()
+println(System.currentTimeMillis() - current)
+println(numbers5.size)
+
+println("-------------------")
+
+val current2 = System.currentTimeMillis()
+val numbers5a = numbers4multiply100.fold(setOf<Int>()) { agg, it -> agg.plus(it) }
+println(System.currentTimeMillis() - current2)
