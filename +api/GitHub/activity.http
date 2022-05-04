@@ -1,0 +1,7 @@
+# https://stackoverflow.com/questions/9128049/view-entire-activities-of-an-user-in-github
+
+### API
+https://api.github.com/users/jchprj/events
+
+### Feed
+https://github.com/jchprj.atom
