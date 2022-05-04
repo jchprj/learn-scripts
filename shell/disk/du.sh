@@ -23,3 +23,10 @@ du -h --max-depth=1 ../
 # From <https://superuser.com/questions/554319/bash-display-each-sub-directory-size-in-a-list-format-using-1-line-command> 
 echo 5________________________
 du -h -d 1 ../
+
+
+# https://www.tecmint.com/find-top-large-directories-and-files-sizes-in-linux/
+du -hs * | sort -rh | head -5
+
+## Include sub directories
+du -Sh | sort -rh | head -5
