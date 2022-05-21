@@ -1,14 +1,20 @@
 echo off
 echo https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html
+echo https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/ls.html
 
 echo create bucket
 aws s3 mb s3://bucket-name
 
-echo list all buckets
+echo Listing all user owned buckets
 aws s3 ls
 
+echo This can list contents that are from non user owned buckets if has permission
 aws s3 ls s3://bucket-name
 aws s3 ls s3://bucket-name/example/
+
+echo Listing from an S3 access point
+aws s3 ls s3://arn:aws:s3:us-west-2:123456789012:accesspoint/myaccesspoint/
+
 
 echo delete bucket
 echo aws s3 rb s3://bucket-name
