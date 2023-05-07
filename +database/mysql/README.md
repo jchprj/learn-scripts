@@ -1,4 +1,18 @@
 
+## SQL Statements
+
+[MySQL :: MySQL 5.7 Reference Manual :: 13 SQL Statements](https://dev.mysql.com/doc/refman/5.7/en/sql-statements.html)
+
+- Data Definition Statements
+- Data Manipulation Statements
+- Transactional and Locking Statements
+- Replication Statements
+- Prepared Statements
+- Compound Statements
+- Database Administration Statements
+- Utility Statements
+
+
 ## Syntax
 
 [mysql - Performance differences between equal (=) and IN with one literal value - Stack Overflow](https://stackoverflow.com/questions/37828398/performance-differences-between-equal-and-in-with-one-literal-value)

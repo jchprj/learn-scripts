@@ -1,12 +1,12 @@
 -- https://stackoverflow.com/questions/9624284/current-timestamp-in-milliseconds
 
--- @block 
+-- @block in seconds
 select UNIX_TIMESTAMP();
 
 
 
--- @block 
-SELECT ROUND(UNIX_TIMESTAMP(CURTIME(4)) * 1000); --- 5.6+
+-- @block in milliseconds from MySQL (5.6+)
+SELECT ROUND(UNIX_TIMESTAMP(CURTIME(4)) * 1000);
 
 -- @block milliseconds
 select CURTIME(3), round(date_format(CURTIME(3), "%f")/1000)
