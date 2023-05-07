@@ -5,6 +5,14 @@
     String url = "jdbc:jtds:sqlserver://<ip_address>/<db_name>;instance=<SQLserver_name>;loginTimeout=5;socketTimeout=2";
     SQLconnection = DriverManager.getConnection(url, <userName>, <password>);
 
+
+[Connecting with encryption - JDBC Driver for SQL Server | Microsoft Docs](https://docs.microsoft.com/en-us/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver16)
+
+    String connectionUrl =
+        "jdbc:sqlserver://localhost:1433;" +
+        "databaseName=AdventureWorks;integratedSecurity=true;" +
+        "encrypt=true;trustServerCertificate=true";
+
 ## SSMS
 
 [Fix “Cannot generate SSPI context” while connecting to SQL Server](https://domainwebcenter.com/fix-cannot-generate-sspi-context-while-connecting-to-sql-server/)
