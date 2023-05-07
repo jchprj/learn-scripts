@@ -20,6 +20,12 @@ Vagrant.configure("2") do |config|
     v.memory = 2048
   end
 
+  # https://stackoverflow.com/questions/19872591/how-to-use-vagrant-in-a-proxy-environment
+  # vagrant plugin install vagrant-proxyconf
+  config.proxy.http     = "http://yourproxy:8080"
+  config.proxy.https    = "http://yourproxy:8080"
+  config.proxy.no_proxy = "localhost,127.0.0.1"
+
   # https://www.vagrantup.com/docs/networking/forwarded_ports
   # https://stackoverflow.com/questions/24461014/adding-port-forwarding-on-an-existing-vagrant-box
   # `vagrant reload` is supposed to reload those part of the Vagrantfile again
