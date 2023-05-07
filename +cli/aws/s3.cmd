@@ -34,3 +34,17 @@ echo aws s3 cp s3://bucket-name/filename.txt -
 echo aws s3 cp s3://bucket-name/pre - | bzip2 --best | aws s3 cp - s3://bucket-name/key.bz2
 
 echo aws s3 sync
+
+
+echo https://stackoverflow.com/questions/38834708/how-can-i-use-wildcards-to-cp-a-group-of-files-with-the-aws-cli
+echo aws s3 cp s3://data/ . --recursive  --include "2016-08*" --exclude "*" 
+echo aws s3 cp . s3://data/ --recursive --exclude "*" --include "2006-08*" --exclude "*/*"
+
+
+echo https://stackoverflow.com/questions/41871948/aws-s3-how-to-check-if-a-file-exists-in-a-bucket-using-bash
+exists=$(aws s3 ls $path_to_file)
+if [ -z "$exists" ]; then
+  echo "it does not exist"
+else
+  echo "it exists"
+fi

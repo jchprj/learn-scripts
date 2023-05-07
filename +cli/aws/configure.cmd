@@ -12,3 +12,7 @@ aws s3 ls --profile temp_test
 
 
 aws configure list --profile temp_test
+
+echo https://stackoverflow.com/questions/31331788/using-aws-cli-what-is-best-way-to-determine-the-current-region
+echo aws configure get region --profile $PROFILE_NAME
+aws configure get region
