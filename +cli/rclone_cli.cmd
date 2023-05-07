@@ -8,3 +8,6 @@ echo To copy a local directory to an OneDrive directory called backup
 echo rclone copy /home/source remote:backup
 echo Or
 echo rclone copy remote:backup /home/source
+
+echo https://rclone.org/commands/rclone_size/
+rclone size remote:path
