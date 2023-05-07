@@ -113,3 +113,21 @@ For a specific file use:
 git checkout -- path/to/file/to/revert
 
 -- here to remove argument ambiguation.
+
+## Merge two Git repos
+
+[git submodules - How do I append one git history to another? - Stack Overflow](https://stackoverflow.com/questions/21622327/how-do-i-append-one-git-history-to-another)
+
+[git merge - How to combine two separate unrelated Git repositories into one with single history timeline - Stack Overflow](https://stackoverflow.com/questions/9781729/how-to-combine-two-separate-unrelated-git-repositories-into-one-with-single-hist/9781995#9781995)
+
+
+## Revert
+
+[git - How to revert multiple pull request merges all at once and preserve history - Stack Overflow](https://stackoverflow.com/questions/60766114/how-to-revert-multiple-pull-request-merges-all-at-once-and-preserve-history)
+
+	git checkout <id-of-revision> # use the ID of the revision you would like to get your project back to (in terms of content)
+	git reset --soft <the-branch> # the branch where we want to add a revision to revert all of that
+	git commit -m "Reverting"
+	# If you like the results
+	git branch -f <the-branch> # move branch pointer to this new revision
+	git checkout <the-branch>
