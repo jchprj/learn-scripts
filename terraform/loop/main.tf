@@ -13,6 +13,11 @@ variable "list" {
   ]
 }
 
+# https://www.terraform.io/language/functions/toset
+output "setOfList" {
+  value = toset("${concat(var.list, [5, 7])}")
+}
+
 # https://discuss.hashicorp.com/t/working-with-list-of-maps/3675
 variable "images" {
   type = set(object({
