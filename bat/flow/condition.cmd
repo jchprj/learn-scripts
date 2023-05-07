@@ -17,3 +17,12 @@ IF EXIST "temp.txt" (
 ) ELSE (
     ECHO not found
 )
+
+
+@REM https://stackoverflow.com/questions/9278614/if-greater-than-batch-files
+@REM EQU - equal
+@REM NEQ - not equal
+@REM LSS - less than
+@REM LEQ - less than or equal
+@REM GTR - greater than
+@REM GEQ - greater than or equal

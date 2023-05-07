@@ -21,3 +21,15 @@ set arrayline[12]=############
 for /l %%n in (0,1,12) do (
     echo !arrayline[%%n]!
 )
+
+
+
+@REM https://stackoverflow.com/questions/13805187/how-to-set-a-variable-inside-a-loop-for-f
+SETLOCAL ENABLEDELAYEDEXPANSION
+set z=------
+for /F "tokens=*" %%a in ('type loop.cmd') do (
+    set z=%%a
+    echo %z%
+    echo !z!
+    echo %%a
+)

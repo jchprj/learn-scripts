@@ -57,3 +57,9 @@ echo %PROCESSOR_REVISION% &REM Outputs processor revision.
 echo %NUMBER_OF_PROCESSORS% &REM Outputs the number of physical and virtual cores.
 echo %RANDOM% &REM Outputs random number from 0 through 32767.
 echo %OS% &REM Windows_NT
+
+
+@REM https://stackoverflow.com/questions/3068929/how-to-read-file-contents-into-a-variable-in-a-batch-file
+for /f "delims=" %%x in (README.md) do set readme=%%x
+set /p readme=<README.md
+echo %readme%
