@@ -62,3 +62,13 @@ publishing {
         }
     }
 }
+
+// https://stackoverflow.com/questions/24724383/add-resources-and-config-files-to-your-jar-using-gradle
+sourceSets {
+    main {
+        resources {
+			// srcDir("src/main")
+            include("gradlew.bat")
+        }
+    }
+}

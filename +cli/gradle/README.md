@@ -27,6 +27,11 @@ gradlew bootRun --args='--spring.profiles.active=dev'
 gradlew build
 ```
 
+[Skipping Tests With Gradle | Baeldung](https://www.baeldung.com/gradle-skip-tests)
+
+    gradle build -x test
+
+
 ## Publish
 To local
 ```
