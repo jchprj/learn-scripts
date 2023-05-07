@@ -31,4 +31,16 @@ with conn.cursor() as cur:
 conn.commit()
 print("Got %d items from RDS MySQL table" % (item_count))
 # print(handler(1, 1))
+
+# https://stackoverflow.com/questions/41361261/get-multiple-lists-data-from-mysql-storedprocedure
+# https://peps.python.org/pep-0249/#nextset
+# If there are no more sets, the method returns None.
+with conn.cursor() as cur:
+    nextset = cur.execute("show master status")
+    while(nextset != None):
+        for row in cur:
+            print(row)
+        nextset = cur.nextset()
+
+conn.commit()
 conn.close()

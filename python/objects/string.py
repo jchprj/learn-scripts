@@ -53,3 +53,9 @@ print(len(json_obj["b"]))
 url = "http://www.test.com/page/page/12345"
 right = url.rsplit('/', 1)[-1]
 print(right)
+
+
+
+obj = {'a':"1"}
+s = f"a{url}bcd{obj['a']}"
+print(s)

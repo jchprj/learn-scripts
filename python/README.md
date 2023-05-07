@@ -1,28 +1,44 @@
 # Python
 
-Strings, lists, and tuples are objects
-From <https://www.openbookproject.net/books/bpp4awd/ch03.html>
+[3. Strings, lists, and tuples — Beginning Python Programming for Aspiring Web Developers](https://www.openbookproject.net/books/bpp4awd/ch03.html)
+
+    Strings, lists, and tuples are objects
+
 
 ## pip
 
-sudo pip install requests
+[python - ImportError: No module named requests - Stack Overflow](https://stackoverflow.com/questions/17309288/importerror-no-module-named-requests)
 
-From <https://stackoverflow.com/questions/17309288/importerror-no-module-named-requests> 
-
-
-pip install -r requirements.txt
-
-From <https://stackoverflow.com/questions/41457612/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project> 
+    sudo pip install requests
 
 
-python3 -m pip install
+[pip - How to use requirements.txt to install all dependencies in a python project - Stack Overflow](https://stackoverflow.com/questions/41457612/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project)
 
-From <https://stackoverflow.com/questions/50643068/python-installed-a-local-package-with-pip3-but-got-module-not-found-error> 
-Instead of pip install
+    pip install -r requirements.txt
 
-https://stackoverflow.com/questions/11091623/how-to-install-packages-offline
-pip download -r requirements.txt
-pip install --no-index --find-links /path/to/download/dir/ -r requirements.txt
+
+
+
+[pip - Python: Installed a local package with pip3, but got module not found error - Stack Overflow](https://stackoverflow.com/questions/50643068/python-installed-a-local-package-with-pip3-but-got-module-not-found-error)
+
+    Instead of pip install
+    python3 -m pip install
+
+
+
+[python - How to install packages offline? - Stack Overflow](https://stackoverflow.com/questions/11091623/how-to-install-packages-offline)
+
+    pip download -r requirements.txt
+    pip install --no-index --find-links /path/to/download/dir/ -r requirements.txt
+
+    pip download tensorflow
+    pip install 'tensorflow-xyz.whl' --no-index --find-links '.'
+
+
+[python 3.x - Install wheel file on off-line machine which has different processor - Stack Overflow](https://stackoverflow.com/questions/60182080/install-wheel-file-on-off-line-machine-which-has-different-processor)
+
+    pip download --index-url=https://www.piwheels.org/simple --platform linux_armv7l --no-deps numpy
+
 
 ## pipx
 

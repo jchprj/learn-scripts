@@ -11,7 +11,7 @@ print(sub4)                 # b.c.d.e.f.g
 
 
 import json
-a = json.loads('{"b":123, "a":null}');
+a = json.loads('{"b":123, "a":null}')
 print("ad" in a);           # False
 
 
@@ -55,3 +55,13 @@ ints = [1,2,3]
 string_ints = [str(int) for int in ints]
 str_of_ints = ",".join(string_ints)
 print(str_of_ints)              # 1,2,3
+
+
+
+# https://www.w3schools.com/python/ref_list_sort.asp
+ints.sort()
+print(ints)
+def myFunc(e):
+  return e
+ints.sort(reverse=True, key=myFunc)
+print(ints)

@@ -93,3 +93,11 @@ with io.open("temp_test.csv", 'r', encoding='utf8') as f:
 # process Unicode text
 with io.open("temp_test.csv", 'w', encoding='utf8') as f:
     f.write(text)
+
+
+# https://stackoverflow.com/questions/12791997/how-do-you-do-a-simple-chmod-x-from-within-python
+import os
+import stat
+
+st = os.stat('temp_test.csv')
+os.chmod('temp_test.csv', st.st_mode | stat.S_IEXEC)
