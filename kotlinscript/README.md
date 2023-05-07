@@ -8,14 +8,28 @@ Other pure Kotlin scripts could be run by `kotlinc`, if installed could also dir
 
 ## kscript
 
-https://github.com/holgerbrandl/kscript
+[GitHub - kscripting/kscript: Scripting enhancements for Kotlin](https://github.com/kscripting/kscript)
 
-Install kscript or use Docker to run:
+Install kscript:
+```
+sdk install kscript
+```
+
+Or use Docker to run:
 
 ```
 docker run -i holgerbrandl/kscript - < kscript.kts
 ```
 
 ### Requirements
-* Java 8 (unavailable in higher version)
 * Bash (unavailable in Windows cmd)
+
+
+### Issues
+
+
+#### [kscript] [ERROR] Failed while connecting to the server. Check the connection (http/https, port, proxy, credentials, etc.)of your maven dependency locators. 
+
+[Unable to pull dependencies · Issue #238 · kscripting/kscript · GitHub](https://github.com/kscripting/kscript/issues/238)
+
+    maven settings.xml

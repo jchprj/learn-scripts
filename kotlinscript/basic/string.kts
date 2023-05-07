@@ -22,3 +22,8 @@ println(c2)
 // string interpolation uses StringBuilder internally ???
 val c3 = a + b
 println(c3)
+
+
+val s = "abcdefg"
+val sub = s.subSequence(s.indexOf("cde") + 3, s.length)
+println(sub)

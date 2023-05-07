@@ -1,6 +1,7 @@
 #!/usr/bin/env kscript
 // https://stackoverflow.com/questions/44870961/how-to-map-a-json-string-to-kotlin-map
 // https://www.tabnine.com/blog/how-to-convert-a-java-object-into-a-json-string/
+@file:MavenRepository("releases", "https://bintray.com/javamoney/maven/")
 @file:DependsOn("com.fasterxml.jackson.module:jackson-module-kotlin:2.11.4")
 
 import com.fasterxml.jackson.databind.ObjectMapper
