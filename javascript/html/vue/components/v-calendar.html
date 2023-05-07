@@ -1,0 +1,95 @@
+<head></head>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/v-calendar@3.0.0-alpha.8/dist/v-calendar.es.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/v-calendar@3.0.0-alpha.8/dist/style.css">
+
+<div id="app">
+    <div class="text-center section">
+        <h2 class="h2">Custom Calendars</h2>
+        <p class="text-lg font-medium text-gray-600 mb-6">
+        Roll your own calendars using scoped slots
+        </p>
+        <div>range: {{ range }}</div>
+        <v-calendar   />
+        <v-date-picker is-range />
+        <!-- <v-date-picker
+            v-model="range"
+            :masks="masks"
+            :attributes="attr"
+            :select-attribute="selectDragAttribute"
+            :drag-attribute="selectDragAttribute"
+            is-expanded
+            is-range
+            @drag="dragValue = $event"
+            @dayclick="onDayClick($event)"
+        >
+            <template v-slot:day-content="{ day, dayEvents, attributes }">
+                <div @click="chooseDay(day, dayEvents)">
+                <span :value="day.day">{{ day.day }}</span>
+                <div>
+                    <p
+                        v-for="attr in attributes"
+                        :key="attr.key"
+                    >
+                        {{ attr.customData }}
+                    </p>
+                </div>
+                </div>
+            </template>
+        
+        </v-date-picker> -->
+    </div>
+</div>
+
+<script>
+    const app = {
+        name: 'App',
+            components: {
+        },
+        methods: {
+            chooseDay(day, dayEvents) {
+                console.log(dayEvents)
+                // this.range.start = day.date
+                dayEvents.onClick()
+            }
+        },
+        computed: {
+            selectDragAttribute() {
+                return {
+                    popover: {
+                    visibility: 'hover',
+                    isInteractive: false, // Defaults to true when using slot
+                    },
+                };
+            },
+        },
+        data: () => {
+            const month = new Date().getMonth();
+            const year = new Date().getFullYear();
+            return {
+                dragValue: null,
+                range: {
+                    start: new Date(year, month, 8),
+                    end: new Date(year, month, 12),
+                },
+                masks: {
+                    weekdays: 'WWW',
+                },
+                attr: Array.from(Array(28).keys()).map(n => {
+                    return {
+                        key: 2,
+                        highlight: false,
+                        value: "",
+                        customData: `$${Math.ceil(Math.random() * 7) * 100 + 100}.00`,
+                        dates: new Date(year, month, n),
+                    }
+                })
+            };
+        },
+        compilerOptions: {
+            isCustomElement: tag => tag === 'v-calendar' || tag === 'v-date-picker'
+        }
+    }
+    const vm = Vue.createApp(app).mount('#app')
+</script>

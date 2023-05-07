@@ -76,3 +76,8 @@ var hege = ["Cecilie", "Lone"];
 var stale = ["Emil", "Tobias", "Linus"];
 var kai = ["Robin"];
 var children = hege.concat(stale, kai); 
+
+
+// https://www.codegrepper.com/code-examples/javascript/javascript+create+list+of+numbers+1+to+n
+var arr = Array.from(Array(10).keys())
+console.log(arr)

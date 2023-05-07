@@ -17,4 +17,26 @@
     console.log(`outerText ${outerText}`)
     outerHTML = node.outerHTML
     console.log(`outerHTML ${outerHTML}`)
+
+
+    // https://www.w3schools.com/jsref/met_document_getelementsbyclassname.asp
+    var node2 = document.getElementsByClassName('foo')
+    console.log(node2)
+
+    // https://stackoverflow.com/questions/22754315/for-loop-for-htmlcollection-elements
+    for (let item of node2) {
+        console.log(item);
+        // https://stackoverflow.com/questions/254302/how-can-i-determine-the-type-of-an-html-element-in-javascript
+        console.log(item.nodeName);
+    }
+
+    
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/after
+    let container = document.createElement("div");
+    let p = document.createElement("p");
+    container.appendChild(p);
+    let span = document.createElement("span");
+    p.after(span);
+    console.log(container.outerHTML);
+    // "<div><p></p><span></span></div>"
 </script>
