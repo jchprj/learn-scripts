@@ -1,20 +1,22 @@
 ## Search
 
+[Where can I see all my comments on issues on GitHub? - Web Applications Stack Exchange](https://webapps.stackexchange.com/questions/103374/where-can-i-see-all-my-comments-on-issues-on-github)
+
+    is:issue commenter:username
+
 
 ### Query for filename
 https://stackoverflow.com/questions/18991908/is-it-possible-to-search-for-a-particular-filename-on-github
 
-filename:user.rb
+    filename:user.rb
 
 
 
 ### Query for dates
 https://docs.github.com/en/free-pro-team@latest/github/searching-for-information-on-github/understanding-the-search-syntax
 
-
-created:>2016-04-29
-
-pushed:2016-04-30..2016-07-04
+    created:>2016-04-29
+    pushed:2016-04-30..2016-07-04
 
 ### Exclude certain results
 https://docs.github.com/en/github/searching-for-information-on-github/understanding-the-search-syntax

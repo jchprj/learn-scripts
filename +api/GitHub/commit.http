@@ -1,3 +1,29 @@
 ### https://stackoverflow.com/questions/15831313/is-it-possible-to-get-commits-history-for-one-file-in-github-api
 
 http://api.github.com/repos/octocat/hello-world/commits?path=README
+
+
+
+
+### Commit status
+### https://docs.github.com/en/rest/commits/statuses
+GET https://api.github.com/repos/octocat/hello-world/commits/553c2077f0edc3d5dc5d17262f6aa498e69d6f8e/status
+
+
+### Create a commit status
+### context: a string label to differentiate this status from the status of other systems. This field is case-insensitive.
+POST https://api.github.com/repos/OWNER/REPO/statuses/SHA
+Accept: application/vnd.github+json
+Authorization: Bearer <YOUR-TOKEN>
+
+{
+    "state":"success",
+    "target_url":"https://example.com/build/status",
+    "description":"The build succeeded!",
+    "context":"continuous-integration/jenkins"
+}
+
+
+### https://stackoverflow.com/questions/48106989/how-do-i-remove-a-github-status-check
+### No deletion API, but can disable any status check
+### Settings -> Branches -> Branch protection rules -> Edit -> Rule settings
