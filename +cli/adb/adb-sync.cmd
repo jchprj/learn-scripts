@@ -1,4 +1,5 @@
 echo https://github.com/google/adb-sync
+echo https://github.com/jb2170/better-adb-sync
 
 adb-sync --help
 
