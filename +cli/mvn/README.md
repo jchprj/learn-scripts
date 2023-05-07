@@ -18,12 +18,36 @@ Basically, the configurations priority is
 - property files
 - main @SpringBootApplication configuration
 
+## JVM args
+
+[java - Is there a way to pass JVM args via command line to Maven? - Stack Overflow](https://stackoverflow.com/questions/12525288/is-there-a-way-to-pass-jvm-args-via-command-line-to-maven)
+
+    export MAVEN_OPTS="-Xms256m -Xmx512m"
+
+[Maven throws "java.lang.OutOfMemoryError" - Stack Overflow](https://stackoverflow.com/questions/1920059/maven-throws-java-lang-outofmemoryerror)
+
+    if tests are forked (by default), and fails due OutOfMemoryError then try configure plugin which launching them:
+
+    <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+            <argLine>-Xmx1024m</argLine>
+        </configuration>
+    </plugin>
+
+
 ## Settings
 
-```
-mvn -X
-```
 [Find out which settings.xml file maven is using](https://stackoverflow.com/questions/9988814/how-do-i-find-out-which-settings-xml-file-maven-is-using)
+
+    mvn -X
+
+
+[maven command line how to point to a specific settings.xml for a single command? - Stack Overflow](https://stackoverflow.com/questions/25277866/maven-command-line-how-to-point-to-a-specific-settings-xml-for-a-single-command)
+
+    mvn --settings YourOwnSettings.xml clean install
+    mvn -s YourOwnSettings.xml clean install
+
 
 ## Dependencies
 ```
@@ -121,22 +145,26 @@ From <https://stackoverflow.com/questions/33926182/maven-deploy-the-packaging-fo
 mvn test
 ```
 
-```
-mvn -Dit.test=ITSquare,ITCi*le verify
-```
-From <https://maven.apache.org/surefire/maven-failsafe-plugin/examples/single-test.html> 
+[Maven Failsafe Plugin – Running a Single Test](https://maven.apache.org/surefire/maven-failsafe-plugin/examples/single-test.html)
 
-```
-mvn surefire:test
-```
-From <https://stackoverflow.com/questions/14867073/how-can-i-atomically-run-mvn-tests-without-rebuilding-source-code> 
+    mvn -Dit.test=ITSquare,ITCi*le verify
 
-```
-mvn test -Dtest=**/*Integration
-```
-Running Integration Tests With Maven	
-We can run integration tests with Maven by using the Maven Failsafe Plugin.
-From <https://www.testwithspring.com/lesson/running-integration-tests-with-maven/> 
+[maven - How can I atomically run mvn tests (without rebuilding source code)? - Stack Overflow](https://stackoverflow.com/questions/14867073/how-can-i-atomically-run-mvn-tests-without-rebuilding-source-code)
+
+    mvn surefire:test
+
+
+[Running Integration Tests With Maven](https://www.testwithspring.com/lesson/running-integration-tests-with-maven/)
+
+    mvn test -Dtest=**/*Integration
+    Running Integration Tests With Maven	
+    We can run integration tests with Maven by using the Maven Failsafe Plugin.
+
+
+[unit testing - Is the 'IT.java' filename Suffix (instead of 'Test.java') for JUnit Integration Tests a convention? - Stack Overflow](https://stackoverflow.com/questions/30077033/is-the-it-java-filename-suffix-instead-of-test-java-for-junit-integration)
+
+    The IT.java suffix is a convention used by the Maven Failsafe Plugin.
+
 
 ## Package
 
@@ -212,6 +240,13 @@ mvn package exec:exec
 ```
 mvn package -Dmaven.test.skip
 ```
+
+
+# Issues
+
+[Can't build v3.7.1 with jdk16-headless and maven 3.6.3 · Issue #201 · nroduit/Weasis · GitHub](https://github.com/nroduit/Weasis/issues/201)
+
+    never use jdk17 and maven at the same time?
 
 # References
 
