@@ -1,6 +1,6 @@
 # Compress to .tar.gz
-tar -I 'gzip -9' -cvf temp_test.tar.gz file1
-
+# https://superuser.com/questions/305128/how-to-specify-level-of-compression-when-using-tar-zcvf
+tar cvzf - file1 | gzip -9 - > temp_test.tar.gz
 
 # Extract .tar.gz
 tar -xvzf temp_test.tar.gz
@@ -16,7 +16,12 @@ tar -xvzf temp_test.tar.gz file1
 tar -C . -xvzf temp_test.tar.gz
 
 
+# https://askubuntu.com/questions/392885/how-can-i-view-the-contents-of-tar-gz-file-without-extracting-from-the-command-l
+tar -tf temp_test.tar.gz
 
+
+# https://stackoverflow.com/questions/14295771/how-do-i-extract-files-without-folder-structure-using-tar
+tar -xf temp_test.tar.gz --strip-components 1
 
 
 # https://unix.stackexchange.com/questions/146206/why-cant-tar-extract-zip-files/146217

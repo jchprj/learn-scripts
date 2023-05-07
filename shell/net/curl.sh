@@ -39,3 +39,13 @@ curl -s -o /dev/null -w "%{http_code}" https://httpstat.us/500
 # https://stackoverflow.com/questions/13339469/how-to-include-an-character-in-a-bash-curl-statement
 # How to include an '&' character in a bash curl statement
 # Putting the entire URL inside double quotes should take care of your problem
+
+
+
+# https://superuser.com/questions/272265/getting-curl-to-output-http-status-code
+curl -I http://www.example.org
+curl -I https://httpstat.us/500
+
+
+# http://www.compciv.org/recipes/cli/downloading-with-curl/
+curl http://example.com --output temp_test

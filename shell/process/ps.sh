@@ -17,3 +17,9 @@ ps -eo nlwp | tail -n +2 | awk '{ num_threads += $1 } END { print num_threads }'
 
 # https://unix.stackexchange.com/questions/74185/how-can-i-prevent-grep-from-showing-up-in-ps-results
 ps aux | grep "[f]nord"
+
+
+# https://unix.stackexchange.com/questions/229541/view-full-commands-in-ps-output
+ps -f | more
+ps auxf | more
+ps auxfww

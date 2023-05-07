@@ -24,3 +24,7 @@ ss -tlnp
 
 # Show all ports connected to
 # ss src ADDRESS_PATTERN
+
+
+# https://www.blackmoreops.com/2014/09/25/find-number-of-unique-ips-active-connections-to-web-server/
+ss -ntp | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort

@@ -29,3 +29,8 @@ find . -type d -name 'find_directories_with_wildcard_to_delete*' | xargs rm -r
 # The difference between ; and + is that with ; a single grep command for each file is executed whereas with + as many files as possible are given as parameters
 find . -exec echo {} \;
 find . -exec echo {} +
+
+
+# https://www.cyberciti.biz/faq/how-do-i-find-all-the-files-owned-by-a-particular-user-or-group/
+# find directory-location -user {username} -name {file-name}
+# find directory-location -group {group-name} -name {file-name}

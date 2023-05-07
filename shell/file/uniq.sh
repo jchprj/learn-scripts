@@ -14,4 +14,5 @@ uniq file1          # will contain multiple 2
 
 echo
 # https://www.unix.com/shell-programming-and-scripting/136468-group-using-shell-script.html
+# https://stackoverflow.com/questions/6712437/find-duplicate-lines-in-a-file-and-count-how-many-time-each-line-was-duplicated
 sort file1|uniq -c

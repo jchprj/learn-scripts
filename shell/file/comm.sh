@@ -18,7 +18,8 @@
 #   suppress column 3 (lines that appear in both files)
 
 
-
+# https://shapeshed.com/unix-comm/
+comm -12 <(sort file1) <(sort file2)
 
 
 

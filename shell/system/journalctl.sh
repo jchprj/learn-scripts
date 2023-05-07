@@ -10,3 +10,9 @@ journalctl --until "2018-09-02 12:05:50"
 
 # similar to tail -f
 journalctl -xefu cron
+
+
+# https://askubuntu.com/questions/1238214/big-var-log-journal
+
+sudo journalctl --vacuum-size=100M
+sudo journalctl --vacuum-time=10d

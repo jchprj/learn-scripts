@@ -51,3 +51,9 @@ systemctl daemon-reload
 # systemctl --user status myapp.service
 # systemctl --user start myapp.service
 # systemctl --user edit myapp.service
+
+
+
+# https://askubuntu.com/questions/1792/how-can-i-suspend-hibernate-from-command-line
+systemctl suspend
+systemctl hibernate

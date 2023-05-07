@@ -75,3 +75,61 @@ status=$(case $status in
   *) echo $status ;;
 esac)
 echo "status: $status"
+
+# https://stackoverflow.com/questions/428109/extract-substring-in-bash
+echo ${status:1:2}
+
+
+# https://stackoverflow.com/questions/9727695/if-arguments-is-equal-to-this-string-define-a-variable-like-this-string
+source="country"
+target="country"
+if [ "$source" = "$target" ]; then
+   echo "equal"
+else
+   echo "not equal"
+fi
+
+if [ "$source" != "$target" ]; then
+   echo "not equal"
+else
+   echo "equal"
+fi
+
+
+# https://unix.stackexchange.com/questions/132480/case-insensitive-substring-search-in-a-shell-script
+source="Hello"
+target="he"
+if echo "$source" | grep -iqF "$target"; then
+    echo it contains
+fi
+target="hea"
+if echo "$source" | grep -iqF "$target"; then
+    echo it contains
+else
+    echo it does not contain
+fi
+
+
+if [ $? -eq 0 ] ; then
+   echo Success
+else
+   echo Failed
+fi
+
+if [ $? -ne 0 ] ; then
+   echo Failed
+fi
+
+
+# https://stackoverflow.com/questions/3826425/how-to-represent-multiple-conditions-in-a-shell-if-statement
+if [[ ( $source == 1 && $source == 123 ) || ( $source == 2 && $source == 456 ) ]]; then
+   echo Success
+else
+   echo Failed
+fi
+
+if [ "$source" != "" ] && [ "$source" == "Hello" ]; then
+   echo "Success"
+else
+   echo Failed
+fi

@@ -13,3 +13,8 @@ sort -u temp_test -o temp_test
 # https://stackoverflow.com/questions/9245638/select-random-lines-from-a-file-in-bash
 sort -R file1 | head -n 3 >temp_test
 
+
+# https://unix.stackexchange.com/questions/120096/how-to-sort-big-files
+# --parallel=n  Set the number of sorts run in parallel to n.
+# By default, n is set to the number of available processors, but limited to 8
+sort --parallel=2 -uo temp_test temp_test

@@ -77,3 +77,17 @@ sed -z 's/\n/,/g' temp_test
 # https://stackoverflow.com/questions/14072592/replace-strings-using-sed-and-regex/14072614
 echo; echo; echo -------- Replace Strings Using Sed And Regex; echo -------- sed -e 's/^#\s*\(.*[0-9].*\)$/\1/g' temp_test
 sed -e 's/^#\s*\(.*[0-9].*\)$/\1/g' temp_test
+
+
+# Remove last character from line
+# https://unix.stackexchange.com/questions/83038/remove-last-character-from-line
+echo; echo -------- Remove last character from line
+echo abcde | sed 's/.$//'
+
+
+# https://unix.stackexchange.com/questions/29790/how-can-i-write-to-the-second-line-of-a-file-from-the-command-line
+# sed's command a\ (append)
+sed '1 aappended line' temp_test
+sed '1 a whatever_line_of_text_you_wanted_to_INSERT' temp_test
+
+sed '2 i whatever_line_of_text_you_wanted_to_INSERT' temp_test

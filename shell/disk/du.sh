@@ -30,3 +30,7 @@ du -hs * | sort -rh | head -5
 
 ## Include sub directories
 du -Sh | sort -rh | head -5
+
+
+# https://unix.stackexchange.com/questions/23692/using-exclude-with-the-du-command
+du -ch --exclude=./relative/path/to/uploads

@@ -31,3 +31,11 @@ awk -v var="$variable" 'BEGIN {print var}'
 
 # https://stackoverflow.com/questions/4366533/how-to-remove-the-lines-which-appear-on-file-b-from-another-file-a
 # awk 'NR==FNR{a[$0];next} !($0 in a)' fileB fileA
+
+
+# https://unix.stackexchange.com/questions/102008/how-do-i-trim-leading-and-trailing-whitespace-from-each-line-of-some-output
+echo ' abc ' | awk '{$1=$1};1'
+
+
+# https://stackoverflow.com/questions/2609552/how-can-i-use-as-an-awk-field-separator
+echo '1: ' | awk -F  ':' '/1/ {print $1}'
