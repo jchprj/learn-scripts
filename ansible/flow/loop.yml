@@ -1,4 +1,10 @@
 ---
+# https://stackoverflow.com/questions/50456997/ansible-with-items-vs-loop
+# using the loop keyword is encouraged for future compatibility.
+
+# https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html
+# In most cases, loops work best with the loop keyword instead of with_X style loops. Migrating from with_X to loop.
+
 - hosts: localhost
   gather_facts: no
   tasks:
@@ -58,3 +64,13 @@
     debug:
       msg: "{{ item }}"
     loop: "{{ ansible_play_batch + ansible_play_batch }}"
+
+  # https://stackoverflow.com/questions/70829910/ansible-get-current-index-of-a-variable-in-a-loop
+  - name: Output
+    vars: 
+      rn2: [1,2,3]
+    debug:
+      var: my_idx
+    loop: "{{ rn2 }}"
+    loop_control:
+      index_var: my_idx

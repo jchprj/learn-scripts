@@ -1,0 +1,12 @@
+# https://stackoverflow.com/questions/32297456/how-to-ignore-ansible-ssh-authenticity-checking
+# setting the environment variable ANSIBLE_HOST_KEY_CHECKING to False
+# or update ansible.cfg with host_key_checking
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  - name: Write host key to known hosts
+    connection: local
+    shell: "ssh-keyscan -H {{ inventory_hostname }} >> ~/.ssh/known_hosts"

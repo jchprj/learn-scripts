@@ -36,3 +36,19 @@
     loop: "{{ items }}"
     when: items.0 == 'one'
     register: echo
+
+  # https://stackoverflow.com/questions/34340562/evaluating-return-code-in-ansible-conditional
+  - name: register version check
+    shell: echo abc
+    register: abc
+    failed_when: abc.rc == 2
+
+  # https://phoenixnap.com/kb/ansible-check-if-file-exists
+  - name: Check if a File Exists 1
+    stat:
+      path: condition.yml
+    register: register_name
+  - name: Check if a File Exists 2
+    debug:
+      msg: "The file or directory exists"
+    when: register_name.stat.exists

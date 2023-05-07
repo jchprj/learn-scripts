@@ -1,0 +1,9 @@
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/reboot_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: ping
+    win_ping:
+  - name: Unconditionally reboot the machine with all defaults
+    ansible.builtin.reboot:

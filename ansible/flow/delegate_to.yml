@@ -1,4 +1,7 @@
 ---
+# https://stackoverflow.com/questions/56048959/ansible-local-action-example-how-does-it-work
+# because local_action requires you to change the syntax of tasks, it's better to always use delegate_to
+
 - hosts: localhost
   gather_facts: no
   tasks:

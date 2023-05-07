@@ -37,3 +37,12 @@
   # - local_action: copy content={{ foo_result }} dest=/path/to/destination/file
   # From <https://stackoverflow.com/questions/26732241/ansible-save-registered-variable-to-file>
   - local_action: copy content=ansible_test2_copy.txt dest=ansible_test1_copy/ansible_test1/ansible_test2_copy.txt
+
+
+  # https://phoenixnap.com/kb/ansible-create-file
+  - name: Creating a file with content
+    copy:
+      dest: "yourpath"
+      content: |
+        line 01
+        line 02

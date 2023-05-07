@@ -1,0 +1,13 @@
+# https://docs.ansible.com/ansible/latest/plugins/connection.html
+# https://docs.ansible.com/ansible/2.9/plugins/connection/paramiko_ssh.html#paramiko-ssh-connection
+# https://gist.github.com/yaegashi/9660f147cc8a5dfff339
+
+---
+- hosts: localhost
+  connection: paramiko
+  gather_facts: no
+  tasks:
+  - name: ping
+    ping:
+  - debug:
+      msg: hello

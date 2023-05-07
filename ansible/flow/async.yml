@@ -1,0 +1,51 @@
+# https://devops.stackexchange.com/questions/3860/is-there-a-way-to-run-with-items-loops-in-parallel-in-ansible
+# https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_async.html
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Run each task within 2 seconds, poll every 1 second, as it needs 3 seconds to complete, all will fail.
+    shell: sleep 3
+    loop: [1, 2, 3]
+    register: async_results
+    async: 2
+    poll: 1
+    ignore_errors: yes
+    
+  - name: Run each task without waiting and continue next task.
+    shell: sleep 3
+    loop: [1, 2, 3]
+    register: async_results
+    async: 10
+    poll: 0
+
+  - name: Run each task without waiting and continue next task.
+    shell: sleep {{ async_item }}
+    loop: [1, 2, 3]
+    loop_control:
+      loop_var: "async_item"
+    register: async_results
+    async: 10
+    poll: 0
+  - name: Wait for above long running task to finish
+    async_status:
+      jid: "{{ item.ansible_job_id }}"
+    register: async_poll_results
+    retries: 20
+    delay: 1
+    until: async_poll_results.finished
+    loop: "{{ async_results.results }}"
+
+  - name: Run each task without waiting and continue next task in batch of two items.
+    vars:
+      all_items:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      items: "{{ item }}"
+    loop: "{{ all_items | batch(2) | list }}"
+    loop_control:
+      index_var: my_idx
+    include_tasks: async_execute_batch.yml

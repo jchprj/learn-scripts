@@ -1,0 +1,17 @@
+
+  - name: Running batch group {{ my_idx }}
+    shell: sleep {{ async_item }}
+    loop: "{{ items }}"
+    loop_control:
+      loop_var: "async_item"
+    register: async_results
+    async: 10
+    poll: 0
+  - name: Waiting for batch group {{ my_idx }}
+    async_status:
+      jid: "{{ item.ansible_job_id }}"
+    register: async_poll_results
+    retries: 20
+    delay: 1
+    until: async_poll_results.finished
+    loop: "{{ async_results.results }}"

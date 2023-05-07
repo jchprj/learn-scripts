@@ -23,13 +23,18 @@
         repetition:
           interval: PT60M
           duration: PT1440M
-      username: a
-      password: 1
+      username: SYSTEM
       state: present
       enabled: yes
       run_level: highest
       disallow_start_if_on_batteries: no
       wake_to_run: yes
+      
+  - name: Change above task to run under a user account, storing the passwords
+    win_scheduled_task:
+      name: TaskName
+      username: a
+      password: 1
       logon_type: password
 
   - name: Remove task

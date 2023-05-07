@@ -33,3 +33,13 @@
   # Need inventory definition to call
   # {{ hostvars['your_host_group'].ansible_host }}
   - debug: msg="{{ hostvars }}"
+
+  # https://stackoverflow.com/questions/36310633/ansible-get-number-of-hosts-in-group
+  - debug: msg="{{ groups['maingroup'] | length }}"
+
+  # https://stackoverflow.com/questions/43140086/loop-through-hosts-with-ansible
+  # [local]
+  # 127.0.0.1
+  - name: ping
+    ping:
+    loop: "{{ groups['local'] }}"

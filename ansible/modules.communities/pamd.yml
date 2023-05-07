@@ -1,0 +1,37 @@
+# https://docs.ansible.com/ansible/latest/collections/community/general/pamd_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    ping:
+
+  # https://unix.stackexchange.com/questions/113754/allow-user1-to-su-user2-without-password
+  # Add the following lines underneath the pam_rootok.so line in your /etc/pam.d/su:
+  # auth  [success=ignore default=1] pam_succeed_if.so user = martin-test
+  # auth  sufficient                 pam_succeed_if.so use_uid user = martin
+  # - name: Insert a new rule pam_succeed_if.so with argument 'user = martin-test' after an existing rule pam_rootok.so
+  #   community.general.pamd:
+  #     name: su
+  #     type: auth
+  #     control: sufficient
+  #     module_path: pam_rootok.so
+  #     new_type: auth
+  #     new_control: "[success=ignore default=1]"
+  #     new_module_path: pam_succeed_if.so
+  #     module_arguments: 'user = martin-test'
+  #     state: after
+  #   become: yes
+  # - name: Insert a new rule pam_succeed_if.so with argument 'use_uid' after previous rule
+  #   community.general.pamd:
+  #     name: su
+  #     type: auth
+  #     control: "[success=ignore default=1]"
+  #     module_path: pam_succeed_if.so
+  #     new_type: auth
+  #     new_control: "sufficient"
+  #     new_module_path: pam_succeed_if.so
+  #     module_arguments: 'use_uid user = martin'
+  #     state: after
+  #   become: yes

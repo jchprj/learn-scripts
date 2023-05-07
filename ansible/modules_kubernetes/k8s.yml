@@ -1,0 +1,33 @@
+# https://docs.ansible.com/ansible/latest/collections/kubernetes/core/k8s_module.html
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    yaml: 
+      - { definition: "k8s-test.yml", state: "present" }
+
+  tasks:
+  - name: ping
+    ping:
+
+  - name: Create a k8s namespace
+    kubernetes.core.k8s:
+      name: testing
+      api_version: v1
+      kind: Namespace
+      state: present
+
+  # yml file is on the target system, not the system running Ansible.
+  - name: Create a Deployment by reading the definition from a local file
+    kubernetes.core.k8s:
+      state: present
+      src: /testing/deployment.yml
+      
+  # yml file is on the system running Ansible.
+  - name: >-
+      Read definition file from the Ansible controller file system.
+      If the definition file has been encrypted with Ansible Vault it will automatically be decrypted.
+    kubernetes.core.k8s:
+      state: "{{ item.state }}"
+      definition: "{{ lookup('file', item.definition) | from_yaml }}"
+    loop: "{{ yaml }}"
