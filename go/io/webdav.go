@@ -1,4 +1,6 @@
-// https://webdav.io/
+// https://github.com/hacdias/webdav
+// Simple Go WebDAV server.
+
 // https://pkg.go.dev/golang.org/x/net/webdav
 // https://gist.github.com/staaldraad/d835126cd46969330a8fdadba62b9b69
 
