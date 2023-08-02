@@ -34,3 +34,17 @@ find . -exec echo {} +
 # https://www.cyberciti.biz/faq/how-do-i-find-all-the-files-owned-by-a-particular-user-or-group/
 # find directory-location -user {username} -name {file-name}
 # find directory-location -group {group-name} -name {file-name}
+
+
+# https://unix.stackexchange.com/questions/34325/sorting-the-output-of-find-print0-by-piping-to-the-sort-command
+find . -print0 | sort -z | xargs -r0 echo
+
+
+# https://unix.stackexchange.com/questions/187088/if-command-in-find-exec
+echo {} : ;if [ -f {} ]; then echo file; else echo directory;fi
+find -exec sh -c 'echo {} : ;if [ -f {} ]; then echo file; else echo directory;fi' \;
+
+
+# https://linuxhint.com/find-last-modified-files-in-linux/
+# By specifying the option 0 as in the example below, mtime will return all files modified in the last 24 hours.
+find . -mtime 0

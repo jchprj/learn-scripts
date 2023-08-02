@@ -49,3 +49,13 @@ curl -I https://httpstat.us/500
 
 # http://www.compciv.org/recipes/cli/downloading-with-curl/
 curl http://example.com --output temp_test
+
+
+# https://stackoverflow.com/questions/7637078/expanding-variable-with-spaces-into-a-curl-post-variable
+ab="a b c"
+curl http://example.com --data "$ab"            # No errors
+curl http://example.com --data '{'$ab'}'        # Errors
+
+
+# https://unix.stackexchange.com/questions/94604/does-curl-have-a-timeout
+curl https://httpstat.us/200?sleep=5000 --max-time 1

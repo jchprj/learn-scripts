@@ -14,3 +14,17 @@ echo \$b
 Ahmet
 Ali
 EOF
+
+
+# https://www.oreilly.com/library/view/bash-cookbook/0596526784/ch03s04.html
+# here-document
+cat <<-'EOF'
+    lots of data
+    can go here
+    it's indented with tabs
+    to match the script's indenting
+    but the leading tabs are
+    discarded when read
+    EOF
+	EOF
+ls

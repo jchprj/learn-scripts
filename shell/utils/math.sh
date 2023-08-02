@@ -30,3 +30,10 @@ echo $i
 let "i++"
 let "++i"
 echo $i
+
+
+# https://stackoverflow.com/questions/24777597/value-too-great-for-base-error-token-is-08
+vara=08;
+varb=10;
+echo $(($vara+1))       # value too great for base (error token is "08")
+echo $((10#$vara+1))    # 9

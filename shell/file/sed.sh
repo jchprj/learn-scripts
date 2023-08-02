@@ -91,3 +91,7 @@ sed '1 aappended line' temp_test
 sed '1 a whatever_line_of_text_you_wanted_to_INSERT' temp_test
 
 sed '2 i whatever_line_of_text_you_wanted_to_INSERT' temp_test
+
+
+# https://stackoverflow.com/questions/29939241/sed-replace-all-strings-that-begin-with
+echo "what is a library" | sed 's/\blib[^ ]*//'
