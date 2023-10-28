@@ -16,3 +16,6 @@ sshuttle -r username@sshserver 0/0  # short cut for 0.0.0.0/0(Forward all traffi
 # cd sshuttle
 # ./setup.py install
 
+
+# https://superuser.com/questions/507239/is-there-a-sshuttle-equivalent-for-windows-ssh-tunneling-for-windows
+# Fow Windows, socks proxy with ssh -D
