@@ -72,3 +72,9 @@ sourceSets {
         }
     }
 }
+
+// https://stackoverflow.com/questions/54195796/create-jar-with-fix-name-excluding-version-using-gradle
+tasks.jar {
+    archiveFileName.set("${project.name}.jar")
+    project.version="0.0.1"
+}
