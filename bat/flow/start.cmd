@@ -16,3 +16,6 @@ start "" http://www.stackoverflow.com
 start "iexplore.exe" http://www.stackoverflow.com
 start "chrome.exe" http://www.stackoverflow.com
 start "firefox.exe" http://www.stackoverflow.com
+
+@REM https://stackoverflow.com/questions/34698230/how-to-run-multiple-commands-via-start-command
+start "MyWindow" cmd /c "ping localhost & ipconfig & pause"
