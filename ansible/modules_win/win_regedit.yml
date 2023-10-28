@@ -1,0 +1,25 @@
+# https://docs.ansible.com/archive/ansible/2.4/win_regedit_module.html
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    win_ping:
+
+  - name: Add or update registry path MyCompany, with dword entry 'hello', and containing 1337 as the decimal value
+    win_regedit:
+      path: HKCU:\Software\MyCompany
+      name: hello
+      data: 1337
+      type: dword
+
+  # https://www.thewindowsclub.com/enable-remote-desktop-using-command-line
+  # reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+  # netsh advfirewall firewall set rule group="remote desktop" new enable=yes
+  - name: Enable Remote Desktop
+    win_regedit:
+      path: HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server
+      name: fDenyTSConnections
+      data: 0
+      type: dword

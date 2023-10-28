@@ -1,6 +1,9 @@
 # https://docs.ansible.com/ansible/latest/modules/win_feature_module.html
 # https://hahndorf.eu/blog/WindowsFeatureViaCmd
 
+# https://stackoverflow.com/questions/68634784/failling-to-install-iis-on-windows-10-from-ansible
+# The Ansible module "win_feature" only works on Windows servers.
+
 ---
 - hosts: localhost
   gather_facts: no
@@ -17,6 +20,12 @@
   - name: Enable TelnetClient
     win_feature:
       name: TelnetClient
+      state: present
+
+  # https://github.com/mrlesmithjr/ansible-windows-remote-desktop/blob/master/tasks/features.yml
+  - name: features | Managing Remote Desktop Feature
+    win_feature:
+      name: Remote-Desktop-Services
       state: present
 
   - name: reboot_required

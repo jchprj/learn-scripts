@@ -1,4 +1,9 @@
 # https://docs.ansible.com/ansible/latest/collections/kubernetes/core/k8s_module.html
+# python >= 3.6
+# kubernetes >= 12.0.0
+# PyYAML >= 3.11
+# jsonpatch
+
 ---
 - hosts: localhost
   gather_facts: no

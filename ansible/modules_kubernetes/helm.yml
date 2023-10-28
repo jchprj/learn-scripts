@@ -1,0 +1,99 @@
+# https://docs.ansible.com/ansible/latest/collections/kubernetes/core/helm_module.html
+
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: ping
+    ping:
+
+  - name: Deploy latest version of Prometheus chart inside monitoring namespace (and create it)
+    kubernetes.core.helm:
+      name: test
+      chart_ref: stable/prometheus
+      release_namespace: monitoring
+      create_namespace: true
+
+  # From repository
+  - name: Add stable chart repo
+    kubernetes.core.helm_repository:
+      name: stable
+      repo_url: "https://kubernetes.github.io/ingress-nginx"
+
+  # From git
+  - name: Git clone stable repo on HEAD
+    ansible.builtin.git:
+      repo: "http://github.com/helm/charts.git"
+      dest: /tmp/helm_repo
+  - name: Deploy Grafana chart from local path
+    kubernetes.core.helm:
+      name: test
+      chart_ref: /tmp/helm_repo/stable/grafana
+      release_namespace: monitoring
+  
+  # From url
+  - name: Deploy Grafana chart on 5.6.0 from url
+    kubernetes.core.helm:
+      name: test
+      chart_ref: "https://github.com/grafana/helm-charts/releases/download/grafana-5.6.0/grafana-5.6.0.tgz"
+      release_namespace: monitoring
+
+
+
+  - name: Deploy latest version of Grafana chart inside monitoring namespace with values
+    kubernetes.core.helm:
+      name: test
+      chart_ref: stable/grafana
+      release_namespace: monitoring
+      values:
+        replicas: 2
+
+  - name: Deploy Grafana chart on 5.0.12 with values loaded from template
+    kubernetes.core.helm:
+      name: test
+      chart_ref: stable/grafana
+      chart_version: 5.0.12
+      values: "{{ lookup('template', 'somefile.yaml') | from_yaml }}"
+
+  - name: Deploy Grafana chart using values files on target
+    kubernetes.core.helm:
+      name: test
+      chart_ref: stable/grafana
+      release_namespace: monitoring
+      values_files:
+        - /path/to/values.yaml
+
+  # Using complex Values
+  - name: Deploy new-relic client chart
+    kubernetes.core.helm:
+      name: newrelic-bundle
+      chart_ref: newrelic/nri-bundle
+      release_namespace: default
+      force: True
+      wait: True
+      replace: True
+      update_repo_cache: True
+      disable_hook: True
+      values:
+        global:
+          licenseKey: "{{ nr_license_key }}"
+          cluster: "{{ site_name }}"
+        newrelic-infrastructure:
+          privileged: True
+        ksm:
+          enabled: True
+        prometheus:
+          enabled: True
+        kubeEvents:
+          enabled: True
+        logging:
+          enabled: True
+
+
+
+  - name: Remove test release and waiting suppression ending
+    kubernetes.core.helm:
+      name: test
+      state: absent
+      wait: true
