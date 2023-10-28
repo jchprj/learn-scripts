@@ -26,6 +26,13 @@ adb shell ls /
 adb shell ls -Ral / | grep filename
 
 
+## Files
+
+[android - How to use adb command to push a file on device without sd card - Stack Overflow](https://stackoverflow.com/questions/20834241/how-to-use-adb-command-to-push-a-file-on-device-without-sd-card)
+
+    adb push filename.extension /sdcard/0/
+    adb pull /storage/emulated/legacy/myVideoFile.mp4 
+    
 
 # References
 
