@@ -39,4 +39,21 @@
     p.after(span);
     console.log(container.outerHTML);
     // "<div><p></p><span></span></div>"
+
+
+    // https://stackoverflow.com/questions/3813294/how-to-get-element-by-innertext
+    var tags = document.getElementsByTagName("span");
+    var searchText = "sample";
+    var found;
+    for (var i = 0; i < tags.length; i++) {
+        if (tags[i].textContent == searchText) {
+            found = tags[i];
+            break;
+        }
+    }
+    console.log(found);
+
+    [...document.querySelectorAll("a")]
+   .filter(a => a.textContent.includes("your search term"))
+   .forEach(a => console.log(a.textContent))
 </script>
