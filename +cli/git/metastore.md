@@ -1,5 +1,7 @@
 ## metastore
 
+sudo apt install metastore
+
 [What's the equivalent of Subversion's "use-commit-times" for Git? - Stack Overflow](https://stackoverflow.com/questions/1964470/whats-the-equivalent-of-subversions-use-commit-times-for-git/13284229#13284229)
 
     http://repo.or.cz/w/metastore.git , by David Härdeman. It tries to do what Git should have done in the first place: stores metadata (not only timestamps) in the repository when committing (via a pre-commit hook), and reapplies them when pulling (also via hooks).
