@@ -40,8 +40,21 @@ for (item in intList) {
     println(item)
 }
 
+class Abc {
+
+}
+
+fun Abc?.tt() {
+    println("this" + this)
+    println("tt")
+}
+val abc = Abc()
+println("abc" + abc)
+println("abc.tt()" + abc.tt())
+println("null.tt()" + null.tt())
 
 val l = b!!.length          // java.lang.NullPointerException
 
 
 // val a = 1 == 1 || b?.equals("ab")   // error: type mismatch: inferred type is Boolean? but Boolean was expected
+

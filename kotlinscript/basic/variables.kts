@@ -15,3 +15,10 @@ fun incrementX() {
 incrementX()
 println(x)
 
+lateinit var y: String
+// https://stackoverflow.com/questions/37618738/how-to-check-if-a-lateinit-variable-has-been-initialized
+if (this::y.isInitialized) { 
+    println(y)
+} else {
+    println("no y")
+}
