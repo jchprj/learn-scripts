@@ -27,3 +27,21 @@ cols.pop(cols.index('A')) #Remove b from list
 cols.pop(cols.index('B')) #Remove x from list
 df = df[cols+['B','A']] #Create new dataframe with columns in the order you want
 print("Moved columns DataFrame:\n", df) 
+
+
+# https://pandas.pydata.org/docs/getting_started/intro_tutorials/03_subset_data.html
+df = df[["A", "B"]]
+print("""df = df[["A", "B"]]""")
+print(df)
+
+
+# https://stackoverflow.com/questions/11346283/renaming-column-names-in-pandas
+df = df.rename(columns={'A': 'AA', 'B': 'BB'})
+print(df)
+df.rename(columns={'AA': 'A', 'BB': 'B'}, inplace=True)
+print(df)
+
+
+# https://stackoverflow.com/questions/20025882/add-a-string-prefix-to-each-value-in-a-string-column-using-pandas
+df['A'] = 'str' + df['A'].astype(str)
+print(df)

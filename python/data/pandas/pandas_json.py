@@ -1,6 +1,5 @@
 # https://www.geeksforgeeks.org/pandas-parsing-json-dataset/
 import pandas as pd 
-from pandas.io.json import json_normalize  
 j = [
         {
           "a": 1,
@@ -11,7 +10,7 @@ j = [
           "b": 4
         }
     ]
-df = json_normalize(j) 
+df = pd.json_normalize(j) 
 print(df)
 #    a  b
 # 0  1  2

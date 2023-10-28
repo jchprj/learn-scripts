@@ -11,7 +11,6 @@ df = pd.DataFrame(data)
 print("Original DataFrame:\n", df) 
 
 
-
 df_filtered = df[df.A.eq("2")]
 print("Filtered DataFrame:\n", df_filtered) 
 
@@ -31,4 +30,16 @@ print("Filtered by multiple values DataFrame:\n", df_filtered)
 
 df_filtered = df[df.A.isin(["2"]) | ~df.B.isin(["6"])]
 print("Filtered by multiple conditions DataFrame:\n", df_filtered) 
+
+
+
+# https://stackoverflow.com/questions/68063760/pandas-multiple-condition-and-get-dataframe
+df_filtered = df[(df.A == "2") & (df.B == 5)]
+print("Filtered DataFrame:\n", df_filtered) 
+
+
+
+# https://stackoverflow.com/questions/26640129/search-for-string-in-all-pandas-dataframe-columns-and-filter
+df_filtered = df[(df.A.str.contains("31"))]
+print("Filtered DataFrame:\n", df_filtered) 
 

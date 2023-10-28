@@ -6,14 +6,20 @@ import pandas as pd
   
 # to read csv file named "samplee" 
 a = pd.read_csv("test.csv") 
-  
+a.to_csv("temp_test.csv")
+# https://stackoverflow.com/questions/20107570/removing-index-column-in-pandas-when-reading-a-csv
+a.to_csv("temp_test.csv", index = False)
+
+
 # to save as html file 
 # named as "Table" 
 a.to_html("test.csv.htm") 
   
 # assign it to a  
 # variable (string) 
-html_file = a.to_html() 
+# https://stackoverflow.com/questions/50807744/apply-css-class-to-pandas-dataframe-using-to-html
+pd.set_option('colheader_justify', 'center')
+html_file = a.to_html(escape=True) 
 
 
 b = pd.read_json("test.json")
@@ -22,6 +28,8 @@ b.to_html("test.json.htm")
 
 c = pd.read_excel("test.xlsx")
 c.to_html("test.xlsx.htm")
+
+
 
 
 # pip install lxml

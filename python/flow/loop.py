@@ -50,3 +50,8 @@ adj = {"red": 1, "big":1, "tasty":1}
 
 for x in adj:
   print(x)
+
+
+  # https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
+  for idx, x in enumerate([10, 11, 12]):
+    print(idx, x)

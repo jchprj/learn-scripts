@@ -65,3 +65,22 @@ def myFunc(e):
   return e
 ints.sort(reverse=True, key=myFunc)
 print(ints)
+
+
+
+# [noobtuts - The Beauty of Python](https://noobtuts.com/python/the-beauty-of-python)
+x = [1, 2, 3, 4, 5]
+print(x[:2])  # gives us [1, 2]
+print(x[3:])  # gives us [4, 5]
+print(x[1:4]) # gives us [2, 3, 4]
+print(x[:])   # gives us [1, 2, 3, 4, 5]
+
+
+x = x + [6]  # adds 6 to the list so it's [1, 2, 3, 4, 5, 6]
+
+if 3 in x:
+    print('3 is in the list')
+
+
+# https://stackoverflow.com/questions/11344827/summing-elements-in-a-list
+print(sum(x))
