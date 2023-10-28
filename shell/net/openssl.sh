@@ -19,3 +19,13 @@ openssl base64 -in metrics -out temp_test.b64
 openssl base64 -d -in temp_test.b64 -output temp_test
 ## OR on some systems `-out` should be used instead of `-output`
 openssl base64 -d -in temp_test.b64 -out temp_test
+
+
+# https://serverfault.com/questions/215606/how-do-i-view-the-details-of-a-digital-certificate-cer-file
+openssl x509 -noout -text -in 'cerfile.cer'
+
+# https://support.plesk.com/hc/en-us/articles/12377663714711-How-to-verify-that-SSL-for-IMAP-POP3-SMTP-works-and-a-proper-SSL-certificate-is-in-use
+openssl s_client -starttls smtp -showcerts -connect mail.example.com:25
+
+# https://stackoverflow.com/questions/25760596/how-to-terminate-openssl-s-client-after-connection
+echo "Q" | openssl s_client -connect host:port

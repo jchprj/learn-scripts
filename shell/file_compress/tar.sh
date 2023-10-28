@@ -2,6 +2,9 @@
 # https://superuser.com/questions/305128/how-to-specify-level-of-compression-when-using-tar-zcvf
 tar cvzf - file1 | gzip -9 - > temp_test.tar.gz
 
+# https://superuser.com/questions/841865/extracting-a-tar-gz-file-returns-this-does-not-look-like-a-tar-archive
+gzip -dc temp_test.tar.gz | tar -xvzf -
+
 # Extract .tar.gz
 tar -xvzf temp_test.tar.gz
 
@@ -32,3 +35,6 @@ tar -xf temp_test.tar.gz --strip-components 1
 # If you want to have both, you just combine both tools resulting in a .tar.gz file.
 # The zip tool is a completely different thing. It takes a bunch of files and combines them into a single compressed file. With totally different algorithms.
 
+
+# https://www.cyberciti.biz/faq/how-to-extract-multiple-tar-ball-tar-gz-files-in-directory-on-linux-or-unix/
+# for f in *.tgz; do tar -xzvf "$f"; done

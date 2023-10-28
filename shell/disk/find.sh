@@ -48,3 +48,8 @@ find -exec sh -c 'echo {} : ;if [ -f {} ]; then echo file; else echo directory;f
 # https://linuxhint.com/find-last-modified-files-in-linux/
 # By specifying the option 0 as in the example below, mtime will return all files modified in the last 24 hours.
 find . -mtime 0
+
+
+# https://stackoverflow.com/questions/4210042/how-do-i-exclude-a-directory-when-using-find
+# skip the exclude dir in the result file lists, just add -false after -prune
+find . -path ./misc -prune -false -o -name '*.txt' -print

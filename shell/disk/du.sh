@@ -34,3 +34,18 @@ du -Sh | sort -rh | head -5
 
 # https://unix.stackexchange.com/questions/23692/using-exclude-with-the-du-command
 du -ch --exclude=./relative/path/to/uploads
+
+
+# https://superuser.com/questions/520338/only-get-the-size-from-du-command-not-the-folder-names
+du -sm /Users/JS_Admin/Desktop | cut -f1
+
+
+# https://unix.stackexchange.com/questions/106275/du-gives-two-different-results-for-the-same-file
+# -b, --bytes
+#     equivalent to '--apparent-size --block-size=1'
+# --apparent-size
+#     print apparent sizes, rather than disk usage; although the apparent
+#     size is  usually  smaller,  it  may  be  larger  due  to  holes  in
+#     ('sparse')  files, internal fragmentation, indirect blocks, and the
+#     like
+du -b foo bar

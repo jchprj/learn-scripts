@@ -133,3 +133,9 @@ if [ "$source" != "" ] && [ "$source" == "Hello" ]; then
 else
    echo Failed
 fi
+
+
+# https://unix.stackexchange.com/questions/446847/conditionally-pass-params-to-a-script
+CONDITION=true
+[[ $CONDITION == true ]] && params+=(--key value)
+echo script param1 "${params[@]}"

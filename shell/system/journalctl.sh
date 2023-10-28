@@ -16,3 +16,12 @@ journalctl -xefu cron
 
 sudo journalctl --vacuum-size=100M
 sudo journalctl --vacuum-time=10d
+
+# https://tecadmin.net/clear-systemd-journal-logs/#:~:text=Now%2C%20Systemd%20will%20automatically%20clean,journalctl%20%E2%80%93disk%2Dusage%20command.
+# sudo nano /etc/systemd/journald.conf
+# # Set the maximum size of the journal logs in bytes
+# SystemMaxUse=200M
+# # Set the number of days after which logs will be deleted
+# MaxRetentionSec=7d
+# sudo systemctl restart systemd-journald
+journalctl --disk-usage
