@@ -18,3 +18,7 @@ docker run --name temp_test -d -it temp_test:latest /bin/sh
 
 echo Run in detached mode
 docker run -d -p 8000:8000 temp_test:latest
+
+echo https://stackoverflow.com/questions/28212380/why-docker-container-exits-immediately
+echo force the image to hang around
+docker run -it --entrypoint=/bin/bash myimagename
