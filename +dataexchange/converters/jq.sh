@@ -51,3 +51,35 @@ echo '{"a":"1"}' | jq -r '.a'
 
 echo https://stackoverflow.com/questions/46530167/jq-select-filter-with-multiple-arguments
 echo '{"a":1, "b":[{"c":2}, {"c":3}, {"c":4}]}' | jq '.b[] | select(.c==2 or .c==3) | .c'
+
+
+echo https://stackoverflow.com/questions/70100534/jq-get-first-n-elements-of-an-array-field
+echo '[1, 2, 3, 4]' | jq .[:2]
+
+
+echo https://stackoverflow.com/questions/35540294/sort-descending-by-multiple-keys-in-jq
+jq -n '["pro", "leo", "column", "ablast"] | sort | reverse'
+
+
+echo https://unix.stackexchange.com/questions/613779/how-to-sort-a-stream-of-json-objects-by-field-value-using-jq
+echo '{"a":1} {"a":2} {"c":4} {"c":3}' | jq -s 'sort_by(.a)'
+echo '[{"a":1}, {"a":2}, {"c":4}, {"c":3}]' | jq 'sort_by(.a)'
+
+
+echo https://stackoverflow.com/questions/69333650/how-to-ignore-broken-json-line-in-jq
+echo a | jq
+echo a | jq -r -R 'fromjson? | .'
+
+
+echo https://stackoverflow.com/questions/36853202/jq-dates-and-unix-timestamps
+echo 1698058879 | jq 'strftime("%B %d %Y %I:%M%p %Z")'
+echo 1698058879 | jq 'strflocaltime("%Y-%m-%dT%H:%M:%S %Z")'
+
+
+echo https://jqlang.github.io/jq/manual/
+echo The format strings for strptime and strftime are described in typical C library documentation. The format string for ISO 8601 datetime is "%Y-%m-%dT%H:%M:%SZ".
+
+
+echo https://github.com/jqlang/jq/issues/785
+echo '[1, 2, 3, 4]' | jq '@csv'
+jq -n -r '[1,2,3] | reduce .[1:][] as $i ("\(.[0])"; . + ", \($i)" )'
