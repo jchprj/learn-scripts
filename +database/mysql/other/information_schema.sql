@@ -8,3 +8,11 @@ SELECT  routine_schema,
 FROM information_schema.routines 
 WHERE routine_schema = 'your_database_name' 
 ORDER BY routine_name;  
+
+
+
+-- https://stackoverflow.com/questions/193780/how-can-i-find-all-the-tables-in-mysql-with-specific-column-names-in-them
+SELECT DISTINCT TABLE_NAME 
+    FROM INFORMATION_SCHEMA.COLUMNS
+    WHERE COLUMN_NAME IN ('columnA', 'ColumnB')
+        AND TABLE_SCHEMA='YourDatabase';
