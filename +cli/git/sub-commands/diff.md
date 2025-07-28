@@ -6,3 +6,10 @@
 
     git add -A
     git diff HEAD
+
+[git - Finding diff between current and last version - Stack Overflow](https://stackoverflow.com/questions/9903541/finding-diff-between-current-and-last-version)
+
+    git diff HEAD^ HEAD
+    As of Git 1.8.5, @ is an alias for HEAD, so you can use:
+    git diff @~..@
+    git show

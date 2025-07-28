@@ -22,3 +22,9 @@ docker run -d -p 8000:8000 temp_test:latest
 echo https://stackoverflow.com/questions/28212380/why-docker-container-exits-immediately
 echo force the image to hang around
 docker run -it --entrypoint=/bin/bash myimagename
+
+echo https://medium.com/@hiivaibhav1/to-run-the-mysql-5-7-image-using-docker-and-access-it-from-your-rails-project-3be4bb8fa178
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=your_password -p 3306:3306 -d mysql:5.7
+
+echo https://stackoverflow.com/questions/45993591/mount-volumes-for-mysql-container
+sudo docker run -e MYSQL_ROOT_PASSWORD=root -p 3397:3306 -v /tmp/mysql/:/var/lib/mysql -d mysql:5.7

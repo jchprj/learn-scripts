@@ -20,6 +20,10 @@ aws ec2 describe-instances --filters "Name=image-id,Values=ami-x0123456,ami-y012
 echo Filter instance by private IPs and jq get AZ of those IPs
 aws ec2 describe-instances --filters "Name=network-interface.addresses.private-ip-address,Values=10.0.0.0" | jq '.Reservations[].Instances[]|.Placement.AvailabilityZone'
 
+echo https://serverfault.com/questions/966963/aws-cli-the-filter-condition-returns-all-the-running-instance-instead-of-those
+aws ec2 describe-instances --filter "Name=tag:Name,Values=worker1" "Name=instance-state-name,Values=running"
+
+
 echo Multiple filters https://stackoverflow.com/questions/66232494/how-do-i-specify-multiple-filters-to-aws-ec2-describe-vpc-peering-connections
 aws ec2 describe-instances --filters "Name=tag:Name,Values=MyInstance" "Name=image-id,Values=ami-x0123456,ami-y0123456,ami-z0123456"
 

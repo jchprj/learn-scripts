@@ -12,11 +12,16 @@ adb devices
 adb connect 192.168.0.1:5555
 ```
 
+Prepration
 ```
 adb shell ip route
 adb tcpip 5555
 adb connect DEVICE_IP:5555
 ```
+
+## Connect by USB
+
+adb usb
 
 ## Shell
 adb shell

@@ -94,3 +94,10 @@ rm -fr repo
 cd repo.git
 git config --bool core.bare true
 ```
+
+
+## Disable certificate verification
+
+[Server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none - Stack Overflow](https://stackoverflow.com/questions/21181231/server-certificate-verification-failed-cafile-etc-ssl-certs-ca-certificates-c)
+
+    git config --global http.sslverify false

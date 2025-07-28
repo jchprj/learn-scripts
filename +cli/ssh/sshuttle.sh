@@ -3,6 +3,12 @@
 sshuttle -r username@sshserver 0/0  # short cut for 0.0.0.0/0(Forward all traffic)
 
 
+# https://sshuttle.readthedocs.io/en/stable/manpage.html
+# --ssh-cmd 'ssh -v'
+
+# https://www.redhat.com/sysadmin/ssh-automation-sshpass
+# --ssh-cmd 'sshpass -p "PASSWORD" ssh -v'
+
 # https://github.com/sshuttle/sshuttle/issues/334
 # Bug(merged): Name cannot be resolved if it contains - 
 
