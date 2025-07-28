@@ -1,0 +1,30 @@
+<!-- https://v2.vuejs.org/v2/cookbook/using-axios-to-consume-apis -->
+<!-- https://github.com/axios/axios -->
+<!-- https://www.digitalocean.com/community/tutorials/how-to-use-vue-js-and-axios-to-display-data-from-an-api -->
+<!-- https://stackoverflow.com/questions/51374367/axios-is-not-defined-in-vue-js-cli -->
+<head></head>
+
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<div id="counter">
+    Response: {{ info }}
+</div>
+
+<script>
+    const CounterApp = {
+        data() {
+            return {
+                info: ""
+            }
+        },
+        mounted() {
+            axios
+                .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                .then(response => (this.info = response))
+        }
+    }
+
+    const vm = Vue.createApp(CounterApp).mount('#counter')
+    
+</script>

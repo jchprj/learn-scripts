@@ -1,7 +1,7 @@
 <!-- https://vuejs.org/v2/guide/forms.html -->
 <head></head>
 
-<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/vue@3"></script>
 
 <div id="app">
     <div>
@@ -39,7 +39,8 @@
     </div>
 
     <div style="margin-top: 50px;">
-        <select v-model="selected">
+        <a href="https://stackoverflow.com/questions/50982408/vue-js-get-selected-option-on-change" target="_blank">Vue.js get selected option on @change</a><br />
+        <select v-model="selected" @change="onChange($event)">
             <option disabled value="">Please select one</option>
             <option>A</option>
             <option>B</option>
@@ -91,6 +92,11 @@
                     { text: 'Two', value: 'B' },
                     { text: 'Three', value: 'C' }
                 ]
+            }
+        },
+        methods: {
+            onChange(event) {
+                alert(event.target.value)
             }
         }
     }
