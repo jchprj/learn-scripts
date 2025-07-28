@@ -26,3 +26,24 @@ IF EXIST "temp.txt" (
 @REM LEQ - less than or equal
 @REM GTR - greater than
 @REM GEQ - greater than or equal
+
+
+
+
+@REM https://stackoverflow.com/questions/8438511/if-or-if-in-a-windows-batch-file
+
+
+IF EXIST "temp.txt" GOTO foundit
+IF NOT EXIST "temp.txt" GOTO notfoundit
+
+ECHO should not execute
+
+:notfoundit
+ECHO Didn't find it
+GOTO end
+
+:foundit
+ECHO Found it!
+GOTO end
+
+:end
