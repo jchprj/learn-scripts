@@ -12,3 +12,13 @@
 [Presto Trino Sql , select Date which is two days before - Stack Overflow](https://stackoverflow.com/questions/72495552/presto-trino-sql-select-date-which-is-two-days-before)
 
     select current_date - interval '2' day, date_add('day', -2, current_date)
+
+
+## Conversion
+
+[Conversion functions — Trino 437 Documentation](https://trino.io/docs/current/functions/conversion.html)
+
+    cast(value AS type) → type
+    
+    SELECT format('%03d', 8);
+    -- '008'

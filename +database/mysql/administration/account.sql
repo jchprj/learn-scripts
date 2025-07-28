@@ -21,5 +21,17 @@ select * from mysql.user;
 ALTER USER 'jeffrey'@'localhost' IDENTIFIED BY 'password';
 ALTER USER 'jeffrey'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
+-- https://dev.mysql.com/doc/refman/5.7/en/grant.html
+-- However, use of GRANT to create accounts or define nonprivilege characteristics is deprecated in MySQL 5.7. Instead, perform these tasks using CREATE USER or ALTER USER.
+-- https://stackoverflow.com/questions/46783415/error-when-granting-privilege-mysql-grant-is-deprecated-use-alter-user-instea
+-- https://github.com/phpmyadmin/phpmyadmin/issues/18811
+
 
 -- https://www.tutorialspoint.com/mysql-create-user-with-a-variable#
+
+
+-- https://dev.mysql.com/doc/refman/8.4/en/show-grants.html
+SHOW GRANTS;
+SHOW GRANTS FOR CURRENT_USER;
+SHOW GRANTS FOR CURRENT_USER();
+SHOW GRANTS FOR 'root'@'localhost';

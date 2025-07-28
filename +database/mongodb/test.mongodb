@@ -1,0 +1,4 @@
+// use('testdb');
+
+// https://docs.mongodb.com/manual/reference/command/listCollections/
+db.getCollectionInfos();

@@ -14,3 +14,18 @@ db.testdb.insertOne( { x: 1 } )
 // The drop() command destroys all data from a collection.
 // Make sure you run it against the correct database and collection.
 db.testdb.drop();
+
+
+// https://stackoverflow.com/questions/2824157/how-can-i-get-a-random-record-from-mongodb
+// Get one random document from the mycoll collection.
+db.mycoll.aggregate([{ $sample: { size: 1 } }])
+// Get one random document matching {a: 10} from the mycoll collection.
+db.mycoll.aggregate([
+    { $match: { a: 10 } },
+    { $sample: { size: 1 } }
+])
+
+
+// https://stackoverflow.com/questions/6823343/is-there-a-simpler-way-to-update-a-mongodb-collection-in-just-one-line-in-comma
+// This is not only one line but also atomic. 
+db.mycollect.update({id=12345}, {"$set": {abc:'new value'}});
