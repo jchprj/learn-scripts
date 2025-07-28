@@ -1,3 +1,8 @@
+Mermaid does not allow mixing "TD" (top-down) and "LR" (left-right) directions within the same flowchart. You can only specify one orientation for the entire flowchart. 
+
+While Mermaid supports both top-down (TD) and left-right (LR) orientations for flowcharts, it's designed to apply a single direction to the entire diagram. You can choose one direction for the overall structure, but you cannot have nested subgraphs or sections with different orientations.
+
+
 [GitHub - mermaid-js/mermaid: Generation of diagram and flowchart from text in a similar manner as markdown](https://github.com/mermaid-js/mermaid)
 
     Javascript based
