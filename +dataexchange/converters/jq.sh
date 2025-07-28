@@ -83,3 +83,7 @@ echo The format strings for strptime and strftime are described in typical C lib
 echo https://github.com/jqlang/jq/issues/785
 echo '[1, 2, 3, 4]' | jq '@csv'
 jq -n -r '[1,2,3] | reduce .[1:][] as $i ("\(.[0])"; . + ", \($i)" )'
+
+
+echo https://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line
+seq 10 | jq -s 'add' # 'add' is equivalent to 'reduce .[] as $item (0; . + $item)'
