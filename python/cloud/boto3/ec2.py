@@ -20,6 +20,7 @@ for instance in running_instances:
     print(
         {
             'Name': name,
+            'resource-id': instance.id,
             'Type': instance.instance_type,
             'State': instance.state['Name'],
             'Private IP': instance.private_ip_address,
@@ -30,3 +31,20 @@ for instance in running_instances:
     total += 1
 
 print(f"Total {total} instances")
+
+
+# https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/describe_tags.html
+# https://stackoverflow.com/questions/48072398/get-list-of-ec2-instances-with-specific-tag-and-value-in-boto3
+client = boto3.client('ec2')
+response = client.describe_tags(
+    Filters=[
+        {
+            'Name': 'resource-id',
+            'Values': [
+                list(running_instances)[0].id,    # 'i-1234567890abcdef8',
+            ],
+        },
+    ],
+)
+
+print(response)

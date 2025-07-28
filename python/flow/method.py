@@ -27,3 +27,10 @@ summaryLambdas = {}
 summaryLambdas["KEY_NAME"] = lambda title, value, summary: summary[title]
 
 print(summaryLambdas["KEY_NAME"]("KEY_NAME", 2, summaryLambdas))
+
+
+
+def a(b, *c, d):
+    print(b, c, d)
+
+a(1, 2, 3, d=4)

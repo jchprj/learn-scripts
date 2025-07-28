@@ -45,3 +45,11 @@ print(df)
 # https://stackoverflow.com/questions/20025882/add-a-string-prefix-to-each-value-in-a-string-column-using-pandas
 df['A'] = 'str' + df['A'].astype(str)
 print(df)
+
+
+# https://stackoverflow.com/questions/25351968/how-can-i-display-full-non-truncated-dataframe-information-in-html-when-conver
+pd.set_option('display.max_colwidth', None)
+
+
+# https://www.geeksforgeeks.org/adding-new-column-to-existing-dataframe-in-pandas/
+df['D'] = [10, 20, 30]

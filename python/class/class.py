@@ -1,5 +1,6 @@
 class Summary:
     def abc(self, ss, sss):
+        print("total", self.total)
         return ss + sss
     fabc = {"f":abc}
     total = 0
@@ -35,3 +36,19 @@ print(x.b)
 
 x.i = 11
 print(x.f())
+
+
+
+
+# https://stackoverflow.com/questions/10252010/serializing-class-instance-to-json
+import json
+
+class Foo(object):
+    def __init__(self):
+        self.x = 1
+        self.y = 2
+
+foo = Foo()
+# s = json.dumps(foo) # raises TypeError with "is not JSON serializable"
+s = json.dumps(foo.__dict__) # s set to: {"x":1, "y":2}
+print(s)

@@ -1,4 +1,4 @@
-# pip install pandas
+# pip install pandas lxml openpyxl
 
 # https://www.geeksforgeeks.org/convert-csv-to-html-table-in-python/
 
@@ -10,6 +10,12 @@ a.to_csv("temp_test.csv")
 # https://stackoverflow.com/questions/20107570/removing-index-column-in-pandas-when-reading-a-csv
 a.to_csv("temp_test.csv", index = False)
 
+
+# https://stackoverflow.com/questions/34091877/how-to-add-header-row-to-a-pandas-dataframe
+aa = pd.read_csv("test.csv", 
+                  sep=',', 
+                  names=["Sequence", "Start", "End", "Coverage"])
+print(aa)
 
 # to save as html file 
 # named as "Table" 

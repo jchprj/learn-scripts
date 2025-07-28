@@ -35,3 +35,10 @@ try :
 except:
     pass
 print("end")
+
+
+# https://ioflood.com/blog/python-throw-exception/#:~:text=Throwing%20exceptions%20in%20Python%20can,output%20a%20clear%20error%20message.
+try:
+    raise Exception("This is a custom exception.")
+except Exception as e:
+    print(str(e))

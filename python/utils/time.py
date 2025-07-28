@@ -6,8 +6,16 @@ date = datetime.strptime(b, "%b %d %H:%M:%S %Y %Z")
 print(date)
 
 
-
-
+# https://stackoverflow.com/questions/15509345/extracting-double-digit-months-and-days-from-a-python-date
+d = date.today()
+m1 = '{:02d}'.format(d.month)
+print(m1)
+m2 = '%02d' % d.month
+print(m2)
+m3 = d.strftime('%m')
+print(m3)
+m4 = f'{d.month:02d}'
+print(m4)
 
 
 # https://www.programiz.com/python-programming/datetime/strftime
