@@ -1,4 +1,6 @@
 # https://docs.ansible.com/ansible/latest/collections/kubernetes/core/k8s_module.html
+# ansible-galaxy collection install kubernetes.core
+# ansible-galaxy collection install community.kubernetes
 # python >= 3.6
 # kubernetes >= 12.0.0
 # PyYAML >= 3.11

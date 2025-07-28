@@ -1,0 +1,14 @@
+# https://stackoverflow.com/questions/41424999/rendering-ansible-template-into-the-fact-variable
+# https://stackoverflow.com/questions/33528212/copy-file-to-ansible-host-with-custom-variables-substituted
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/template_lookup.html
+
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  vars:
+    value_for_template: world
+  tasks:
+    - debug:
+        var: rendered_template
+      vars:
+        rendered_template: "{{ lookup('template', './template.j2') }}"
