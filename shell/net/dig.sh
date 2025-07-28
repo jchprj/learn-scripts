@@ -17,6 +17,10 @@ dig +time=5 @hii.com hello.me
 dig @208.67.222.222 -p 443 www.twitter.com
 
 
+# https://stackoverflow.com/questions/54830716/how-to-get-all-of-the-ip-addresses-in-a-string-into-a-bash-array
+IPAddresses=($(dig ifconfig.co A | grep ifconfig.co | grep -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | awk '{print $5}')) | echo "${IPAddresses[@]}"
+
+
 
 # https://unix.stackexchange.com/questions/121874/how-to-install-dig-on-centos
 # yum install bind-utils

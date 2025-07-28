@@ -28,3 +28,7 @@ cat <<-'EOF'
     EOF
 	EOF
 ls
+
+
+# https://unix.stackexchange.com/questions/103885/piping-data-to-a-processs-stdin-without-causing-eof-afterward
+(echo -e "cmd 1\ncmd 2" && cat) | bash

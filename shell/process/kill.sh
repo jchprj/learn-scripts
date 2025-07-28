@@ -1,5 +1,5 @@
 # https://stackoverflow.com/questions/6381229/how-to-kill-all-processes-matching-a-name
-ps aux | grep -ie amarok | awk '{print $2}' | xargs kill -9
+ps aux | grep -ie [a]marok | awk '{print $2}' | xargs kill -9
 
 
 

@@ -59,3 +59,7 @@ curl http://example.com --data '{'$ab'}'        # Errors
 
 # https://unix.stackexchange.com/questions/94604/does-curl-have-a-timeout
 curl https://httpstat.us/200?sleep=5000 --max-time 1
+
+
+# https://stackoverflow.com/questions/38103440/testing-cors-with-the-postman-tool-curl-in-chrome-console
+curl -X OPTIONS 'https://domain/path/file.png' -H "Origin: https://yoursitedomain" -H "Access-Control-Request-Method: GET" -v -o /dev/null

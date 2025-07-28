@@ -57,3 +57,10 @@ systemctl daemon-reload
 # https://askubuntu.com/questions/1792/how-can-i-suspend-hibernate-from-command-line
 systemctl suspend
 systemctl hibernate
+
+
+# https://askubuntu.com/questions/961025/how-do-i-exit-the-systemctl-status-commands-output
+systemctl status --no-pager
+
+# https://unix.stackexchange.com/questions/225401/how-to-see-full-log-from-systemctl-status-service
+systemctl -l status service-name

@@ -24,3 +24,9 @@ grep -Ev '^\s*$|^\s*\#' nm.sh
 # https://www.shellhacks.com/regex-find-ip-addresses-file-grep/
 echo aa:999.999.999.999:ssss | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}"
 echo aa:999.999.999.999:ssss | grep -E -o "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)" 
+
+
+# https://unix.stackexchange.com/questions/335716/grep-returns-binary-file-standard-input-matches-when-trying-to-find-a-string
+# -a, --text
+# Process a binary file as if it were text; this is equivalent to the --binary-files=text option.
+grep -a 'pattern' temp_test

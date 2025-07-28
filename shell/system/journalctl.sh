@@ -25,3 +25,11 @@ sudo journalctl --vacuum-time=10d
 # MaxRetentionSec=7d
 # sudo systemctl restart systemd-journald
 journalctl --disk-usage
+
+
+# https://unix.stackexchange.com/questions/225401/how-to-see-full-log-from-systemctl-status-service
+journalctl -u service-name.service
+journalctl -u service-name.service -b
+journalctl -u service-name
+journalctl --no-pager
+journalctl --since "2018-08-30 14:10:10" --until "2018-09-02 12:05:50"

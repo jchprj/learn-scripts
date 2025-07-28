@@ -53,3 +53,7 @@ find . -mtime 0
 # https://stackoverflow.com/questions/4210042/how-do-i-exclude-a-directory-when-using-find
 # skip the exclude dir in the result file lists, just add -false after -prune
 find . -path ./misc -prune -false -o -name '*.txt' -print
+
+
+# https://unix.stackexchange.com/questions/277697/whats-the-quickest-way-to-find-duplicated-files
+find . ! -empty -type f -exec md5sum {} + | sort | uniq -w32 -dD
