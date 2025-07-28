@@ -1,11 +1,11 @@
 #!/usr/bin/env kscript
 
 // https://www.danielebonaldo.com/kotlin-script/
-@file:MavenRepository("central", "https://repo.maven.apache.org/maven2/")
-@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2")
-@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.2")
-@file:DependsOn("io.projectreactor:reactor-core:3.3.14.RELEASE")
-
+// @file:MavenRepository("central", "https://repo.maven.apache.org/maven2/")
+// @file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2")
+// @file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.2")
+// @file:DependsOn("io.projectreactor:reactor-core:3.3.14.RELEASE")
+@file:DependsOn("com.github.holgerbrandl:kutils:0.12")
 import kotlinx.coroutines.*
 import reactor.core.publisher.Flux
 import java.util.Arrays

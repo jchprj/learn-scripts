@@ -50,6 +50,19 @@ terraform apply
 terraform destroy
 ```
 
+## Mac ARM issue
+
+[Template v2.2.0 does not have a package available - Mac M1 - Terraform Providers - HashiCorp Discuss](https://discuss.hashicorp.com/t/template-v2-2-0-does-not-have-a-package-available-mac-m1/35099)
+
+    template v2.2.0 does not have a package available for your current platform, darwin_arm64
+    Install m1-terraform-provider-helper
+    brew install kreuzwerker/taps/m1-terraform-provider-helper
+    m1-terraform-provider-helper install hashicorp/template -v v2.2.0
+
+[kreuzwerker/m1-terraform-provider-helper: CLI to support with downloading and compiling terraform providers for Mac with M1 chip](https://github.com/kreuzwerker/m1-terraform-provider-helper?tab=readme-ov-file#installation)
+
+May need to run `m1-terraform-provider-helper activate` after install it.
+
 
 # References
 

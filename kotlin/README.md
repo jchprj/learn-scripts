@@ -16,7 +16,7 @@ Tasks definitions:
 * Launch configuration `Kotlin Compile & Launch` in `.vscode/launch.json`
 
 According to the above configuration, the Kotlin `.kt` file should not be put in any nested sub folder.  
-And `main` methodd should be defined like this:
+And `main` method should be defined like this:
 ```
 class SameAsFilename {
 
